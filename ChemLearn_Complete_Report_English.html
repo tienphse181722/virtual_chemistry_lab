@@ -1196,122 +1196,327 @@
 
 <div class="figure">
     <p><strong>Figure 3.2: Use Case Diagram</strong></p>
-    <pre style="text-align: left; font-size: 9pt;">
-@startuml
-left to right direction
-skinparam packageStyle rectangle
+    
+    <div style="text-align: center; margin: 20px 0;">
+        <pre style="display: inline-block; text-align: left; background: #f5f5f5; padding: 30px; border: 2px solid #333; font-size: 10pt;">
 
-actor "Student" as Student
-actor "Administrator" as Admin
+        +----------+                                                    +----------+
+        | Student  |                                                    |  Admin   |
+        +----------+                                                    +----------+
+             |                                                                |
+             |                                                                |
+             |    +-------------------+         +-------------------+         |
+             +--->| Register Account  |         |   Manage Users    |<--------+
+             |    +-------------------+         +-------------------+         |
+             |                                                                |
+             |    +-------------------+         +-------------------+         |
+             +--->|      Login        |<--------|  View Analytics   |<--------+
+             |    +-------------------+         +-------------------+         |
+             |                                                                |
+             |    +-------------------+         +-------------------+         |
+             +--->|      Logout       |<--------|  Track Activities |<--------+
+             |    +-------------------+         +-------------------+         |
+             |                                                                |
+             |    +-------------------+         +-------------------+         |
+             +--->| Forgot Password   |         | Generate Reports  |<--------+
+             |    +-------------------+         +-------------------+
+             |
+             |    +-------------------+
+             +--->|  Mix Chemicals    |
+             |    +-------------------+
+             |            |
+             |            v
+             |    +-------------------+
+             +--->|   Combustion      |
+             |    +-------------------+
+             |            |
+             |            v
+             |    +-------------------+
+             +--->|  Electrolysis     |
+             |    +-------------------+
+             |            |
+             |            v
+             |    +-------------------+
+             +--->| Quantitative      |
+             |    |   Analysis        |
+             |    +-------------------+
+             |            |
+             |            v
+             |    +-------------------+
+             +--->| Reaction Kinetics |
+             |    +-------------------+
+             |            |
+             |            v
+             |    +-------------------+
+             +--->| Balance Equation  |
+             |    +-------------------+
+             |            |
+             |            v
+             |    +-------------------+
+             +--->| Select Equipment  |
+             |    +-------------------+
+             |            |
+             |            v
+             |    +-------------------+
+             |    |   Save Results    |
+             |    +-------------------+
+             |
+             |    +-------------------+
+             +--->| View Periodic     |
+             |    |     Table         |-------> Search Element
+             |    +-------------------+
+             |                |
+             |                +--------------> View Element Details
+             |
+             |    +-------------------+
+             +--->|   Memory Game     |
+             |    +-------------------+
+             |
+             |    +-------------------+
+             +--->|  Word Building    |
+             |    +-------------------+
+             |
+             |    +-------------------+
+             +--->|   Quick Quiz      |
+             |    +-------------------+
+             |
+             |    +-------------------+
+             +--->|  Build Molecule   |
+             |    +-------------------+
+             |
+             |    +-------------------+
+             +--->|    Synthesis      |
+             |    +-------------------+
+             |
+             |    +-------------------+
+             +--->|   Leaderboard     |
+             |    +-------------------+
+             |
+             |    +-------------------+
+             +--->|    Take Quiz      |
+             |    +-------------------+
+             |
+             |    +-------------------+
+             +--->|   View Results    |
+             |    +-------------------+
+             |
+             |    +-------------------+
+             +--->|   Retake Quiz     |
+             |    +-------------------+
+             |
+             |    +-------------------+
+             +--->|   View History    |
+             |    +-------------------+
+             |
+             |    +-------------------+
+             +--->| Activity History  |
+             |    +-------------------+
+             |
+             |    +-------------------+
+             +--->|   Statistics      |
+             |    +-------------------+
+             |
+             |    +-------------------+
+             +--->|   Achievements    |
+             |    +-------------------+
+             |
+             |    +-------------------+
+             +--->|   Track Streak    |
+                  +-------------------+
 
-rectangle "ChemLearn System" {
-  
-  package "Authentication" {
-    usecase "Register Account" as UC1
-    usecase "Login" as UC2
-    usecase "Logout" as UC3
-    usecase "Forgot Password" as UC4
-  }
-  
-  package "Laboratory" {
-    usecase "Mix Chemicals" as UC5
-    usecase "Combustion" as UC6
-    usecase "Electrolysis" as UC7
-    usecase "Quantitative Analysis" as UC8
-    usecase "Reaction Kinetics" as UC9
-    usecase "Balance Equation" as UC10
-    usecase "Select Equipment" as UC11
-    usecase "Save Results" as UC12
-  }
-  
-  package "Learning" {
-    usecase "View Periodic Table" as UC13
-    usecase "Search Element" as UC14
-    usecase "View Element Details" as UC15
-  }
-  
-  package "Games" {
-    usecase "Play Memory Game" as UC16
-    usecase "Play Word Building" as UC17
-    usecase "Quick Quiz" as UC18
-    usecase "Build Molecule" as UC19
-    usecase "Synthesis" as UC20
-    usecase "View Leaderboard" as UC21
-  }
-  
-  package "Assessment" {
-    usecase "Take Quiz" as UC22
-    usecase "View Results" as UC23
-    usecase "Retake Quiz" as UC24
-    usecase "View History" as UC25
-  }
-  
-  package "Progress" {
-    usecase "View Activity History" as UC26
-    usecase "View Statistics" as UC27
-    usecase "View Achievements" as UC28
-    usecase "Track Streak" as UC29
-  }
-  
-  package "Administration" {
-    usecase "Manage Users" as UC30
-    usecase "View Analytics" as UC31
-    usecase "Track Activities" as UC32
-    usecase "Generate Reports" as UC33
-  }
-}
-
-Student --> UC1
-Student --> UC2
-Student --> UC3
-Student --> UC4
-Student --> UC5
-Student --> UC6
-Student --> UC7
-Student --> UC8
-Student --> UC9
-Student --> UC10
-Student --> UC11
-Student --> UC13
-Student --> UC14
-Student --> UC15
-Student --> UC16
-Student --> UC17
-Student --> UC18
-Student --> UC19
-Student --> UC20
-Student --> UC21
-Student --> UC22
-Student --> UC23
-Student --> UC24
-Student --> UC25
-Student --> UC26
-Student --> UC27
-Student --> UC28
-Student --> UC29
-
-Admin --> UC2
-Admin --> UC3
-Admin --> UC30
-Admin --> UC31
-Admin --> UC32
-Admin --> UC33
-
-UC5 ..> UC12 : <<include>>
-UC6 ..> UC12 : <<include>>
-UC7 ..> UC12 : <<include>>
-UC8 ..> UC12 : <<include>>
-UC9 ..> UC12 : <<include>>
-UC10 ..> UC12 : <<include>>
-UC11 ..> UC12 : <<include>>
-
-UC13 ..> UC14 : <<extend>>
-UC13 ..> UC15 : <<extend>>
-
-@enduml
-    </pre>
+        </pre>
+    </div>
     <p class="figure-caption">Use Case Diagram showing the main functions of the system with 2 actors: Student and Administrator. Total of 33 use cases grouped into 7 main packages.</p>
 </div>
+
+<h4>Table 3.1: Use Case Summary</h4>
+
+<table>
+    <tr>
+        <th>Package</th>
+        <th>Use Cases</th>
+        <th>Actor</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td rowspan="4"><strong>Authentication</strong></td>
+        <td>UC1: Register Account</td>
+        <td>Student</td>
+        <td>Create new account with email</td>
+    </tr>
+    <tr>
+        <td>UC2: Login</td>
+        <td>Student, Admin</td>
+        <td>Login with email/Google/Facebook</td>
+    </tr>
+    <tr>
+        <td>UC3: Logout</td>
+        <td>Student, Admin</td>
+        <td>Exit from system</td>
+    </tr>
+    <tr>
+        <td>UC4: Forgot Password</td>
+        <td>Student</td>
+        <td>Recover password via email</td>
+    </tr>
+    <tr>
+        <td rowspan="8"><strong>Laboratory</strong></td>
+        <td>UC5: Mix Chemicals</td>
+        <td>Student</td>
+        <td>Mix acids and bases with visual feedback</td>
+    </tr>
+    <tr>
+        <td>UC6: Combustion</td>
+        <td>Student</td>
+        <td>Perform combustion experiments</td>
+    </tr>
+    <tr>
+        <td>UC7: Electrolysis</td>
+        <td>Student</td>
+        <td>Study electrolysis process</td>
+    </tr>
+    <tr>
+        <td>UC8: Quantitative Analysis</td>
+        <td>Student</td>
+        <td>Perform quantitative chemical analysis</td>
+    </tr>
+    <tr>
+        <td>UC9: Reaction Kinetics</td>
+        <td>Student</td>
+        <td>Study reaction rates and kinetics</td>
+    </tr>
+    <tr>
+        <td>UC10: Balance Equation</td>
+        <td>Student</td>
+        <td>Practice balancing chemical equations</td>
+    </tr>
+    <tr>
+        <td>UC11: Select Equipment</td>
+        <td>Student</td>
+        <td>Choose appropriate lab equipment</td>
+    </tr>
+    <tr>
+        <td>UC12: Save Results</td>
+        <td>Student</td>
+        <td>Save experiment results to database</td>
+    </tr>
+    <tr>
+        <td rowspan="3"><strong>Learning</strong></td>
+        <td>UC13: View Periodic Table</td>
+        <td>Student</td>
+        <td>Interactive periodic table with 118 elements</td>
+    </tr>
+    <tr>
+        <td>UC14: Search Element</td>
+        <td>Student</td>
+        <td>Search elements by name or symbol</td>
+    </tr>
+    <tr>
+        <td>UC15: View Element Details</td>
+        <td>Student</td>
+        <td>View detailed element information</td>
+    </tr>
+    <tr>
+        <td rowspan="6"><strong>Games</strong></td>
+        <td>UC16: Memory Game</td>
+        <td>Student</td>
+        <td>Match chemical symbols and names</td>
+    </tr>
+    <tr>
+        <td>UC17: Word Building</td>
+        <td>Student</td>
+        <td>Build chemical terms from letters</td>
+    </tr>
+    <tr>
+        <td>UC18: Quick Quiz</td>
+        <td>Student</td>
+        <td>Fast-paced chemistry questions</td>
+    </tr>
+    <tr>
+        <td>UC19: Build Molecule</td>
+        <td>Student</td>
+        <td>Construct molecules from atoms</td>
+    </tr>
+    <tr>
+        <td>UC20: Synthesis</td>
+        <td>Student</td>
+        <td>Synthesize compounds from elements</td>
+    </tr>
+    <tr>
+        <td>UC21: Leaderboard</td>
+        <td>Student</td>
+        <td>View rankings and compete with others</td>
+    </tr>
+    <tr>
+        <td rowspan="4"><strong>Assessment</strong></td>
+        <td>UC22: Take Quiz</td>
+        <td>Student</td>
+        <td>Complete quizzes on various topics</td>
+    </tr>
+    <tr>
+        <td>UC23: View Results</td>
+        <td>Student</td>
+        <td>See quiz scores and feedback</td>
+    </tr>
+    <tr>
+        <td>UC24: Retake Quiz</td>
+        <td>Student</td>
+        <td>Retake quizzes to improve scores</td>
+    </tr>
+    <tr>
+        <td>UC25: View History</td>
+        <td>Student</td>
+        <td>Review past quiz attempts</td>
+    </tr>
+    <tr>
+        <td rowspan="4"><strong>Progress</strong></td>
+        <td>UC26: Activity History</td>
+        <td>Student</td>
+        <td>View all learning activities</td>
+    </tr>
+    <tr>
+        <td>UC27: Statistics</td>
+        <td>Student</td>
+        <td>View learning statistics and charts</td>
+    </tr>
+    <tr>
+        <td>UC28: Achievements</td>
+        <td>Student</td>
+        <td>Unlock and view achievements</td>
+    </tr>
+    <tr>
+        <td>UC29: Track Streak</td>
+        <td>Student</td>
+        <td>Track consecutive learning days</td>
+    </tr>
+    <tr>
+        <td rowspan="4"><strong>Administration</strong></td>
+        <td>UC30: Manage Users</td>
+        <td>Admin</td>
+        <td>Create, read, update, delete users</td>
+    </tr>
+    <tr>
+        <td>UC31: View Analytics</td>
+        <td>Admin</td>
+        <td>View system usage analytics</td>
+    </tr>
+    <tr>
+        <td>UC32: Track Activities</td>
+        <td>Admin</td>
+        <td>Monitor user activities</td>
+    </tr>
+    <tr>
+        <td>UC33: Generate Reports</td>
+        <td>Admin</td>
+        <td>Generate usage and performance reports</td>
+    </tr>
+</table>
+
+<p><strong>Use Case Relationships:</strong></p>
+<ul>
+    <li><strong>Include:</strong> UC5-UC11 all include UC12 (Save Results) - all lab experiments must save results</li>
+    <li><strong>Extend:</strong> UC13 (View Periodic Table) extends to UC14 (Search Element) and UC15 (View Element Details)</li>
+</ul>
 
 <p><strong>Explanation of Main Use Cases:</strong></p>
 
@@ -1370,29 +1575,29 @@ UC13 ..> UC15 : <<extend>>
 <div class="figure">
     <p><strong>Figure 3.3: Context Diagram</strong></p>
     <pre>
-                    |”€|”€|”€|”€|”€|”€|”€|
-                    |  Student   |
-                    |”€|”€|”€|”¬|”€|”€|”€|
-                           |
-                    User data,
-                    Operation requests
-                           |
-                           v
-    |”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”
-    |                                         |
-    |     ChemLearn System                    |
-    |  (Mobile App + Firebase)                |
-    |                                         |
-    |”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”˜
-           v                    v
-           |                   |
-    Analytics,            User management,
-    Reports               System config
-           |                   |
-    |”€|”€|”€|”´|”€|”€|”€|     |”€|”€|”€|”€|”€|”€|”
-    |dministrator|     | Firebase  |
-    |            |     | Services  |
-    |”€|”€|”€|”€|”€|”€|”€|     |”€|”€|”€|”€|”€|”€|”˜
+                    +---------------+
+                    |   Student     |
+                    +-------+-------+
+                            |
+                     User data,
+                  Operation requests
+                            |
+                            v
+    +-----------------------------------------------+
+    |                                               |
+    |          ChemLearn System                     |
+    |       (Mobile App + Firebase)                 |
+    |                                               |
+    +------------+------------------+---------------+
+                 v                  v
+                 |                  |
+          Analytics,         User management,
+           Reports            System config
+                 |                  |
+        +--------+-------+   +------+----------+
+        | Administrator |   |    Firebase     |
+        |               |   |    Services     |
+        +---------------+   +-----------------+
     </pre>
     <p class="figure-caption">Context Diagram showing ChemLearn system as a single process and its interactions with external entities.</p>
 </div>
@@ -1421,11 +1626,11 @@ UC13 ..> UC15 : <<extend>>
                     Student
                        |
                        v
-    |”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”
-    |                                     |
-    |   ChemLearn System                  |
-    |                                     |
-    |”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”˜
+    +---------------------------------------+
+    |                                       |
+    |        ChemLearn System               |
+    |                                       |
+    +---------------------------------------+
                        |
                        v
                     Firebase
@@ -1438,20 +1643,17 @@ UC13 ..> UC15 : <<extend>>
 Input from Student
      |
      v
-|”€|”€|”€|”€|”€|”€|”€|     |”€|”€|”€|”€|”€|”€|”€|”      |”€|”€|”€|”€|”€|”€|”€|
-| Process    |     | Process     |     | Process    |
-|1.0 Manage  |”€|”€|”€v|2.0 Learning |”€|”€|”€v|3.0 Track   |
-| Auth       |     |  Activities |     |  Progress  |
-|”€|”€|”€|”€|”€|”€|”€|     |”€|”€|”€|”€|”€|”€|”€|”˜      |”€|”€|”€|”€|”€|”€|”€|
-     |                     |                     |
-     v                      v                      v
-|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|
-|        Firebase Firestore Database                 |
-| - Collection Users                                 |
-| - Collection Lab Results                           |
-| - Collection Quiz Results                          |
-| - Collection Progress                              |
-|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|
++-----------+     +-------------+     +-----------+
+| Process   |     | Process     |     | Process   |
+|1.0 Manage |---->|2.0 Learning |---->|3.0 Track  |
+| Auth      |     | Activities  |     | Progress  |
++-----------+     +-------------+     +-----------+
+     |                  |                   |
+     v                  v                   v
++---------------------------------------------------+
+|        Firebase Firestore Database                |
+| - Collections: Users, LabResults, QuizResults     |
++---------------------------------------------------+
     </pre>
     <p class="figure-caption">DFD Level 1 showing 3 main processes and data flows between them.</p>
 </div>
@@ -1461,43 +1663,62 @@ Input from Student
 <div class="figure">
     <p><strong>Figure 3.6: Sequence Diagram - Login Flow</strong></p>
     <pre style="text-align: left; font-size: 9pt;">
-Student    LoginScreen    AuthProvider    AuthService    Firebase Auth    Firestore
-   |           |             |             |               |             |
-   | Enter     |             |             |               |             |
-   | Email &   |             |             |               |             |
-   | Password  |             |             |               |             |
-   |”€|”€|”€|”€|”€|”€v|             |             |               |             |
-   |           |             |             |               |             |
-   |           | signIn()    |             |               |             |
-   |           |”€|”€|”€|”€|”€|”€|”€v|             |               |             |
-   |           |             |             |               |             |
-   |           |             |signInWith   |               |             |
-   |           |             |Email()      |               |             |
-   |           |             |”€|”€|”€|”€|”€|”€|”€v|               |             |
-   |           |             |             |               |             |
-   |           |             |             |authenticate   |             |
-   |           |             |             |”€|”€|”€|”€|”€|”€|”€|”€v|             |
-   |           |             |             |               |             |
-   |           |             |             | User Token    |             |
-   |           |             |             ||”€|”€|”€|”€|”€|”€|”€|”‚              |
-   |           |             |             |               |             |
-   |           |             | UserCredential               |             |
-   |           |             ||”€|”€|”€|”€|”€|”€|”‚                |             |
-   |           |             |             |               |             |
-   |           |             |             |               | Fetch user  |
-   |           |             |             |               | data        |
-   |           |             |             |               |”€|”€|”€|”€|”€|”€|”€v|
-   |           |             |             |               |             |
-   |           |             |             |               | User Model  |
-   |           |             |             |               ||”€|”€|”€|”€|”€|”€|”‚
-   |           |             |             |               |             |
-   |           | Success     |             |               |             |
-   |           ||”€|”€|”€|”€|”€|”€|”‚              |               |             |
-   |           |             |             |               |             |
-   | Navigate  |             |             |               |             |
-   | to        |             |             |               |             |
-   | Dashboard |             |             |               |             |
-   ||”€|”€|”€|”€|”€|”‚              |             |               |             |
+
+    +------------------+
+    | Student enters   |
+    | Email & Password |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    |   LoginScreen    |
+    +--------+---------+
+             |
+             | signIn()
+             v
+    +------------------+
+    |   AuthProvider   |
+    +--------+---------+
+             |
+             | signInWithEmail()
+             v
+    +------------------+
+    |   AuthService    |
+    +--------+---------+
+             |
+             | authenticate
+             v
+    +------------------+
+    |  Firebase Auth   |
+    +--------+---------+
+             |
+             | User Token
+             v
+    +------------------+
+    | UserCredential   |
+    | returned         |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    |    Firestore     |
+    | Fetch user data  |
+    +--------+---------+
+             |
+             | User Model
+             v
+    +------------------+
+    |   AuthProvider   |
+    |   Success        |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    |   LoginScreen    |
+    | Navigate to      |
+    | Dashboard        |
+    +------------------+
+
     </pre>
     <p class="figure-caption">Sequence diagram describing login process with Firebase authentication and user data loading from Firestore.</p>
 </div>
@@ -1505,107 +1726,166 @@ Student    LoginScreen    AuthProvider    AuthService    Firebase Auth    Firest
 <div class="figure">
     <p><strong>Figure 3.7: Sequence Diagram - Lab Practice Flow</strong></p>
     <pre style="text-align: left; font-size: 9pt;">
-Student    LabScreen    LabProvider    Firebase Firestore
-   |          |            |                |
-   | Select   |            |                |
-   | Chemical |            |                |
-   | Mixing   |            |                |
-   | Lab      |            |                |
-   |”€|”€|”€|”€|”€||            |                |
-   |          |            |                |
-   |          | Load Lab   |                |
-   |          | Data       |                |
-   |          |”€|”€|”€|”€|”€|”€||                |
-   |          |            |                |
-   |          | Display    |                |
-   |          | Lab UI     |                |
-   ||”€|”€|”€|”€|”€|            |                |
-   |          |            |                |
-   | Mix      |            |                |
-   | HCl +    |            |                |
-   | NaOH     |            |                |
-   |”€|”€|”€|”€|”€||            |                |
-   |          |            |                |
-   |          | Calculate  |                |
-   |          | Reaction   |                |
-   |          |”€|”€|”€|”€|”€|”€||                |
-   |          |            |                |
-   |          | Display    |                |
-   |          | Animation  |                |
-   |          | & Result   |                |
-   ||”€|”€|”€|”€|”€|            |                |
-   |          |            |                |
-   | Save     |            |                |
-   | Result   |            |                |
-   |”€|”€|”€|”€|”€||            |                |
-   |          |            |                |
-   |          | Save to    |                |
-   |          | Firestore  |                |
-   |          |”€|”€|”€|”€|”€|”€||                |
-   |          |            |                |
-   |          |            | Save Lab Result|
-   |          |            |”€|”€|”€|”€|”€|”€|”€|”€||
-   |          |            |                |
-   |          |            | Success        |
-   |          |            ||”€|”€|”€|”€|”€|”€|”€|”€|
-   |          |            |                |
-   |          | Confirm    |                |
-   |          | Saved      |                |
-   ||”€|”€|”€|”€|”€|            |                |
-    </pre>
-    <p class="figure-caption">Sequence diagram describing lab practice process from selecting lab, performing reaction, to saving results.</p>
+
+    +------------------+
+    | Student selects  |
+    | Chemical Mixing  |
+    | Lab              |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    |    LabScreen     |
+    | Load Lab Data    |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    |   LabProvider    |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    |    LabScreen     |
+    | Display Lab UI   |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    | Student mixes    |
+    | HCl + NaOH       |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    |   LabProvider    |
+    | Calculate        |
+    | Reaction         |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    |    LabScreen     |
+    | Display          |
+    | Animation        |
+    | & Result         |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    | Student saves    |
+    | Result           |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    |   LabProvider    |
+    | Save to          |
+    | Firestore        |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    | Firebase         |
+    | Firestore        |
+    | Save Lab Result  |
+    +--------+---------+
+             |
+             | Success
+             v
+    +------------------+
+    |   LabProvider    |
+    | Confirmation     |
+    +------------------+
+
+    <p class="figure-caption">Sequence diagram showing lab practice workflow from chemical selection to result saving.</p>
 </div>
 
 <div class="figure">
     <p><strong>Figure 3.8: Sequence Diagram - Quiz Flow</strong></p>
     <pre style="text-align: left; font-size: 9pt;">
-Student    QuizScreen    QuizProvider    Firebase Firestore
-   |          |             |                 |
-   | Start    |             |                 |
-   | Quiz     |             |                 |
-   |”€|”€|”€|”€|”€||             |                 |
-   |          |             |                 |
-   |          | Load        |                 |
-   |          | Questions   |                 |
-   |          |”€|”€|”€|”€|”€|”€|”€v|                 |
-   |          |             |                 |
-   |          |             | Fetch Quiz Data |
-   |          |             |”€|”€|”€|”€|”€|”€|”€|”€|”€v|
-   |          |             |                 |
-   |          |             | Question List   |
-   |          |             ||”€|”€|”€|”€|”€|”€|”€|”€|”‚
-   |          |             |                 |
-   |          | Display     |                 |
-   |          | Question    |                 |
-   ||”€|”€|”€|”€|”€|             |                 |
-   |          |             |                 |
-   | Answer   |             |                 |
-   | Question |             |                 |
-   |”€|”€|”€|”€|”€||             |                 |
-   |          |             |                 |
-   |          | Check       |                 |
-   |          | Answer      |                 |
-   |          |”€|”€|”€|”€|”€|”€|”€v|                 |
-   |          |             |                 |
-   |          | Feedback    |                 |
-   ||”€|”€|”€|”€|”€|             |                 |
-   |          |             |                 |
-   | Complete |             |                 |
-   | Quiz     |             |                 |
-   |”€|”€|”€|”€|”€||             |                 |
-   |          |             |                 |
-   |          | Calculate   |                 |
-   |          | Score       |                 |
-   |          |”€|”€|”€|”€|”€|”€|”€v|                 |
-   |          |             |                 |
-   |          |             | Save Quiz Result|
-   |          |             |”€|”€|”€|”€|”€|”€|”€|”€|”€v|
-   |          |             |                 |
-   |          | Display     |                 |
-   |          | Results     |                 |
-   ||”€|”€|”€|”€|”€|             |                 |
+
+    +------------------+
+    | Student starts   |
+    | Quiz             |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    |   QuizScreen     |
+    | Load Questions   |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    |   QuizProvider   |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    | Firebase         |
+    | Firestore        |
+    | Fetch Quiz Data  |
+    +--------+---------+
+             |
+             | Question List
+             v
+    +------------------+
+    |   QuizProvider   |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    |   QuizScreen     |
+    | Display Question |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    | Student answers  |
+    | Question         |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    |   QuizProvider   |
+    | Check Answer     |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    |   QuizScreen     |
+    | Show Feedback    |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    | Student          |
+    | completes Quiz   |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    |   QuizProvider   |
+    | Calculate Score  |
+    +--------+---------+
+             |
+             v
+    +------------------+
+    | Firebase         |
+    | Firestore        |
+    | Save Quiz Result |
+    +--------+---------+
+             |
+             | Success
+             v
+    +------------------+
+    |   QuizScreen     |
+    | Display Results  |
+    +------------------+
+
     </pre>
-    <p class="figure-caption">Sequence diagram describing quiz process from loading questions, answering, to calculating score and saving results.</p>
+    <p class="figure-caption">Sequence diagram illustrating quiz flow from question loading to result display.</p>
 </div>
 
 <h3>3.4.5 Entity Relationship Diagram (ERD)</h3>
@@ -1613,76 +1893,43 @@ Student    QuizScreen    QuizProvider    Firebase Firestore
 <div class="figure">
     <p><strong>Figure 3.9: Entity Relationship Diagram</strong></p>
     <pre>
-|”€|”€|”€|”€|”€|”€|”€|”€|”€|
-|    Users       |
-|”€|”€|”€|”€|”€|”€|”€|”€|”€|
-|uid (PK)        |
-|email           |
-|displayName     |
-|photoUrl        |
-|createdAt       |
-|lastLogin       |
-|”€|”€|”€|”€|”¬|”€|”€|”€|”€|
-         |1
-         |
-         |N
-|”€|”€|”€|”€|”´|”€|”€|”€|”€|
-| Lab Results    |
-|”€|”€|”€|”€|”€|”€|”€|”€|”€|
-|id (PK)         |
-|userId (FK)     |
-|labType         |
-|chemicals       |
-|result          |
-|score           |
-|timestamp       |
-|”€|”€|”€|”€|”€|”€|”€|”€|”€|
-
-         |1
-         |
-         |N
-|”€|”€|”€|”€|”´|”€|”€|”€|”€|
-| Quiz Results   |
-|”€|”€|”€|”€|”€|”€|”€|”€|”€|
-|id (PK)         |
-|userId (FK)     |
-|quizId          |
-|score           |
-|correctCount    |
-|totalQuestions  |
-|answers         |
-|timestamp       |
-|”€|”€|”€|”€|”€|”€|”€|”€|”€|
-
-         |1
-         |
-         |N
-|”€|”€|”€|”€|”´|”€|”€|”€|”€|
-| Game Results   |
-|”€|”€|”€|”€|”€|”€|”€|”€|”€|
-|id (PK)         |
-|userId (FK)     |
-|gameType        |
-|score           |
-|level           |
-|duration        |
-|timestamp       |
-|”€|”€|”€|”€|”€|”€|”€|”€|”€|
-
-         |1
-         |
-         |1
-|”€|”€|”€|”€|”´|”€|”€|”€|”€|
-|  Progress      |
-|”€|”€|”€|”€|”€|”€|”€|”€|”€|
-|id (PK)         |
-|userId (FK)     |
-|totalPoints     |
-|currentStreak   |
-|longestStreak   |
-|achievements    |
-|lastUpdated     |
-|”€|”€|”€|”€|”€|”€|”€|”€|”€|
+                    +-------------------+
+                    |      Users        |
+                    +-------------------+
+                    | uid (PK)          |
+                    | email             |
+                    | displayName       |
+                    | photoUrl          |
+                    | createdAt         |
+                    | lastLogin         |
+                    +---------+---------+
+                              | 1
+                              |
+                              | N
+                    +---------+---------+
+                    |   Lab Results     |
+                    +-------------------+
+                    | id (PK)           |
+                    | userId (FK)       |
+                    | labType           |
+                    | chemicals         |
+                    | result            |
+                    | score             |
+                    | timestamp         |
+                    +---------+---------+
+                              | 1
+                              |
+                              | N
+                    +---------+---------+
+                    |  Quiz Results     |
+                    +-------------------+
+                    | id (PK)           |
+                    | userId (FK)       |
+                    | quizType          |
+                    | answers           |
+                    | score             |
+                    | timestamp         |
+                    +-------------------+
     </pre>
     <p class="figure-caption">ERD showing database structure with 5 main collections in Firebase Firestore.</p>
 </div>
@@ -3074,3 +3321,5 @@ service cloud.firestore {
 
 </body>
 </html>
+
+
