@@ -1,0 +1,33 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Markdown files
+*.md text
+
+# Source code
+*.dart text
+*.java text
+*.kt text
+*.swift text
+*.js text
+*.html text
+*.css text
+*.json text
+*.yaml text
+*.yml text
+
+# PlantUML files
+*.puml text
+
+# Images
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+
+# Archives
+*.zip binary
+*.jar binary
+*.apk binary
+*.ipa binary
