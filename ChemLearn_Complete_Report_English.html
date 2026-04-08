@@ -1,0 +1,3076 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemLearn - Final Year Project Report</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2.5cm 2cm 2cm 2.5cm;
+        }
+        
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 13pt;
+            line-height: 1.5;
+            color: #000;
+            background: #fff;
+            max-width: 21cm;
+            margin: 0 auto;
+            padding: 2.5cm 2cm;
+        }
+        
+        h1 {
+            font-size: 16pt;
+            font-weight: bold;
+            text-align: center;
+            margin: 1.5cm 0 1cm 0;
+            text-transform: uppercase;
+            page-break-after: avoid;
+        }
+        
+        h2 {
+            font-size: 14pt;
+            font-weight: bold;
+            margin: 1cm 0 0.5cm 0;
+            page-break-after: avoid;
+        }
+        
+        h3 {
+            font-size: 13pt;
+            font-weight: bold;
+            margin: 0.8cm 0 0.4cm 0;
+            page-break-after: avoid;
+        }
+        
+        h4 {
+            font-size: 13pt;
+            font-weight: bold;
+            font-style: italic;
+            margin: 0.6cm 0 0.3cm 0;
+        }
+        
+        p {
+            text-align: justify;
+            margin-bottom: 0.5cm;
+            text-indent: 1.27cm;
+        }
+        
+        p.no-indent {
+            text-indent: 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5cm 0 1cm 0;
+            font-size: 12pt;
+        }
+        
+        th, td {
+            border: 1px solid #000;
+            padding: 0.4cm;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        th {
+            background-color: #4472C4;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #F2F2F2;
+        }
+        
+        ul, ol {
+            margin-left: 2cm;
+            margin-bottom: 0.5cm;
+        }
+        
+        li {
+            margin-bottom: 0.3cm;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+            background-color: #F5F5F5;
+            padding: 0.1cm 0.3cm;
+            font-size: 11pt;
+            border-radius: 3px;
+        }
+        
+        pre {
+            background-color: #F5F5F5;
+            border: 1px solid #DDD;
+            padding: 0.5cm;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 10pt;
+            line-height: 1.4;
+            margin: 0.5cm 0;
+            border-radius: 5px;
+        }
+        
+        .page-break {
+            page-break-after: always;
+        }
+        
+        .figure {
+            text-align: center;
+            margin: 1cm 0;
+            padding: 0.5cm;
+            border: 1px solid #DDD;
+            background-color: #FAFAFA;
+        }
+        
+        .figure-caption {
+            font-style: italic;
+            margin-top: 0.5cm;
+            font-size: 12pt;
+            font-weight: bold;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            table, .figure {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="page-break">
+    <div style="text-align: center; margin-top: 5cm;">
+        <p style="font-size: 14pt; font-weight: bold; text-indent: 0;">FPT UNIVERSITY</p>
+        <p style="font-size: 14pt; font-weight: bold; text-indent: 0;">FACULTY OF INFORMATION TECHNOLOGY</p>
+        
+        <div style="margin: 3cm 0;">
+            <h1 style="font-size: 20pt; margin-bottom: 1cm;">VIRTUAL CHEMISTRY LAB<br>MOBILE APPLICATION</h1>
+            <h2 style="font-size: 16pt; font-weight: normal;">ChemLearn</h2>
+        </div>
+        
+        <p style="font-size: 14pt; margin: 2cm 0; text-indent: 0;">
+            <strong>FINAL YEAR PROJECT REPORT</strong>
+        </p>
+        
+        <p style="font-size: 13pt; margin: 2cm 0; text-indent: 0; text-align: left; margin-left: 6cm;">
+            <strong>Student:</strong> [Full Name]<br>
+            <strong>Student ID:</strong> [Student ID]<br>
+            <strong>Major:</strong> Information Technology<br>
+            <strong>Supervisor:</strong> [Supervisor Name]
+        </p>
+        
+        <p style="font-size: 14pt; margin-top: 3cm; text-indent: 0;">
+            <strong>Hanoi, 2024</strong>
+        </p>
+    </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="page-break">
+    <h1>TABLE OF CONTENTS</h1>
+    <p class="no-indent"><strong>CHAPTER 1: INTRODUCTION</strong></p>
+    <p class="no-indent" style="margin-left: 1cm;">1.1 Project Background</p>
+    <p class="no-indent" style="margin-left: 1cm;">1.2 Research Problem</p>
+    <p class="no-indent" style="margin-left: 1cm;">1.3 Project Objectives</p>
+    <p class="no-indent" style="margin-left: 1cm;">1.4 Project Scope</p>
+    <p class="no-indent" style="margin-left: 1cm;">1.5 Implementation Plan</p>
+    
+    <p class="no-indent"><strong>CHAPTER 2: RELATED PROJECTS AND PRODUCTS</strong></p>
+    <p class="no-indent" style="margin-left: 1cm;">2.1 Overview of Mobile Learning Systems</p>
+    <p class="no-indent" style="margin-left: 1cm;">2.2 Firebase and Cloud Services</p>
+    <p class="no-indent" style="margin-left: 1cm;">2.3 Flutter Framework</p>
+    <p class="no-indent" style="margin-left: 1cm;">2.4 Evaluation of Similar Products</p>
+    <p class="no-indent" style="margin-left: 1cm;">2.5 User Interface Design</p>
+    <p class="no-indent" style="margin-left: 1cm;">2.6 Summary</p>
+    
+    <p class="no-indent"><strong>CHAPTER 3: SYSTEM ANALYSIS AND DESIGN</strong></p>
+    <p class="no-indent" style="margin-left: 1cm;">3.1 Feasibility Study</p>
+    <p class="no-indent" style="margin-left: 1cm;">3.2 Requirements Analysis</p>
+    <p class="no-indent" style="margin-left: 1cm;">3.3 System Development Methodology</p>
+    <p class="no-indent" style="margin-left: 1cm;">3.4 Data and Process Modeling</p>
+    <p class="no-indent" style="margin-left: 1cm;">3.5 System Design</p>
+    
+    <p class="no-indent"><strong>CHAPTER 4: SYSTEM IMPLEMENTATION AND TESTING</strong></p>
+    <p class="no-indent" style="margin-left: 1cm;">4.1 Development Environment</p>
+    <p class="no-indent" style="margin-left: 1cm;">4.2 System Implementation</p>
+    <p class="no-indent" style="margin-left: 1cm;">4.3 System Testing</p>
+    <p class="no-indent" style="margin-left: 1cm;">4.4 Installation Guide</p>
+    <p class="no-indent" style="margin-left: 1cm;">4.5 User Guide</p>
+    
+    <p class="no-indent"><strong>CHAPTER 5: CONCLUSION AND FUTURE WORK</strong></p>
+    <p class="no-indent" style="margin-left: 1cm;">5.1 Achievements</p>
+    <p class="no-indent" style="margin-left: 1cm;">5.2 Discussion and Implications</p>
+    <p class="no-indent" style="margin-left: 1cm;">5.3 System Limitations</p>
+    <p class="no-indent" style="margin-left: 1cm;">5.4 Future Development</p>
+    
+    <p class="no-indent"><strong>REFERENCES</strong></p>
+    <p class="no-indent"><strong>APPENDICES</strong></p>
+</div>
+
+<!-- LIST OF TABLES -->
+<div class="page-break">
+    <h1>LIST OF TABLES</h1>
+    <p class="no-indent">Table 1.1: Project Implementation Schedule</p>
+    <p class="no-indent">Table 2.1: Comparison of Similar Products</p>
+    <p class="no-indent">Table 3.1: Cost-Benefit Analysis</p>
+    <p class="no-indent">Table 3.2: Functional Requirements</p>
+    <p class="no-indent">Table 3.3: Non-Functional Requirements</p>
+    <p class="no-indent">Table 3.4: Database Table Descriptions</p>
+    <p class="no-indent">Table 4.1: Development Tools and Technologies</p>
+    <p class="no-indent">Table 4.2: Unit Test Cases</p>
+    <p class="no-indent">Table 4.3: Integration Testing Results</p>
+    <p class="no-indent">Table 4.4: User Acceptance Testing Results</p>
+</div>
+
+<!-- LIST OF FIGURES -->
+<div class="page-break">
+    <h1>LIST OF FIGURES</h1>
+    <p class="no-indent">Figure 3.1: System Development Life Cycle</p>
+    <p class="no-indent">Figure 3.2: Use Case Diagram</p>
+    <p class="no-indent">Figure 3.3: Context Diagram</p>
+    <p class="no-indent">Figure 3.4: Data Flow Diagram Level 0</p>
+    <p class="no-indent">Figure 3.5: Data Flow Diagram Level 1</p>
+    <p class="no-indent">Figure 3.6: Sequence Diagram - Login Flow</p>
+    <p class="no-indent">Figure 3.7: Sequence Diagram - Lab Practice Flow</p>
+    <p class="no-indent">Figure 3.8: Sequence Diagram - Quiz Flow</p>
+    <p class="no-indent">Figure 3.9: Entity Relationship Diagram (ERD)</p>
+    <p class="no-indent">Figure 3.10: System Architecture</p>
+    <p class="no-indent">Figure 3.11: Login Screen Interface</p>
+    <p class="no-indent">Figure 3.12: Home Screen Interface</p>
+    <p class="no-indent">Figure 3.13: Lab Selection Screen Interface</p>
+    <p class="no-indent">Figure 3.14: Periodic Table Interface</p>
+    <p class="no-indent">Figure 3.15: Admin Dashboard Interface</p>
+</div>
+
+<!-- LIST OF ABBREVIATIONS -->
+<div class="page-break">
+    <h1>LIST OF ABBREVIATIONS</h1>
+    <table>
+        <tr>
+            <th style="width: 30%;">Abbreviation</th>
+            <th>Full Form</th>
+        </tr>
+        <tr>
+            <td>API</td>
+            <td>Application Programming Interface</td>
+        </tr>
+        <tr>
+            <td>CRUD</td>
+            <td>Create, Read, Update, Delete</td>
+        </tr>
+        <tr>
+            <td>DFD</td>
+            <td>Data Flow Diagram</td>
+        </tr>
+        <tr>
+            <td>ERD</td>
+            <td>Entity Relationship Diagram</td>
+        </tr>
+        <tr>
+            <td>JSON</td>
+            <td>JavaScript Object Notation</td>
+        </tr>
+        <tr>
+            <td>REST</td>
+            <td>Representational State Transfer</td>
+        </tr>
+        <tr>
+            <td>SDLC</td>
+            <td>Software Development Life Cycle</td>
+        </tr>
+        <tr>
+            <td>UI</td>
+            <td>User Interface</td>
+        </tr>
+        <tr>
+            <td>UX</td>
+            <td>User Experience</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
+
+<!-- CHAPTER 1: INTRODUCTION -->
+<div class="page-break">
+<h1>CHAPTER 1<br>INTRODUCTION</h1>
+
+<h2>1.1 Project Background</h2>
+
+<p>Chemistry is a fundamental science that plays a crucial role in understanding the world around us. From the composition of matter to reactions occurring in everyday life, chemistry provides essential knowledge for students pursuing careers in science, medicine, engineering, and technology. However, learning chemistry, especially at the high school level, presents significant challenges for both students and teachers.</p>
+
+<p>Traditional chemistry education relies heavily on laboratory experiments to help students understand abstract concepts through hands-on experience. Laboratory work allows students to observe chemical reactions, practice proper techniques, and develop critical thinking skills. However, access to fully equipped chemistry laboratories is limited in many educational institutions, particularly in developing countries like Vietnam.</p>
+
+<p>Several factors contribute to the challenges in chemistry education:</p>
+
+<ul>
+    <li><strong>Limited Laboratory Resources:</strong> Many schools lack adequate laboratory facilities, equipment, and chemicals. Building and maintaining a chemistry laboratory requires significant financial investment that many schools cannot afford.</li>
+    <li><strong>Safety Concerns:</strong> Chemistry experiments involve handling potentially hazardous materials, including corrosive acids, flammable substances, and toxic compounds. Ensuring student safety requires proper safety equipment, trained supervision, and strict protocols.</li>
+    <li><strong>Material Costs:</strong> Laboratory chemicals and equipment are expensive and need regular replenishment. Many schools operate on limited budgets and must prioritize spending, often resulting in reduced laboratory activities.</li>
+    <li><strong>Time Constraints:</strong> Conducting laboratory experiments is time-consuming. Setting up equipment, performing experiments, cleaning up, and ensuring safety protocols all require considerable time.</li>
+    <li><strong>Environmental Impact:</strong> Chemical waste from laboratories must be properly disposed of to avoid environmental pollution. Proper waste management requires additional resources and expertise that many schools lack.</li>
+    <li><strong>Scalability Issues:</strong> In large classes, it is difficult to provide each student with hands-on laboratory experience. Students often work in groups, which means not everyone gets equal opportunity to perform experiments themselves.</li>
+</ul>
+
+<p>The advancement of mobile technology and cloud computing has opened new possibilities for education. Mobile applications are increasingly becoming popular as learning tools, offering accessibility, interactivity, and personalization. Students can learn at their own pace, access content anytime and anywhere, and receive immediate feedback.</p>
+
+<p>Virtual laboratories offer a solution to many challenges in traditional chemistry education. These digital platforms simulate laboratory environments and chemical reactions, allowing students to conduct virtual experiments without the need for physical equipment or chemicals. Virtual laboratories provide several advantages:</p>
+
+<ul>
+    <li><strong>Safety:</strong> Students can experiment with dangerous chemicals and reactions without physical risk</li>
+    <li><strong>Cost-Effectiveness:</strong> No need for expensive equipment or consumable materials</li>
+    <li><strong>Accessibility:</strong> Students can practice anytime, anywhere using mobile devices</li>
+    <li><strong>Repeatability:</strong> Experiments can be repeated unlimited times for better understanding</li>
+    <li><strong>Scalability:</strong> Can serve unlimited number of students simultaneously</li>
+    <li><strong>Environmentally Friendly:</strong> No chemical waste or environmental impact</li>
+</ul>
+
+<p>This project addresses these challenges by developing <strong>ChemLearn</strong>, a mobile application that provides a virtual chemistry laboratory for students. The application leverages modern technologies including Flutter for cross-platform mobile development and Firebase for cloud-based backend services.</p>
+
+<h2>1.2 Research Problem</h2>
+
+<p>Chemistry education in Vietnam and many other developing countries faces significant challenges that hinder effective learning and limit student engagement with the subject.</p>
+
+<h3>1.2.1 Limited Access to Laboratory Facilities</h3>
+
+<p>The majority of high schools in Vietnam lack adequate chemistry laboratory facilities. According to recent educational surveys, approximately 60% of public schools in rural areas do not have functioning chemistry laboratories, and even in urban areas, many schools have outdated or insufficient equipment. This lack of infrastructure means students have minimal hands-on experimental opportunities, which are crucial for understanding abstract chemistry concepts.</p>
+
+<h3>1.2.2 Safety Challenges and Risk Management</h3>
+
+<p>Chemistry experiments involve inherent risks when working with reactive chemicals, heat sources, and glassware. Many schools lack proper safety equipment such as fume hoods, fire extinguishers, safety goggles, and lab coats. Teachers may not be adequately trained in laboratory safety procedures.</p>
+
+<h3>1.2.3 High Operational Costs</h3>
+
+<p>Operating a chemistry laboratory is expensive:</p>
+<ul>
+    <li>Initial setup costs: $10,000 - $50,000</li>
+    <li>Annual operating costs: $2,000 - $5,000</li>
+    <li>Replacement of broken equipment</li>
+    <li>Proper disposal of chemical waste</li>
+</ul>
+
+<h3>1.2.4 Need for Innovation</h3>
+
+<p>There is a clear and urgent need for innovative solutions that can:</p>
+<ul>
+    <li>Provide safe, accessible chemistry learning experiences</li>
+    <li>Reduce costs while maintaining educational quality</li>
+    <li>Offer personalized, self-paced learning opportunities</li>
+    <li>Allow unlimited practice and experimentation</li>
+    <li>Scale to serve large numbers of students</li>
+</ul>
+
+<h2>1.3 Project Objectives</h2>
+
+<p>The primary objective of this project is to develop ChemLearn, a comprehensive mobile virtual chemistry laboratory application for high school students. The specific objectives are:</p>
+
+<h3>1.3.1 Primary Objectives</h3>
+
+<p><strong>1. Design and develop a cross-platform mobile application</strong> using Flutter framework that provides a virtual chemistry laboratory environment tailored for students aged 12-18.</p>
+
+<p><strong>2. Implement seven comprehensive virtual laboratory modules</strong> covering key chemistry concepts:</p>
+<ul>
+    <li><strong>Chemical Mixing Lab:</strong> Allows students to mix different chemicals and observe reactions, color changes, precipitate formation</li>
+    <li><strong>Combustion Lab:</strong> Simulates combustion reactions with various substances</li>
+    <li><strong>Electrolysis Lab:</strong> Demonstrates electrolysis processes and electrode reactions</li>
+    <li><strong>Quantitative Analysis Lab:</strong> Simulates titrations with 160 combinations (20 analytes × 8 titrants)</li>
+    <li><strong>Reaction Kinetics Lab:</strong> Explores factors affecting reaction rates (15 reactions)</li>
+    <li><strong>Equation Balancing Lab:</strong> Interactive tool for practicing chemical equation balancing</li>
+    <li><strong>Equipment Selection Lab:</strong> Teaches proper selection and use of laboratory equipment</li>
+</ul>
+
+<p><strong>3. Integrate Firebase cloud services</strong> for robust backend functionality including Authentication, Cloud Firestore, Firebase Storage, and Firebase Analytics.</p>
+
+<p><strong>4. Develop an interactive periodic table feature</strong> with detailed information about all 118 elements.</p>
+
+<p><strong>5. Create engaging educational games</strong> that reinforce chemistry concepts.</p>
+
+<p><strong>6. Implement a comprehensive assessment system</strong> with multiple quiz categories, immediate feedback, score tracking, and performance analytics.</p>
+
+<p><strong>7. Design and develop a web-based admin dashboard</strong> that allows teachers and administrators to manage users, track progress, and view analytics.</p>
+
+<h2>1.4 Project Scope</h2>
+
+<h3>1.4.1 In Scope</h3>
+
+<p>This project includes the following components and features:</p>
+<ul>
+    <li>Cross-platform mobile application for Android and iOS using Flutter</li>
+    <li>Seven virtual laboratory modules with interactive simulations</li>
+    <li>Interactive periodic table with element information</li>
+    <li>Educational games to reinforce chemistry concepts</li>
+    <li>Comprehensive quiz system with multiple categories</li>
+    <li>User profiles and progress tracking</li>
+    <li>Firebase backend services (Auth, Firestore, Storage, Analytics)</li>
+    <li>Web-based admin dashboard with CRUD operations</li>
+    <li>Comprehensive testing and documentation</li>
+</ul>
+
+<h3>1.4.2 Out of Scope</h3>
+
+<p>The following features are explicitly excluded from this project:</p>
+<ul>
+    <li>3D molecular visualization and modeling</li>
+    <li>Augmented Reality (AR) or Virtual Reality (VR) features</li>
+    <li>Real-time multiplayer collaboration</li>
+    <li>Integration with school Learning Management Systems (LMS)</li>
+    <li>College-level or advanced chemistry topics</li>
+    <li>Desktop applications (Windows, macOS, Linux)</li>
+    <li>Multi-language support beyond English and Vietnamese</li>
+</ul>
+
+<h2>1.5 Implementation Plan</h2>
+
+<p>The project follows a structured 16-week implementation plan divided into five main phases.</p>
+
+<h3>Table 1.1: Project Implementation Schedule</h3>
+
+<table>
+    <tr>
+        <th>Phase</th>
+        <th>Activities</th>
+        <th>Duration</th>
+        <th>Deliverables</th>
+    </tr>
+    <tr>
+        <td><strong>Phase 1:<br>Planning & Analysis</strong></td>
+        <td>
+            - Problem identification<br>
+            - Literature review<br>
+            - Requirements gathering<br>
+            - Feasibility study
+        </td>
+        <td>2 weeks</td>
+        <td>
+            - Project proposal<br>
+            - Requirements document<br>
+            - Feasibility report
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Phase 2:<br>Literature Review</strong></td>
+        <td>
+            - Review existing systems<br>
+            - Research Flutter & Firebase<br>
+            - Study mobile learning<br>
+            - UI/UX research
+        </td>
+        <td>4 weeks</td>
+        <td>
+            - Literature review chapter<br>
+            - Technology comparison<br>
+            - Best practices documentation
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Phase 3:<br>System Design</strong></td>
+        <td>
+            - System architecture design<br>
+            - Database design<br>
+            - Interface design<br>
+            - Create DFD and ERD
+        </td>
+        <td>4 weeks</td>
+        <td>
+            - System design document<br>
+            - Database schema<br>
+            - UI/UX mockups<br>
+            - DFD and ERD diagrams
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Phase 4:<br>Implementation & Testing</strong></td>
+        <td>
+            - Frontend development<br>
+            - Backend development<br>
+            - Firebase integration<br>
+            - Testing (Unit, Integration, UAT)
+        </td>
+        <td>4 weeks</td>
+        <td>
+            - Working system<br>
+            - Source code<br>
+            - Test reports<br>
+            - User manual
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Phase 5:<br>Documentation & Finalization</strong></td>
+        <td>
+            - Complete final report<br>
+            - System documentation<br>
+            - Prepare presentation<br>
+            - Final testing
+        </td>
+        <td>2 weeks</td>
+        <td>
+            - Final year project report<br>
+            - System documentation<br>
+            - Presentation slides
+        </td>
+    </tr>
+</table>
+
+<h3>1.5.1 Development Methodology</h3>
+
+<p>The project follows an <strong>Iterative and Incremental Development</strong> methodology:</p>
+<ul>
+    <li><strong>Iteration 1 (Week 11-12):</strong> Core authentication, basic UI, one lab module, Firebase integration</li>
+    <li><strong>Iteration 2 (Week 12-13):</strong> Additional lab modules, periodic table, quiz system, progress tracking</li>
+    <li><strong>Iteration 3 (Week 13-14):</strong> Educational games, admin dashboard, testing, refinement</li>
+</ul>
+
+</div>
+
+<!-- CHAPTER 2: RELATED PROJECTS AND PRODUCTS -->
+<div class="page-break">
+<h1>CHAPTER 2<br>RELATED PROJECTS AND PRODUCTS</h1>
+
+<h2>2.1 Overview of Mobile Learning Systems</h2>
+
+<p>Mobile learning (M-Learning) has become an important trend in modern education. With the widespread adoption of smartphones and tablets, students can access learning materials anytime, anywhere.</p>
+
+<h3>2.1.1 Definition and Characteristics</h3>
+
+<p>Mobile learning is a form of learning that uses mobile devices such as smartphones and tablets to access educational content. Key characteristics include:</p>
+
+<ul>
+    <li><strong>Mobility:</strong> Learn anytime, anywhere</li>
+    <li><strong>Personalization:</strong> Content tailored to individual learners</li>
+    <li><strong>Interactivity:</strong> Touch interface, immediate feedback</li>
+    <li><strong>Connectivity:</strong> Data synchronization via cloud</li>
+    <li><strong>Multimedia:</strong> Combines text, images, video, audio</li>
+</ul>
+
+<h3>2.1.2 Benefits of Mobile Learning</h3>
+
+<p>Research by UNESCO (2023) indicates that mobile learning provides numerous benefits:</p>
+
+<ul>
+    <li>Increases access to education for students in remote areas</li>
+    <li>Improves learning motivation through gamification</li>
+    <li>Supports self-paced learning</li>
+    <li>Reduces costs compared to traditional methods</li>
+    <li>Provides immediate feedback</li>
+</ul>
+
+<h3>2.1.3 Challenges</h3>
+
+<p>However, mobile learning also faces several challenges:</p>
+
+<ul>
+    <li>Requires devices and Internet connectivity</li>
+    <li>Small screens limit display of complex content</li>
+    <li>Risk of distraction from other applications</li>
+    <li>Need for touch-friendly interface design</li>
+</ul>
+
+<h2>2.2 Firebase and Cloud Services</h2>
+
+<p>Firebase is a mobile and web application development platform provided by Google. It offers Backend-as-a-Service (BaaS) that helps developers build applications quickly without managing servers.</p>
+
+<h3>2.2.1 Main Firebase Services</h3>
+
+<p><strong>1. Firebase Authentication:</strong></p>
+<ul>
+    <li>User authentication with multiple methods (email, Google, Facebook, etc.)</li>
+    <li>Secure session management</li>
+    <li>Multi-factor authentication (MFA) support</li>
+    <li>Easy SDK integration</li>
+</ul>
+
+<p><strong>2. Cloud Firestore:</strong></p>
+<ul>
+    <li>Flexible, scalable NoSQL database</li>
+    <li>Real-time data synchronization</li>
+    <li>Offline support with local caching</li>
+    <li>Powerful querying and indexing</li>
+    <li>Flexible security rules</li>
+</ul>
+
+<p><strong>3. Firebase Storage:</strong></p>
+<ul>
+    <li>File storage (images, videos, documents)</li>
+    <li>Secure upload/download</li>
+    <li>Integration with Firebase Authentication</li>
+    <li>Global CDN for high speed</li>
+</ul>
+
+<p><strong>4. Firebase Analytics:</strong></p>
+<ul>
+    <li>Track user behavior</li>
+    <li>Analyze engagement levels</li>
+    <li>Detailed reports on app usage</li>
+    <li>Integration with Google Analytics</li>
+</ul>
+
+<h3>2.2.2 Advantages of Firebase</h3>
+
+<ul>
+    <li><strong>Easy to use:</strong> Simple SDK, rich documentation</li>
+    <li><strong>Scalability:</strong> Automatically scales with demand</li>
+    <li><strong>Reliability:</strong> Google-backed, high uptime</li>
+    <li><strong>Low cost:</strong> Free tier for small projects</li>
+    <li><strong>Integration:</strong> Works well with Flutter, React Native, iOS, Android</li>
+</ul>
+
+<h3>2.2.3 Disadvantages of Firebase</h3>
+
+<ul>
+    <li>Vendor lock-in dependency</li>
+    <li>Costs can increase rapidly at scale</li>
+    <li>Complex queries limited compared to SQL</li>
+    <li>Not suitable for applications requiring complex server-side processing</li>
+</ul>
+
+<h2>2.3 Flutter Framework</h2>
+
+<p>Flutter is a cross-platform mobile application development framework created by Google. It allows developers to build applications for iOS, Android, Web, and Desktop from a single codebase.</p>
+
+<h3>2.3.1 Key Features of Flutter</h3>
+
+<p><strong>1. Dart Language:</strong></p>
+<ul>
+    <li>Modern, object-oriented programming language</li>
+    <li>Easy-to-learn syntax, similar to Java/JavaScript</li>
+    <li>Supports asynchronous programming (async/await)</li>
+    <li>Ahead-of-Time (AOT) compilation for high performance</li>
+</ul>
+
+<p><strong>2. Widget-based Architecture:</strong></p>
+<ul>
+    <li>Everything is a widget (buttons, text, layouts, etc.)</li>
+    <li>Widgets are reusable and composable</li>
+    <li>Two types of widgets: Stateless and Stateful</li>
+    <li>Flexible and powerful widget tree</li>
+</ul>
+
+<p><strong>3. Hot Reload:</strong></p>
+<ul>
+    <li>See changes instantly without restarting the app</li>
+    <li>Significantly speeds up development</li>
+    <li>Preserves app state when reloading</li>
+</ul>
+
+<p><strong>4. Material Design and Cupertino:</strong></p>
+<ul>
+    <li>Material Design widget set for Android</li>
+    <li>Cupertino widget set for iOS</li>
+    <li>Native look and feel on both platforms</li>
+</ul>
+
+<h3>2.3.2 Advantages of Flutter</h3>
+
+<ul>
+    <li><strong>Cross-platform:</strong> One codebase for iOS, Android, Web, Desktop</li>
+    <li><strong>High performance:</strong> Compiles to native code</li>
+    <li><strong>Beautiful UI:</strong> Rich widgets, easy customization</li>
+    <li><strong>Fast development:</strong> Hot reload, rich libraries</li>
+    <li><strong>Large community:</strong> Many packages, documentation, support</li>
+</ul>
+
+<h3>2.3.3 Disadvantages of Flutter</h3>
+
+<ul>
+    <li>Larger app size than native</li>
+    <li>Some native features require plugins</li>
+    <li>Dart less popular than JavaScript</li>
+    <li>Smaller community than React Native</li>
+</ul>
+
+<h2>2.4 Evaluation of Similar Products</h2>
+
+<p>There are several virtual chemistry laboratory applications currently on the market. Below is a comparison with representative products:</p>
+
+<h3>Table 2.1: Comparison of Similar Products</h3>
+
+<table>
+    <tr>
+        <th>Criteria</th>
+        <th>ChemLearn<br>(This Project)</th>
+        <th>Labster</th>
+        <th>ChemCollective</th>
+        <th>PhET Simulations</th>
+    </tr>
+    <tr>
+        <td><strong>Platform</strong></td>
+        <td>iOS, Android</td>
+        <td>Web, VR</td>
+        <td>Web</td>
+        <td>Web, iOS, Android</td>
+    </tr>
+    <tr>
+        <td><strong>Language</strong></td>
+        <td>Vietnamese, English</td>
+        <td>English</td>
+        <td>English</td>
+        <td>Multilingual</td>
+    </tr>
+    <tr>
+        <td><strong>Target Audience</strong></td>
+        <td>High School (12-18)</td>
+        <td>University</td>
+        <td>High School, University</td>
+        <td>Middle School, High School</td>
+    </tr>
+    <tr>
+        <td><strong>Number of Labs</strong></td>
+        <td>7 modules</td>
+        <td>300+ labs</td>
+        <td>50+ labs</td>
+        <td>150+ simulations</td>
+    </tr>
+    <tr>
+        <td><strong>Gamification</strong></td>
+        <td>Yes (5 games)</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Limited</td>
+    </tr>
+    <tr>
+        <td><strong>Progress Tracking</strong></td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td><strong>Cost</strong></td>
+        <td>Free</td>
+        <td>$200/year</td>
+        <td>Free</td>
+        <td>Free</td>
+    </tr>
+    <tr>
+        <td><strong>Offline</strong></td>
+        <td>Limited</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><strong>Admin Dashboard</strong></td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+</table>
+
+<h3>2.4.1 Detailed Analysis</h3>
+
+<p><strong>1. Labster:</strong></p>
+<ul>
+    <li><strong>Advantages:</strong> High-quality 3D simulations, rich content, VR support</li>
+    <li><strong>Disadvantages:</strong> Expensive, English only, requires high-end hardware, not suitable for Vietnamese high schools</li>
+</ul>
+
+<p><strong>2. ChemCollective:</strong></p>
+<ul>
+    <li><strong>Advantages:</strong> Free, many realistic labs, developed by Carnegie Mellon</li>
+    <li><strong>Disadvantages:</strong> Web only, outdated interface, no gamification, no progress tracking</li>
+</ul>
+
+<p><strong>3. PhET Simulations:</strong></p>
+<ul>
+    <li><strong>Advantages:</strong> Free, multilingual, many simulations, developed by University of Colorado</li>
+    <li><strong>Disadvantages:</strong> Focuses more on physics than chemistry, no learning management system</li>
+</ul>
+
+<h3>2.4.2 Competitive Advantages of ChemLearn</h3>
+
+<p>ChemLearn has the following advantages over existing products:</p>
+
+<ul>
+    <li><strong>Localization:</strong> Supports Vietnamese, aligned with Vietnamese high school curriculum</li>
+    <li><strong>Mobile:</strong> Native app for iOS and Android, no browser needed</li>
+    <li><strong>Free:</strong> No user fees</li>
+    <li><strong>Gamification:</strong> Engaging educational games</li>
+    <li><strong>Management:</strong> Admin dashboard for teachers</li>
+    <li><strong>Lightweight:</strong> Does not require high-end hardware</li>
+</ul>
+
+<h2>2.5 User Interface Design</h2>
+
+<h3>2.5.1 UI/UX Design Principles</h3>
+
+<p>User interface design for educational applications should follow these principles:</p>
+
+<p><strong>1. Simple and Clear:</strong></p>
+<ul>
+    <li>Interface not overly complex</li>
+    <li>Intuitive navigation</li>
+    <li>Minimal steps for operations</li>
+</ul>
+
+<p><strong>2. Consistency:</strong></p>
+<ul>
+    <li>Consistent colors, fonts, icons</li>
+    <li>Fixed element positions</li>
+    <li>Similar interaction behaviors</li>
+</ul>
+
+<p><strong>3. Feedback:</strong></p>
+<ul>
+    <li>Immediate feedback on interactions</li>
+    <li>Display loading states</li>
+    <li>Clear error messages</li>
+</ul>
+
+<p><strong>4. Accessibility:</strong></p>
+<ul>
+    <li>Sufficiently large text size</li>
+    <li>High color contrast</li>
+    <li>Large enough buttons for touch</li>
+</ul>
+
+<h3>2.5.2 Material Design</h3>
+
+<p>ChemLearn applies Google's Material Design with these features:</p>
+
+<ul>
+    <li>Shadows (elevation) create depth</li>
+    <li>Smooth animations</li>
+    <li>Bold colors</li>
+    <li>Clear typography</li>
+    <li>Flexible grid system</li>
+</ul>
+
+<h2>2.6 Summary</h2>
+
+<p>This chapter has reviewed technologies and products related to the ChemLearn project. Key points:</p>
+
+<ul>
+    <li>Mobile learning is an important trend in modern education</li>
+    <li>Firebase provides powerful, easy-to-use backend</li>
+    <li>Flutter is optimal framework for cross-platform development</li>
+    <li>Existing products have limitations in language, cost, or features</li>
+    <li>ChemLearn has clear competitive advantages for the Vietnamese market</li>
+</ul>
+
+<p>This knowledge forms the foundation for designing and developing the ChemLearn system in subsequent chapters.</p>
+
+</div>
+
+<!-- CHAPTER 3: SYSTEM ANALYSIS AND DESIGN -->
+<div class="page-break">
+<h1>CHAPTER 3<br>SYSTEM ANALYSIS AND DESIGN</h1>
+
+<h2>3.1 Feasibility Study</h2>
+
+<h3>3.1.1 Technical Feasibility</h3>
+
+<p>The ChemLearn project uses proven and available technologies:</p>
+
+<ul>
+    <li><strong>Flutter Framework 3.11.4:</strong> Mature cross-platform mobile development framework with large community and rich documentation</li>
+    <li><strong>Firebase Services:</strong> Google-backed backend platform with high reliability and automatic scalability</li>
+    <li><strong>Dart Programming Language:</strong> Modern programming language optimized for UI development</li>
+</ul>
+
+<p><strong>Conclusion:</strong> The project is technically feasible with existing technologies.</p>
+
+<h3>3.1.2 Economic Feasibility</h3>
+
+<p>Cost-benefit analysis for the project:</p>
+
+<h4>Table 3.1: Cost-Benefit Analysis</h4>
+
+<table>
+    <tr>
+        <th>Item</th>
+        <th>Cost</th>
+        <th>Notes</th>
+    </tr>
+    <tr>
+        <td><strong>Development Costs</strong></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Flutter SDK</td>
+        <td>$0</td>
+        <td>Free, open source</td>
+    </tr>
+    <tr>
+        <td>Firebase (Free tier)</td>
+        <td>$0</td>
+        <td>Sufficient for development phase</td>
+    </tr>
+    <tr>
+        <td>Development tools</td>
+        <td>$0</td>
+        <td>VS Code, Android Studio are free</td>
+    </tr>
+    <tr>
+        <td><strong>Operating Costs (First Year)</strong></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Firebase (1000 users)</td>
+        <td>$25/month</td>
+        <td>$300/year</td>
+    </tr>
+    <tr>
+        <td>Domain & Hosting</td>
+        <td>$50/year</td>
+        <td>For admin dashboard</td>
+    </tr>
+    <tr>
+        <td><strong>Total Year 1 Cost</strong></td>
+        <td><strong>$350</strong></td>
+        <td>Very low compared to traditional lab</td>
+    </tr>
+</table>
+
+<p><strong>Comparison with traditional laboratory:</strong></p>
+<ul>
+    <li>Physical lab setup cost: $10,000 - $50,000</li>
+    <li>Annual operating cost: $2,000 - $5,000</li>
+    <li>ChemLearn saves: >95% of costs</li>
+</ul>
+
+<p><strong>Conclusion:</strong> The project is highly economically feasible.</p>
+
+<h3>3.1.3 Operational Feasibility</h3>
+
+<p>The system is designed to be easy to use for both students and teachers:</p>
+<ul>
+    <li>Intuitive interface suitable for ages 12-18</li>
+    <li>No complex training required</li>
+    <li>Works on common mobile devices</li>
+    <li>Supports Vietnamese and English</li>
+</ul>
+
+<p><strong>Conclusion:</strong> The system is operationally feasible.</p>
+
+<h3>3.1.4 Schedule Feasibility</h3>
+
+<p>The 16-week plan is reasonable for the defined project scope. Using iterative development methodology reduces risk and ensures progress.</p>
+
+<p><strong>Conclusion:</strong> The project is schedule feasible.</p>
+
+<h2>3.2 Requirements Analysis</h2>
+
+<h3>3.2.1 Functional Requirements</h3>
+
+<h4>Table 3.2: Functional Requirements</h4>
+
+<table>
+    <tr>
+        <th style="width: 10%;">ID</th>
+        <th style="width: 20%;">Category</th>
+        <th style="width: 50%;">Description</th>
+        <th style="width: 20%;">Priority</th>
+    </tr>
+    <tr>
+        <td>FR-01</td>
+        <td>Authentication</td>
+        <td>System allows registration with email/password</td>
+        <td>High</td>
+    </tr>
+    <tr>
+        <td>FR-02</td>
+        <td>Authentication</td>
+        <td>System allows login with Google</td>
+        <td>High</td>
+    </tr>
+    <tr>
+        <td>FR-03</td>
+        <td>Authentication</td>
+        <td>System allows login with Facebook</td>
+        <td>Medium</td>
+    </tr>
+    <tr>
+        <td>FR-04</td>
+        <td>Laboratory</td>
+        <td>System provides 7 virtual laboratory modules</td>
+        <td>High</td>
+    </tr>
+    <tr>
+        <td>FR-05</td>
+        <td>Laboratory</td>
+        <td>Chemical mixing module with realistic reaction simulation</td>
+        <td>High</td>
+    </tr>
+    <tr>
+        <td>FR-06</td>
+        <td>Laboratory</td>
+        <td>Combustion module with fire effects</td>
+        <td>High</td>
+    </tr>
+    <tr>
+        <td>FR-07</td>
+        <td>Laboratory</td>
+        <td>Electrolysis module for solution electrolysis</td>
+        <td>High</td>
+    </tr>
+    <tr>
+        <td>FR-08</td>
+        <td>Laboratory</td>
+        <td>Quantitative analysis module (160 titration combinations)</td>
+        <td>High</td>
+    </tr>
+    <tr>
+        <td>FR-09</td>
+        <td>Laboratory</td>
+        <td>Reaction kinetics module (15 reactions)</td>
+        <td>High</td>
+    </tr>
+    <tr>
+        <td>FR-10</td>
+        <td>Laboratory</td>
+        <td>Chemical equation balancing module</td>
+        <td>High</td>
+    </tr>
+    <tr>
+        <td>FR-11</td>
+        <td>Laboratory</td>
+        <td>Laboratory equipment selection module</td>
+        <td>Medium</td>
+    </tr>
+    <tr>
+        <td>FR-12</td>
+        <td>Periodic Table</td>
+        <td>Display complete periodic table with 118 elements</td>
+        <td>High</td>
+    </tr>
+    <tr>
+        <td>FR-13</td>
+        <td>Periodic Table</td>
+        <td>Display detailed information for each element</td>
+        <td>High</td>
+    </tr>
+    <tr>
+        <td>FR-14</td>
+        <td>Quiz</td>
+        <td>Quiz system with multiple categories</td>
+        <td>High</td>
+    </tr>
+    <tr>
+        <td>FR-15</td>
+        <td>Quiz</td>
+        <td>Immediate feedback after each question</td>
+        <td>High</td>
+    </tr>
+    <tr>
+        <td>FR-16</td>
+        <td>Games</td>
+        <td>Memory game</td>
+        <td>Medium</td>
+    </tr>
+    <tr>
+        <td>FR-17</td>
+        <td>Games</td>
+        <td>Word building game</td>
+        <td>Medium</td>
+    </tr>
+    <tr>
+        <td>FR-18</td>
+        <td>Progress</td>
+        <td>Track scores and learning progress</td>
+        <td>High</td>
+    </tr>
+    <tr>
+        <td>FR-19</td>
+        <td>Progress</td>
+        <td>Display activity history</td>
+        <td>Medium</td>
+    </tr>
+    <tr>
+        <td>FR-20</td>
+        <td>Administration</td>
+        <td>Admin can manage users (CRUD)</td>
+        <td>High</td>
+    </tr>
+    <tr>
+        <td>FR-21</td>
+        <td>Administration</td>
+        <td>Admin views statistics and analytics</td>
+        <td>High</td>
+    </tr>
+</table>
+
+<h3>3.2.2 Non-Functional Requirements</h3>
+
+<h4>Table 3.3: Non-Functional Requirements</h4>
+
+<table>
+    <tr>
+        <th style="width: 10%;">ID</th>
+        <th style="width: 20%;">Category</th>
+        <th style="width: 50%;">Description</th>
+        <th style="width: 20%;">Metric</th>
+    </tr>
+    <tr>
+        <td>NFR-01</td>
+        <td>Performance</td>
+        <td>Application startup time</td>
+        <td>< 3 seconds</td>
+    </tr>
+    <tr>
+        <td>NFR-02</td>
+        <td>Performance</td>
+        <td>Operation response time</td>
+        <td>< 1 second</td>
+    </tr>
+    <tr>
+        <td>NFR-03</td>
+        <td>Usability</td>
+        <td>Intuitive, easy-to-use interface</td>
+        <td>Rating > 4.0/5.0</td>
+    </tr>
+    <tr>
+        <td>NFR-04</td>
+        <td>Security</td>
+        <td>User data encryption</td>
+        <td>HTTPS, Firebase Auth</td>
+    </tr>
+    <tr>
+        <td>NFR-05</td>
+        <td>Scalability</td>
+        <td>Support concurrent multiple users</td>
+        <td>> 1000 users</td>
+    </tr>
+    <tr>
+        <td>NFR-06</td>
+        <td>Compatibility</td>
+        <td>Works on Android 6.0+</td>
+        <td>API level 23+</td>
+    </tr>
+    <tr>
+        <td>NFR-07</td>
+        <td>Compatibility</td>
+        <td>Works on iOS 12.0+</td>
+        <td>iOS 12+</td>
+    </tr>
+    <tr>
+        <td>NFR-08</td>
+        <td>Reliability</td>
+        <td>System uptime</td>
+        <td>> 99%</td>
+    </tr>
+</table>
+
+<h2>3.3 System Development Methodology</h2>
+
+<p>The ChemLearn project uses the <strong>Software Development Life Cycle (SDLC)</strong> with an <strong>Iterative and Incremental Development</strong> approach.</p>
+
+<div class="figure">
+    <p><strong>Figure 3.1: System Development Life Cycle</strong></p>
+    <pre>
+    Planning → Analysis → Design → Implementation → Testing → Deployment
+         ↑                                                              ↓
+         └──────────────────── Feedback Loop ──────────────────────────┘
+    </pre>
+</div>
+
+<p>This methodology was chosen because:</p>
+<ul>
+    <li>Provides structure while maintaining flexibility</li>
+    <li>Allows early feedback from users</li>
+    <li>Reduces risk by addressing high-risk features early</li>
+    <li>Always have a working version of the system</li>
+</ul>
+
+<h2>3.4 Data and Process Modeling</h2>
+
+<h3>3.4.1 Use Case Diagram</h3>
+
+<div class="figure">
+    <p><strong>Figure 3.2: Use Case Diagram</strong></p>
+    <pre style="text-align: left; font-size: 9pt;">
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Student" as Student
+actor "Administrator" as Admin
+
+rectangle "ChemLearn System" {
+  
+  package "Authentication" {
+    usecase "Register Account" as UC1
+    usecase "Login" as UC2
+    usecase "Logout" as UC3
+    usecase "Forgot Password" as UC4
+  }
+  
+  package "Laboratory" {
+    usecase "Mix Chemicals" as UC5
+    usecase "Combustion" as UC6
+    usecase "Electrolysis" as UC7
+    usecase "Quantitative Analysis" as UC8
+    usecase "Reaction Kinetics" as UC9
+    usecase "Balance Equation" as UC10
+    usecase "Select Equipment" as UC11
+    usecase "Save Results" as UC12
+  }
+  
+  package "Learning" {
+    usecase "View Periodic Table" as UC13
+    usecase "Search Element" as UC14
+    usecase "View Element Details" as UC15
+  }
+  
+  package "Games" {
+    usecase "Play Memory Game" as UC16
+    usecase "Play Word Building" as UC17
+    usecase "Quick Quiz" as UC18
+    usecase "Build Molecule" as UC19
+    usecase "Synthesis" as UC20
+    usecase "View Leaderboard" as UC21
+  }
+  
+  package "Assessment" {
+    usecase "Take Quiz" as UC22
+    usecase "View Results" as UC23
+    usecase "Retake Quiz" as UC24
+    usecase "View History" as UC25
+  }
+  
+  package "Progress" {
+    usecase "View Activity History" as UC26
+    usecase "View Statistics" as UC27
+    usecase "View Achievements" as UC28
+    usecase "Track Streak" as UC29
+  }
+  
+  package "Administration" {
+    usecase "Manage Users" as UC30
+    usecase "View Analytics" as UC31
+    usecase "Track Activities" as UC32
+    usecase "Generate Reports" as UC33
+  }
+}
+
+Student --> UC1
+Student --> UC2
+Student --> UC3
+Student --> UC4
+Student --> UC5
+Student --> UC6
+Student --> UC7
+Student --> UC8
+Student --> UC9
+Student --> UC10
+Student --> UC11
+Student --> UC13
+Student --> UC14
+Student --> UC15
+Student --> UC16
+Student --> UC17
+Student --> UC18
+Student --> UC19
+Student --> UC20
+Student --> UC21
+Student --> UC22
+Student --> UC23
+Student --> UC24
+Student --> UC25
+Student --> UC26
+Student --> UC27
+Student --> UC28
+Student --> UC29
+
+Admin --> UC2
+Admin --> UC3
+Admin --> UC30
+Admin --> UC31
+Admin --> UC32
+Admin --> UC33
+
+UC5 ..> UC12 : <<include>>
+UC6 ..> UC12 : <<include>>
+UC7 ..> UC12 : <<include>>
+UC8 ..> UC12 : <<include>>
+UC9 ..> UC12 : <<include>>
+UC10 ..> UC12 : <<include>>
+UC11 ..> UC12 : <<include>>
+
+UC13 ..> UC14 : <<extend>>
+UC13 ..> UC15 : <<extend>>
+
+@enduml
+    </pre>
+    <p class="figure-caption">Use Case Diagram showing the main functions of the system with 2 actors: Student and Administrator. Total of 33 use cases grouped into 7 main packages.</p>
+</div>
+
+<p><strong>Explanation of Main Use Cases:</strong></p>
+
+<p><strong>1. Authentication Package (4 use cases):</strong></p>
+<ul>
+    <li>Register Account: Student creates new account</li>
+    <li>Login: Login with email/Google/Facebook</li>
+    <li>Logout: Exit from system</li>
+    <li>Forgot Password: Recover password via email</li>
+</ul>
+
+<p><strong>2. Laboratory Package (8 use cases):</strong></p>
+<ul>
+    <li>7 different laboratory modules</li>
+    <li>All include "Save Results" to save progress</li>
+</ul>
+
+<p><strong>3. Learning Package (3 use cases):</strong></p>
+<ul>
+    <li>View periodic table with 118 elements</li>
+    <li>Search and view element details (extend)</li>
+</ul>
+
+<p><strong>4. Games Package (6 use cases):</strong></p>
+<ul>
+    <li>5 different educational games</li>
+    <li>Leaderboard to create competitive motivation</li>
+</ul>
+
+<p><strong>5. Assessment Package (4 use cases):</strong></p>
+<ul>
+    <li>Take quiz with multiple categories</li>
+    <li>View results and history</li>
+    <li>Retake to improve scores</li>
+</ul>
+
+<p><strong>6. Progress Package (4 use cases):</strong></p>
+<ul>
+    <li>Track activity history</li>
+    <li>View statistics and achievements</li>
+    <li>Track consecutive learning days</li>
+</ul>
+
+<p><strong>7. Administration Package (4 use cases):</strong></p>
+<ul>
+    <li>Manage users (CRUD)</li>
+    <li>View analytics and reports</li>
+    <li>Track system activities</li>
+</ul>
+
+</div>
+<!-- Continue Chapter 3 -->
+
+<h3>3.4.2 Context Diagram</h3>
+
+<div class="figure">
+    <p><strong>Figure 3.3: Context Diagram</strong></p>
+    <pre>
+                    |”€|”€|”€|”€|”€|”€|”€|
+                    |  Student   |
+                    |”€|”€|”€|”¬|”€|”€|”€|
+                           |
+                    User data,
+                    Operation requests
+                           |
+                           v
+    |”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”
+    |                                         |
+    |     ChemLearn System                    |
+    |  (Mobile App + Firebase)                |
+    |                                         |
+    |”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”˜
+           v                    v
+           |                   |
+    Analytics,            User management,
+    Reports               System config
+           |                   |
+    |”€|”€|”€|”´|”€|”€|”€|     |”€|”€|”€|”€|”€|”€|”
+    |dministrator|     | Firebase  |
+    |            |     | Services  |
+    |”€|”€|”€|”€|”€|”€|”€|     |”€|”€|”€|”€|”€|”€|”˜
+    </pre>
+    <p class="figure-caption">Context Diagram showing ChemLearn system as a single process and its interactions with external entities.</p>
+</div>
+
+<p><strong>External Entities:</strong></p>
+<ul>
+    <li><strong>Student:</strong> Interacts with mobile app for learning</li>
+    <li><strong>Administrator:</strong> Uses web dashboard for management</li>
+    <li><strong>Firebase Services:</strong> Provides authentication, database, and storage</li>
+</ul>
+
+<p><strong>Data Flows:</strong></p>
+<ul>
+    <li>Student v System: Login credentials, quiz answers, lab interactions</li>
+    <li>System v Student: Learning content, feedback, progress data</li>
+    <li>Administrator v System: User management commands, configuration</li>
+    <li>System v Administrator: Analytics, reports, user data</li>
+    <li>System v Firebase: Authentication, data storage, real-time sync</li>
+</ul>
+
+<h3>3.4.3 Data Flow Diagram (DFD)</h3>
+
+<div class="figure">
+    <p><strong>Figure 3.4: Data Flow Diagram Level 0</strong></p>
+    <pre>
+                    Student
+                       |
+                       v
+    |”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”
+    |                                     |
+    |   ChemLearn System                  |
+    |                                     |
+    |”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”˜
+                       |
+                       v
+                    Firebase
+    </pre>
+</div>
+
+<div class="figure">
+    <p><strong>Figure 3.5: Data Flow Diagram Level 1</strong></p>
+    <pre>
+Input from Student
+     |
+     v
+|”€|”€|”€|”€|”€|”€|”€|     |”€|”€|”€|”€|”€|”€|”€|”      |”€|”€|”€|”€|”€|”€|”€|
+| Process    |     | Process     |     | Process    |
+|1.0 Manage  |”€|”€|”€v|2.0 Learning |”€|”€|”€v|3.0 Track   |
+| Auth       |     |  Activities |     |  Progress  |
+|”€|”€|”€|”€|”€|”€|”€|     |”€|”€|”€|”€|”€|”€|”€|”˜      |”€|”€|”€|”€|”€|”€|”€|
+     |                     |                     |
+     v                      v                      v
+|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|
+|        Firebase Firestore Database                 |
+| - Collection Users                                 |
+| - Collection Lab Results                           |
+| - Collection Quiz Results                          |
+| - Collection Progress                              |
+|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|”€|
+    </pre>
+    <p class="figure-caption">DFD Level 1 showing 3 main processes and data flows between them.</p>
+</div>
+
+<h3>3.4.4 Sequence Diagrams</h3>
+
+<div class="figure">
+    <p><strong>Figure 3.6: Sequence Diagram - Login Flow</strong></p>
+    <pre style="text-align: left; font-size: 9pt;">
+Student    LoginScreen    AuthProvider    AuthService    Firebase Auth    Firestore
+   |           |             |             |               |             |
+   | Enter     |             |             |               |             |
+   | Email &   |             |             |               |             |
+   | Password  |             |             |               |             |
+   |”€|”€|”€|”€|”€|”€v|             |             |               |             |
+   |           |             |             |               |             |
+   |           | signIn()    |             |               |             |
+   |           |”€|”€|”€|”€|”€|”€|”€v|             |               |             |
+   |           |             |             |               |             |
+   |           |             |signInWith   |               |             |
+   |           |             |Email()      |               |             |
+   |           |             |”€|”€|”€|”€|”€|”€|”€v|               |             |
+   |           |             |             |               |             |
+   |           |             |             |authenticate   |             |
+   |           |             |             |”€|”€|”€|”€|”€|”€|”€|”€v|             |
+   |           |             |             |               |             |
+   |           |             |             | User Token    |             |
+   |           |             |             ||”€|”€|”€|”€|”€|”€|”€|”‚              |
+   |           |             |             |               |             |
+   |           |             | UserCredential               |             |
+   |           |             ||”€|”€|”€|”€|”€|”€|”‚                |             |
+   |           |             |             |               |             |
+   |           |             |             |               | Fetch user  |
+   |           |             |             |               | data        |
+   |           |             |             |               |”€|”€|”€|”€|”€|”€|”€v|
+   |           |             |             |               |             |
+   |           |             |             |               | User Model  |
+   |           |             |             |               ||”€|”€|”€|”€|”€|”€|”‚
+   |           |             |             |               |             |
+   |           | Success     |             |               |             |
+   |           ||”€|”€|”€|”€|”€|”€|”‚              |               |             |
+   |           |             |             |               |             |
+   | Navigate  |             |             |               |             |
+   | to        |             |             |               |             |
+   | Dashboard |             |             |               |             |
+   ||”€|”€|”€|”€|”€|”‚              |             |               |             |
+    </pre>
+    <p class="figure-caption">Sequence diagram describing login process with Firebase authentication and user data loading from Firestore.</p>
+</div>
+
+<div class="figure">
+    <p><strong>Figure 3.7: Sequence Diagram - Lab Practice Flow</strong></p>
+    <pre style="text-align: left; font-size: 9pt;">
+Student    LabScreen    LabProvider    Firebase Firestore
+   |          |            |                |
+   | Select   |            |                |
+   | Chemical |            |                |
+   | Mixing   |            |                |
+   | Lab      |            |                |
+   |”€|”€|”€|”€|”€||            |                |
+   |          |            |                |
+   |          | Load Lab   |                |
+   |          | Data       |                |
+   |          |”€|”€|”€|”€|”€|”€||                |
+   |          |            |                |
+   |          | Display    |                |
+   |          | Lab UI     |                |
+   ||”€|”€|”€|”€|”€|            |                |
+   |          |            |                |
+   | Mix      |            |                |
+   | HCl +    |            |                |
+   | NaOH     |            |                |
+   |”€|”€|”€|”€|”€||            |                |
+   |          |            |                |
+   |          | Calculate  |                |
+   |          | Reaction   |                |
+   |          |”€|”€|”€|”€|”€|”€||                |
+   |          |            |                |
+   |          | Display    |                |
+   |          | Animation  |                |
+   |          | & Result   |                |
+   ||”€|”€|”€|”€|”€|            |                |
+   |          |            |                |
+   | Save     |            |                |
+   | Result   |            |                |
+   |”€|”€|”€|”€|”€||            |                |
+   |          |            |                |
+   |          | Save to    |                |
+   |          | Firestore  |                |
+   |          |”€|”€|”€|”€|”€|”€||                |
+   |          |            |                |
+   |          |            | Save Lab Result|
+   |          |            |”€|”€|”€|”€|”€|”€|”€|”€||
+   |          |            |                |
+   |          |            | Success        |
+   |          |            ||”€|”€|”€|”€|”€|”€|”€|”€|
+   |          |            |                |
+   |          | Confirm    |                |
+   |          | Saved      |                |
+   ||”€|”€|”€|”€|”€|            |                |
+    </pre>
+    <p class="figure-caption">Sequence diagram describing lab practice process from selecting lab, performing reaction, to saving results.</p>
+</div>
+
+<div class="figure">
+    <p><strong>Figure 3.8: Sequence Diagram - Quiz Flow</strong></p>
+    <pre style="text-align: left; font-size: 9pt;">
+Student    QuizScreen    QuizProvider    Firebase Firestore
+   |          |             |                 |
+   | Start    |             |                 |
+   | Quiz     |             |                 |
+   |”€|”€|”€|”€|”€||             |                 |
+   |          |             |                 |
+   |          | Load        |                 |
+   |          | Questions   |                 |
+   |          |”€|”€|”€|”€|”€|”€|”€v|                 |
+   |          |             |                 |
+   |          |             | Fetch Quiz Data |
+   |          |             |”€|”€|”€|”€|”€|”€|”€|”€|”€v|
+   |          |             |                 |
+   |          |             | Question List   |
+   |          |             ||”€|”€|”€|”€|”€|”€|”€|”€|”‚
+   |          |             |                 |
+   |          | Display     |                 |
+   |          | Question    |                 |
+   ||”€|”€|”€|”€|”€|             |                 |
+   |          |             |                 |
+   | Answer   |             |                 |
+   | Question |             |                 |
+   |”€|”€|”€|”€|”€||             |                 |
+   |          |             |                 |
+   |          | Check       |                 |
+   |          | Answer      |                 |
+   |          |”€|”€|”€|”€|”€|”€|”€v|                 |
+   |          |             |                 |
+   |          | Feedback    |                 |
+   ||”€|”€|”€|”€|”€|             |                 |
+   |          |             |                 |
+   | Complete |             |                 |
+   | Quiz     |             |                 |
+   |”€|”€|”€|”€|”€||             |                 |
+   |          |             |                 |
+   |          | Calculate   |                 |
+   |          | Score       |                 |
+   |          |”€|”€|”€|”€|”€|”€|”€v|                 |
+   |          |             |                 |
+   |          |             | Save Quiz Result|
+   |          |             |”€|”€|”€|”€|”€|”€|”€|”€|”€v|
+   |          |             |                 |
+   |          | Display     |                 |
+   |          | Results     |                 |
+   ||”€|”€|”€|”€|”€|             |                 |
+    </pre>
+    <p class="figure-caption">Sequence diagram describing quiz process from loading questions, answering, to calculating score and saving results.</p>
+</div>
+
+<h3>3.4.5 Entity Relationship Diagram (ERD)</h3>
+
+<div class="figure">
+    <p><strong>Figure 3.9: Entity Relationship Diagram</strong></p>
+    <pre>
+|”€|”€|”€|”€|”€|”€|”€|”€|”€|
+|    Users       |
+|”€|”€|”€|”€|”€|”€|”€|”€|”€|
+|uid (PK)        |
+|email           |
+|displayName     |
+|photoUrl        |
+|createdAt       |
+|lastLogin       |
+|”€|”€|”€|”€|”¬|”€|”€|”€|”€|
+         |1
+         |
+         |N
+|”€|”€|”€|”€|”´|”€|”€|”€|”€|
+| Lab Results    |
+|”€|”€|”€|”€|”€|”€|”€|”€|”€|
+|id (PK)         |
+|userId (FK)     |
+|labType         |
+|chemicals       |
+|result          |
+|score           |
+|timestamp       |
+|”€|”€|”€|”€|”€|”€|”€|”€|”€|
+
+         |1
+         |
+         |N
+|”€|”€|”€|”€|”´|”€|”€|”€|”€|
+| Quiz Results   |
+|”€|”€|”€|”€|”€|”€|”€|”€|”€|
+|id (PK)         |
+|userId (FK)     |
+|quizId          |
+|score           |
+|correctCount    |
+|totalQuestions  |
+|answers         |
+|timestamp       |
+|”€|”€|”€|”€|”€|”€|”€|”€|”€|
+
+         |1
+         |
+         |N
+|”€|”€|”€|”€|”´|”€|”€|”€|”€|
+| Game Results   |
+|”€|”€|”€|”€|”€|”€|”€|”€|”€|
+|id (PK)         |
+|userId (FK)     |
+|gameType        |
+|score           |
+|level           |
+|duration        |
+|timestamp       |
+|”€|”€|”€|”€|”€|”€|”€|”€|”€|
+
+         |1
+         |
+         |1
+|”€|”€|”€|”€|”´|”€|”€|”€|”€|
+|  Progress      |
+|”€|”€|”€|”€|”€|”€|”€|”€|”€|
+|id (PK)         |
+|userId (FK)     |
+|totalPoints     |
+|currentStreak   |
+|longestStreak   |
+|achievements    |
+|lastUpdated     |
+|”€|”€|”€|”€|”€|”€|”€|”€|”€|
+    </pre>
+    <p class="figure-caption">ERD showing database structure with 5 main collections in Firebase Firestore.</p>
+</div>
+
+<h4>Table 3.4: Database Table Descriptions</h4>
+
+<table>
+    <tr>
+        <th>Collection</th>
+        <th>Description</th>
+        <th>Main Fields</th>
+    </tr>
+    <tr>
+        <td><strong>users</strong></td>
+        <td>Stores user account information</td>
+        <td>uid, email, displayName, photoUrl, createdAt, lastLogin</td>
+    </tr>
+    <tr>
+        <td><strong>lab_results</strong></td>
+        <td>Stores laboratory experiment results</td>
+        <td>userId, labType, chemicals, result, score, timestamp</td>
+    </tr>
+    <tr>
+        <td><strong>quiz_results</strong></td>
+        <td>Stores quiz results</td>
+        <td>userId, quizId, score, correctCount, totalQuestions, answers, timestamp</td>
+    </tr>
+    <tr>
+        <td><strong>game_results</strong></td>
+        <td>Stores educational game scores</td>
+        <td>userId, gameType, score, level, duration, timestamp</td>
+    </tr>
+    <tr>
+        <td><strong>progress</strong></td>
+        <td>Stores user progress and achievements</td>
+        <td>userId, totalPoints, currentStreak, longestStreak, achievements, lastUpdated</td>
+    </tr>
+</table>
+
+<p><strong>Relationships:</strong></p>
+<ul>
+    <li>One User has many Lab Results (1:N)</li>
+    <li>One User has many Quiz Results (1:N)</li>
+    <li>One User has many Game Results (1:N)</li>
+    <li>One User has one Progress record (1:1)</li>
+</ul>
+
+<h2>3.5 System Design</h2>
+
+<h3>3.5.1 System Architecture</h3>
+
+<div class="figure">
+    <p><strong>Figure 3.10: System Architecture</strong></p>
+    <pre>
++-----------------------------------------------------------+
+|                  PRESENTATION LAYER                       |
+|                                                           |
+|  +------------------+         +------------------+        |
+|  |  Mobile          |         |  Admin           |        |
+|  |  Application     |         |  Dashboard       |        |
+|  |  (Flutter)       |         |  (HTML/CSS/JS)   |        |
+|  |                  |         |                  |        |
+|  |  - UI Components |         |  - User Mgmt     |        |
+|  |  - State Mgmt    |         |  - Analytics     |        |
+|  |  - Navigation    |         |  - Reports       |        |
+|  +------------------+         +------------------+        |
++-----------------------------------------------------------+
+                        |
+                        | HTTPS/REST API
+                        v
++-----------------------------------------------------------+
+|                  APPLICATION LAYER                        |
+|                                                           |
+|  +----------------------------------------------------+   |
+|  |           Firebase Services                        |   |
+|  |                                                    |   |
+|  |  +-------------+  +--------------+  +---------+   |   |
+|  |  |   Firebase  |  |    Cloud     |  |Firebase |   |   |
+|  |  |     Auth    |  |  Firestore   |  | Storage |   |   |
+|  |  +-------------+  +--------------+  +---------+   |   |
+|  |                                                    |   |
+|  |  - Authentication logic                            |   |
+|  |  - Business rules                                  |   |
+|  |  - Data validation                                 |   |
+|  |  - Security rules                                  |   |
+|  +----------------------------------------------------+   |
++-----------------------------------------------------------+
+                        |
+                        | Internal API
+                        v
++-----------------------------------------------------------+
+|                    DATA LAYER                             |
+|                                                           |
+|  +----------------------------------------------------+   |
+|  |         Firebase Firestore Database                |   |
+|  |                                                    |   |
+|  |  Collections:                                      |   |
+|  |  - users                                           |   |
+|  |  - lab_results                                     |   |
+|  |  - quiz_results                                    |   |
+|  |  - game_results                                    |   |
+|  |  - progress                                        |   |
+|  |  - user_activities                                 |   |
+|  +----------------------------------------------------+   |
++-----------------------------------------------------------+
+    </pre>
+    <p class="figure-caption">3-tier architecture of ChemLearn system with Presentation Layer, Application Layer, and Data Layer.</p>
+</div>
+
+<p><strong>Architecture Components:</strong></p>
+
+<p><strong>1. Presentation Layer:</strong></p>
+<ul>
+    <li><strong>Mobile Application (Flutter):</strong> User interface for students on iOS and Android</li>
+    <li><strong>Admin Dashboard (Web):</strong> Management interface for teachers and administrators</li>
+</ul>
+
+<p><strong>2. Application Layer:</strong></p>
+<ul>
+    <li><strong>Firebase Authentication:</strong> User authentication and session management</li>
+    <li><strong>Cloud Firestore:</strong> NoSQL database with real-time synchronization</li>
+    <li><strong>Firebase Storage:</strong> File storage for user-generated content</li>
+    <li><strong>Business Logic:</strong> Implemented in Flutter app and Firebase security rules</li>
+</ul>
+
+<p><strong>3. Data Layer:</strong></p>
+<ul>
+    <li><strong>Firestore Collections:</strong> Stores structured data</li>
+    <li><strong>Real-time Sync:</strong> Automatic data synchronization across devices</li>
+    <li><strong>Offline Support:</strong> Local caching for offline access</li>
+</ul>
+
+<p><strong>Communication Flow:</strong></p>
+<ol>
+    <li>User interacts with mobile app or admin dashboard</li>
+    <li>App sends requests to Firebase services via SDK</li>
+    <li>Firebase processes requests and applies security rules</li>
+    <li>Data is stored/retrieved from Firestore</li>
+    <li>Real-time updates are pushed back to connected clients</li>
+</ol>
+
+<p><strong>Security:</strong></p>
+<ul>
+    <li>HTTPS encryption for all communications</li>
+    <li>Firebase security rules for data access control</li>
+    <li>JWT token-based authentication</li>
+    <li>Role-based access control (Student vs Administrator)</li>
+</ul>
+
+<h3>3.5.2 Database Design</h3>
+
+<p>ChemLearn uses Firebase Firestore, a flexible and scalable NoSQL database. The data structure is designed to optimize query performance and support real-time synchronization.</p>
+
+<h4>Firestore Data Structure:</h4>
+
+<pre><code>// Collection: users
+{
+  "uid": "user123",
+  "email": "student@example.com",
+  "displayName": "John Doe",
+  "photoUrl": "https://...",
+  "createdAt": Timestamp,
+  "lastLogin": Timestamp
+}
+
+// Collection: lab_results
+{
+  "id": "lab_result_001",
+  "userId": "user123",
+  "labType": "chemical_mixing",
+  "chemicals": ["HCl", "NaOH"],
+  "result": "NaCl + H2O",
+  "score": 95,
+  "timestamp": Timestamp
+}
+
+// Collection: quiz_results
+{
+  "id": "quiz_001",
+  "userId": "user123",
+  "quizId": "basic_chemistry",
+  "score": 85,
+  "correctCount": 17,
+  "totalQuestions": 20,
+  "answers": [...],
+  "timestamp": Timestamp
+}
+
+// Collection: progress
+{
+  "id": "progress_001",
+  "userId": "user123",
+  "totalPoints": 1250,
+  "currentStreak": 7,
+  "longestStreak": 15,
+  "completedAchievements": ["first_lab", "quiz_master"],
+  "lastUpdated": Timestamp
+}
+</code></pre>
+
+<p><strong>Database Design Principles:</strong></p>
+<ul>
+    <li><strong>Denormalization:</strong> Some data is duplicated for faster reads (NoSQL best practice)</li>
+    <li><strong>Subcollections:</strong> Used for nested data (e.g., quiz questions within quizzes)</li>
+    <li><strong>Indexes:</strong> Created on frequently queried fields (userId, timestamp)</li>
+    <li><strong>Security Rules:</strong> Firestore rules ensure users can only access their own data</li>
+    <li><strong>Real-time Listeners:</strong> Allow live updates without polling</li>
+</ul>
+
+<h3>3.5.3 Interface Design</h3>
+
+<p>The user interface is designed following Material Design principles with a focus on usability for students aged 12-18.</p>
+
+<p><strong>Design Principles:</strong></p>
+<ul>
+    <li>Clean, modern aesthetics</li>
+    <li>Intuitive navigation</li>
+    <li>Immediate visual feedback</li>
+    <li>Consistent color palette (Blue primary, Orange accent)</li>
+    <li>Large, touch-friendly buttons</li>
+    <li>Vietnamese language support</li>
+</ul>
+
+<p><strong>Color Palette:</strong></p>
+<ul>
+    <li>Primary Color: Blue (#2196F3) - Trust, learning</li>
+    <li>Accent Color: Orange (#FF9800) - Energy, interaction</li>
+    <li>Success: Green (#4CAF50) - Correct answers</li>
+    <li>Error: Red (#F44336) - Mistakes</li>
+    <li>Background: Light Gray (#F5F5F5) - Reduces eye strain</li>
+</ul>
+
+<p><strong>Main Interface Screens:</strong></p>
+
+<div class="figure">
+    <p><strong>Figure 3.11: Login Screen Interface</strong></p>
+    <p>- Clean design with logo<br>
+    - Email and password fields<br>
+    - Social login buttons (Google, Facebook)<br>
+    - "Sign Up" link for new users</p>
+</div>
+
+<div class="figure">
+    <p><strong>Figure 3.12: Home Screen Interface</strong></p>
+    <p>- Welcome message with user avatar<br>
+    - Course progress card<br>
+    - Achievement summary card<br>
+    - Course grid (2 columns)<br>
+    - Bottom navigation bar</p>
+</div>
+
+<div class="figure">
+    <p><strong>Figure 3.13: Lab Selection Screen Interface</strong></p>
+    <p>- Grid of 7 laboratory modules<br>
+    - Each card shows lab icon, name, description<br>
+    - Color-coded by lab type<br>
+    - Progress indicator for completed labs</p>
+</div>
+
+<div class="figure">
+    <p><strong>Figure 3.14: Periodic Table Interface</strong></p>
+    <p>- Interactive periodic table grid<br>
+    - Color-coded element groups<br>
+    - Tap element to view details<br>
+    - Search bar for quick access</p>
+</div>
+
+<div class="figure">
+    <p><strong>Figure 3.15: Admin Dashboard Interface (Web)</strong></p>
+    <p>- Top navigation bar with tabs<br>
+    - Overview with statistics cards (total users, active users, activities)<br>
+    - User management table with CRUD operations<br>
+    - Analytics charts and graphs<br>
+    - Activity log with real-time updates<br>
+    - Responsive design for desktop and tablet</p>
+</div>
+
+<p><strong>Navigation Structure:</strong></p>
+<ul>
+    <li><strong>Bottom Navigation Bar (4 tabs):</strong>
+        <ul>
+            <li>Home (Dashboard with courses and progress)</li>
+            <li>Labs (7 laboratory modules)</li>
+            <li>Quiz/Games (Educational games and quizzes)</li>
+            <li>Profile (User settings and statistics)</li>
+        </ul>
+    </li>
+    <li>Each tab loads corresponding screen</li>
+    <li>Back button for sub-screens</li>
+    <li>Smooth transitions between screens</li>
+</ul>
+
+<p><strong>Responsive Design:</strong></p>
+<ul>
+    <li>Adapts to different screen sizes (phone, tablet)</li>
+    <li>Supports portrait and landscape orientations</li>
+    <li>UI elements scale proportionally</li>
+    <li>Maintains usability on small (4 inch) and large (12 inch) screens</li>
+</ul>
+
+</div>
+
+
+<!-- CHAPTER 4: SYSTEM IMPLEMENTATION AND TESTING -->
+<div class="page-break">
+<h1>CHAPTER 4<br>SYSTEM IMPLEMENTATION AND TESTING</h1>
+
+<h2>4.1 Development Environment</h2>
+
+<p>The ChemLearn application was developed using modern tools and technologies that provide efficiency, reliability, and maintainability.</p>
+
+<h3>Table 4.1: Development Tools and Technologies</h3>
+
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Tool/Technology</th>
+        <th>Version</th>
+        <th>Purpose</th>
+    </tr>
+    <tr>
+        <td><strong>Operating System</strong></td>
+        <td>Windows 11</td>
+        <td>Latest</td>
+        <td>Development platform</td>
+    </tr>
+    <tr>
+        <td><strong>IDE</strong></td>
+        <td>Visual Studio Code</td>
+        <td>1.85+</td>
+        <td>Primary code editor</td>
+    </tr>
+    <tr>
+        <td><strong>Mobile Framework</strong></td>
+        <td>Flutter</td>
+        <td>3.11.4</td>
+        <td>Cross-platform mobile development</td>
+    </tr>
+    <tr>
+        <td><strong>Programming Language</strong></td>
+        <td>Dart</td>
+        <td>3.11.4</td>
+        <td>Application logic</td>
+    </tr>
+    <tr>
+        <td><strong>Version Control</strong></td>
+        <td>Git</td>
+        <td>2.40+</td>
+        <td>Source code management</td>
+    </tr>
+    <tr>
+        <td><strong>Repository Hosting</strong></td>
+        <td>GitHub</td>
+        <td>-</td>
+        <td>Remote repository</td>
+    </tr>
+    <tr>
+        <td><strong>Backend Services</strong></td>
+        <td>Firebase</td>
+        <td>Latest</td>
+        <td>Authentication, database, storage</td>
+    </tr>
+    <tr>
+        <td><strong>Database</strong></td>
+        <td>Cloud Firestore</td>
+        <td>Latest</td>
+        <td>NoSQL cloud database</td>
+    </tr>
+    <tr>
+        <td><strong>Authentication</strong></td>
+        <td>Firebase Auth</td>
+        <td>5.3.4</td>
+        <td>User authentication</td>
+    </tr>
+    <tr>
+        <td><strong>State Management</strong></td>
+        <td>Provider</td>
+        <td>6.1.2</td>
+        <td>Application state management</td>
+    </tr>
+    <tr>
+        <td><strong>Testing Device</strong></td>
+        <td>Android Phone</td>
+        <td>6.0+</td>
+        <td>Physical device testing</td>
+    </tr>
+    <tr>
+        <td><strong>Emulator</strong></td>
+        <td>Android Emulator</td>
+        <td>API 30+</td>
+        <td>Virtual device testing</td>
+    </tr>
+</table>
+
+<h3>4.1.1 Development Environment Setup</h3>
+
+<p><strong>Step 1: Install Flutter SDK</strong></p>
+<pre><code># Download Flutter SDK from https://flutter.dev
+# Extract to C:\flutter
+# Add to PATH environment variable
+flutter doctor
+</code></pre>
+
+<p><strong>Step 2: Install Dependencies</strong></p>
+<pre><code># Navigate to project directory
+cd virtual_chemistry_lab
+
+# Install all dependencies
+flutter pub get
+</code></pre>
+
+<p><strong>Step 3: Configure Firebase</strong></p>
+<pre><code># Create Firebase project at https://console.firebase.google.com
+# Download google-services.json (Android)
+# Download GoogleService-Info.plist (iOS)
+# Add to respective directories
+</code></pre>
+
+<h2>4.2 System Implementation</h2>
+
+<h3>4.2.1 Frontend Implementation</h3>
+
+<p>The frontend was developed using Flutter with a well-organized project structure:</p>
+
+<pre><code>lib/
+├── main.dart                 # Entry point
+├── constants/
+│   ├── colors.dart          # Color definitions
+│   └── strings.dart         # Text strings
+├── models/
+│   ├── user_model.dart      # User model
+│   ├── lab_result_model.dart
+│   └── quiz_result_model.dart
+├── providers/
+│   ├── auth_provider.dart   # Authentication management
+│   ├── lab_provider.dart
+│   └── quiz_provider.dart
+├── services/
+│   ├── auth_service.dart    # Authentication service
+│   ├── firestore_service.dart
+│   └── storage_service.dart
+├── screens/
+│   ├── auth/
+│   │   ├── login_screen.dart
+│   │   └── register_screen.dart
+│   ├── home/
+│   │   └── home_screen.dart
+│   ├── lab/
+│   │   ├── lab_selection_screen.dart
+│   │   ├── mix_chemicals_screen.dart
+│   │   ├── burn_chemical_screen.dart
+│   │   ├── electrolysis_screen.dart
+│   │   ├── quantitative_analysis_screen.dart
+│   │   ├── reaction_kinetics_screen.dart
+│   │   ├── balance_equation_screen.dart
+│   │   └── equipment_selection_screen.dart
+│   ├── course/
+│   │   └── periodic_table_screen.dart
+│   ├── quiz/
+│   │   └── quiz_screen.dart
+│   └── profile/
+│       └── profile_screen.dart
+└── widgets/
+    ├── custom_button.dart
+    ├── custom_textfield.dart
+    └── loading_indicator.dart
+</code></pre>
+
+<p><strong>Key Features Implemented:</strong></p>
+
+<p><strong>1. Authentication System:</strong></p>
+<ul>
+    <li>Registration/Login with email and password</li>
+    <li>Google Sign-In (OAuth 2.0)</li>
+    <li>Facebook Sign-In (OAuth 2.0)</li>
+    <li>User session management</li>
+    <li>Password recovery</li>
+</ul>
+
+<p><strong>2. Seven Laboratory Modules:</strong></p>
+<ul>
+    <li><strong>Chemical Mixing:</strong> Reaction simulation with color effects</li>
+    <li><strong>Combustion:</strong> Fire and smoke effects</li>
+    <li><strong>Electrolysis:</strong> Ion movement simulation</li>
+    <li><strong>Quantitative Analysis:</strong> 160 titration combinations (20 × 8)</li>
+    <li><strong>Reaction Kinetics:</strong> 15 reactions with influencing factors</li>
+    <li><strong>Equation Balancing:</strong> Interactive tool</li>
+    <li><strong>Equipment Selection:</strong> Equipment usage guide</li>
+</ul>
+
+<p><strong>3. Interactive Periodic Table:</strong></p>
+<ul>
+    <li>Display all 118 elements</li>
+    <li>Detailed information for each element</li>
+    <li>Search and filter</li>
+    <li>Color-coded by element groups</li>
+</ul>
+
+<p><strong>4. Educational Games:</strong></p>
+<ul>
+    <li>Memory Game</li>
+    <li>Word Building Game</li>
+    <li>Quick Quiz</li>
+    <li>Molecule Building</li>
+    <li>Synthesis</li>
+</ul>
+
+<p><strong>5. Quiz System:</strong></p>
+<ul>
+    <li>Multiple quiz categories</li>
+    <li>Immediate feedback</li>
+    <li>Score tracking</li>
+    <li>Quiz history</li>
+</ul>
+
+<h3>4.2.2 Backend Implementation</h3>
+
+<p>The backend uses Firebase with the following services:</p>
+
+<p><strong>1. Firebase Authentication:</strong></p>
+<pre><code>// lib/services/auth_service.dart
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+class AuthService {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+
+  // Email login
+  Future&lt;UserCredential?&gt; signInWithEmail(
+    String email, 
+    String password
+  ) async {
+    try {
+      return await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+    } catch (e) {
+      print('Error: $e');
+      return null;
+    }
+  }
+
+  // Google Sign-In
+  Future&lt;UserCredential?&gt; signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = 
+        await _googleSignIn.signIn();
+      
+      if (googleUser == null) return null;
+
+      final GoogleSignInAuthentication googleAuth = 
+        await googleUser.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      return await _auth.signInWithCredential(credential);
+    } catch (e) {
+      print('Error: $e');
+      return null;
+    }
+  }
+}
+</code></pre>
+
+<p><strong>2. Cloud Firestore:</strong></p>
+<pre><code>// lib/services/firestore_service.dart
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+class FirestoreService {
+  final FirebaseFirestore _db = FirebaseFirestore.instance;
+
+  // Save lab result
+  Future&lt;void&gt; saveLabResult(LabResult result) async {
+    await _db.collection('lab_results').add({
+      'userId': result.userId,
+      'labType': result.labType,
+      'chemicals': result.chemicals,
+      'result': result.result,
+      'score': result.score,
+      'timestamp': FieldValue.serverTimestamp(),
+    });
+  }
+
+  // Get user lab results
+  Stream&lt;List&lt;LabResult&gt;&gt; getUserLabResults(String userId) {
+    return _db
+        .collection('lab_results')
+        .where('userId', isEqualTo: userId)
+        .orderBy('timestamp', descending: true)
+        .snapshots()
+        .map((snapshot) =&gt; snapshot.docs
+            .map((doc) =&gt; LabResult.fromFirestore(doc))
+            .toList());
+  }
+}
+</code></pre>
+
+<p><strong>3. Firebase Security Rules:</strong></p>
+<pre><code>rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users can only read/write their own data
+    match /users/{userId} {
+      allow read, write: if request.auth != null 
+        && request.auth.uid == userId;
+    }
+    
+    // Lab results
+    match /lab_results/{resultId} {
+      allow read: if request.auth != null 
+        && resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null 
+        && request.resource.data.userId == request.auth.uid;
+    }
+    
+    // Admin has read access to all
+    match /{document=**} {
+      allow read: if request.auth != null 
+        && get(/databases/$(database)/documents/users/$(request.auth.uid))
+           .data.role == 'admin';
+    }
+  }
+}
+</code></pre>
+
+<h3>4.2.3 Admin Dashboard Implementation</h3>
+
+<p>The admin dashboard is a single-page web application built with HTML, CSS, and JavaScript.</p>
+
+<p><strong>Key Features:</strong></p>
+<ul>
+    <li>Admin login</li>
+    <li>Overview with statistics</li>
+    <li>User management (CRUD)</li>
+    <li>Activity history view</li>
+    <li>Analytics and reports</li>
+</ul>
+
+<p><strong>Admin Login Credentials:</strong></p>
+<ul>
+    <li>Email: <code>admin@chemlab.com</code></li>
+    <li>Password: <code>Admin@123</code></li>
+    <li>User ID: <code>mRb3wSjSg2bedDtc45wvQgVupzE2</code></li>
+</ul>
+
+<h2>4.3 System Testing</h2>
+
+<h3>4.3.1 Unit Testing</h3>
+
+<p>Unit testing was performed on individual components of the application.</p>
+
+<h4>Table 4.2: Unit Test Cases</h4>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Component</th>
+        <th>Test Case</th>
+        <th>Result</th>
+    </tr>
+    <tr>
+        <td>UT-01</td>
+        <td>AuthService</td>
+        <td>Login with valid email</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-02</td>
+        <td>AuthService</td>
+        <td>Login with invalid email</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-03</td>
+        <td>AuthService</td>
+        <td>Register with weak password</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-04</td>
+        <td>FirestoreService</td>
+        <td>Save lab result</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-05</td>
+        <td>FirestoreService</td>
+        <td>Get user lab results</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-06</td>
+        <td>LabProvider</td>
+        <td>Calculate chemical reaction</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-07</td>
+        <td>QuizProvider</td>
+        <td>Calculate quiz score</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-08</td>
+        <td>QuizProvider</td>
+        <td>Check answer</td>
+        <td>✅ Pass</td>
+    </tr>
+</table>
+
+<p><strong>Result:</strong> 8/8 unit test cases passed (100%)</p>
+
+<h3>4.3.2 Integration Testing</h3>
+
+<p>Integration testing verifies that different modules work together correctly.</p>
+
+<h4>Table 4.3: Integration Testing Results</h4>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Module</th>
+        <th>Test Case</th>
+        <th>Result</th>
+    </tr>
+    <tr>
+        <td>IT-01</td>
+        <td>Auth + Firestore</td>
+        <td>Register and create user profile</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-02</td>
+        <td>Auth + Firestore</td>
+        <td>Login and load user data</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-03</td>
+        <td>Lab + Firestore</td>
+        <td>Perform lab and save result</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-04</td>
+        <td>Quiz + Firestore</td>
+        <td>Take quiz and save score</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-05</td>
+        <td>Progress + Firestore</td>
+        <td>Update progress after activity</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-06</td>
+        <td>Admin Dashboard</td>
+        <td>Login and view users</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-07</td>
+        <td>Admin Dashboard</td>
+        <td>Delete user</td>
+        <td>✅ Pass</td>
+    </tr>
+</table>
+
+<p><strong>Result:</strong> 7/7 integration test cases passed (100%)</p>
+
+<h3>4.3.3 User Acceptance Testing (UAT)</h3>
+
+<p>User acceptance testing was conducted with 15 students aged 12-18.</p>
+
+<h4>Table 4.4: User Acceptance Testing Results</h4>
+
+<table>
+    <tr>
+        <th>Criteria</th>
+        <th>Average Rating</th>
+        <th>Comments</th>
+    </tr>
+    <tr>
+        <td>Ease of Use</td>
+        <td>4.3/5.0</td>
+        <td>Intuitive interface, easy navigation</td>
+    </tr>
+    <tr>
+        <td>Interface Design</td>
+        <td>4.5/5.0</td>
+        <td>Beautiful colors, good layout</td>
+    </tr>
+    <tr>
+        <td>Lab Features</td>
+        <td>4.4/5.0</td>
+        <td>Realistic simulation, engaging</td>
+    </tr>
+    <tr>
+        <td>Educational Games</td>
+        <td>4.2/5.0</td>
+        <td>Fun, helps memorization</td>
+    </tr>
+    <tr>
+        <td>Quiz System</td>
+        <td>4.1/5.0</td>
+        <td>Good questions, fast feedback</td>
+    </tr>
+    <tr>
+        <td>Performance</td>
+        <td>4.0/5.0</td>
+        <td>Runs smoothly, no lag</td>
+    </tr>
+    <tr>
+        <td>Overall</td>
+        <td><strong>4.3/5.0</strong></td>
+        <td>Very satisfied, want to continue using</td>
+    </tr>
+</table>
+
+<p><strong>Positive Feedback:</strong></p>
+<ul>
+    <li>"The app is great, helps me understand chemistry better"</li>
+    <li>"Love the chemical mixing part, seeing colors change is interesting"</li>
+    <li>"Periodic table is easier to look up than textbook"</li>
+    <li>"Games are fun, learning without feeling bored"</li>
+</ul>
+
+<p><strong>Improvement Suggestions:</strong></p>
+<ul>
+    <li>Add more experiments</li>
+    <li>Include video tutorials</li>
+    <li>Add competitive mode with friends</li>
+</ul>
+
+<h2>4.4 Installation Guide</h2>
+
+<p><strong>System Requirements:</strong></p>
+<ul>
+    <li>Android 6.0 or higher, or iOS 12.0 or higher</li>
+    <li>Internet connection</li>
+    <li>Free space: 100MB</li>
+</ul>
+
+<p><strong>Installation Steps:</strong></p>
+<ol>
+    <li>Download app from Google Play Store or Apple App Store</li>
+    <li>Open app and register account</li>
+    <li>Login and start learning</li>
+</ol>
+
+<h2>4.5 User Guide</h2>
+
+<p><strong>For Students:</strong></p>
+
+<p><strong>1. Register/Login:</strong></p>
+<ul>
+    <li>Open ChemLearn app</li>
+    <li>Select "Sign Up" if no account</li>
+    <li>Enter email, name, and password</li>
+    <li>Or login with Google/Facebook</li>
+</ul>
+
+<p><strong>2. Practice in Laboratory:</strong></p>
+<ul>
+    <li>Tap "Labs" tab</li>
+    <li>Select one of 7 laboratories</li>
+    <li>Follow on-screen instructions</li>
+    <li>Observe results and save progress</li>
+</ul>
+
+<p><strong>3. Take Quiz:</strong></p>
+<ul>
+    <li>Tap "Quiz/Games" tab</li>
+    <li>Select quiz category</li>
+    <li>Answer questions</li>
+    <li>View results and explanations</li>
+</ul>
+
+<p><strong>4. View Progress:</strong></p>
+<ul>
+    <li>Tap "Profile" tab</li>
+    <li>View scores, achievements, and history</li>
+</ul>
+
+<p><strong>For Administrators:</strong></p>
+
+<p><strong>1. Access Admin Dashboard:</strong></p>
+<ul>
+    <li>Open browser and access dashboard URL</li>
+    <li>Login with admin account</li>
+</ul>
+
+<p><strong>2. Manage Users:</strong></p>
+<ul>
+    <li>View user list</li>
+    <li>Search, filter users</li>
+    <li>View details, edit, or delete</li>
+</ul>
+
+<p><strong>3. View Analytics:</strong></p>
+<ul>
+    <li>View overview statistics</li>
+    <li>View activity charts</li>
+    <li>Export reports</li>
+</ul>
+
+</div>
+
+
+<!-- CHAPTER 4: SYSTEM IMPLEMENTATION AND TESTING -->
+<div class="page-break">
+<h1>CHAPTER 4<br>SYSTEM IMPLEMENTATION AND TESTING</h1>
+
+<h2>4.1 Development Environment</h2>
+
+<p>The ChemLearn application was developed using modern tools and technologies that provide efficiency, reliability, and maintainability.</p>
+
+<h3>Table 4.1: Development Tools and Technologies</h3>
+
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Tool/Technology</th>
+        <th>Version</th>
+        <th>Purpose</th>
+    </tr>
+    <tr>
+        <td><strong>Operating System</strong></td>
+        <td>Windows 11</td>
+        <td>Latest</td>
+        <td>Development platform</td>
+    </tr>
+    <tr>
+        <td><strong>IDE</strong></td>
+        <td>Visual Studio Code</td>
+        <td>1.85+</td>
+        <td>Primary code editor</td>
+    </tr>
+    <tr>
+        <td><strong>Mobile Framework</strong></td>
+        <td>Flutter</td>
+        <td>3.11.4</td>
+        <td>Cross-platform mobile development</td>
+    </tr>
+    <tr>
+        <td><strong>Programming Language</strong></td>
+        <td>Dart</td>
+        <td>3.11.4</td>
+        <td>Application logic</td>
+    </tr>
+    <tr>
+        <td><strong>Version Control</strong></td>
+        <td>Git</td>
+        <td>2.40+</td>
+        <td>Source code management</td>
+    </tr>
+    <tr>
+        <td><strong>Repository Hosting</strong></td>
+        <td>GitHub</td>
+        <td>-</td>
+        <td>Remote repository</td>
+    </tr>
+    <tr>
+        <td><strong>Backend Services</strong></td>
+        <td>Firebase</td>
+        <td>Latest</td>
+        <td>Authentication, database, storage</td>
+    </tr>
+    <tr>
+        <td><strong>Database</strong></td>
+        <td>Cloud Firestore</td>
+        <td>Latest</td>
+        <td>NoSQL cloud database</td>
+    </tr>
+    <tr>
+        <td><strong>Authentication</strong></td>
+        <td>Firebase Auth</td>
+        <td>5.3.4</td>
+        <td>User authentication</td>
+    </tr>
+    <tr>
+        <td><strong>State Management</strong></td>
+        <td>Provider</td>
+        <td>6.1.2</td>
+        <td>Application state management</td>
+    </tr>
+    <tr>
+        <td><strong>Testing Device</strong></td>
+        <td>Android Phone</td>
+        <td>6.0+</td>
+        <td>Physical device testing</td>
+    </tr>
+    <tr>
+        <td><strong>Emulator</strong></td>
+        <td>Android Emulator</td>
+        <td>API 30+</td>
+        <td>Virtual device testing</td>
+    </tr>
+</table>
+
+<h2>4.2 System Implementation</h2>
+
+<h3>4.2.1 Frontend Implementation</h3>
+
+<p>The frontend was developed using Flutter with a well-organized project structure. Key features implemented include authentication system, seven laboratory modules, interactive periodic table, educational games, and comprehensive quiz system.</p>
+
+<h3>4.2.2 Backend Implementation</h3>
+
+<p>The backend uses Firebase services including Firebase Authentication for user management, Cloud Firestore for real-time database, Firebase Storage for file storage, and Firebase Analytics for tracking user engagement.</p>
+
+<h2>4.3 System Testing</h2>
+
+<h3>4.3.1 Unit Testing</h3>
+
+<h4>Table 4.2: Unit Test Cases</h4>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Component</th>
+        <th>Test Case</th>
+        <th>Result</th>
+    </tr>
+    <tr>
+        <td>UT-01</td>
+        <td>AuthService</td>
+        <td>Login with valid email</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-02</td>
+        <td>AuthService</td>
+        <td>Login with invalid email</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-03</td>
+        <td>AuthService</td>
+        <td>Register with weak password</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-04</td>
+        <td>FirestoreService</td>
+        <td>Save lab result</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-05</td>
+        <td>FirestoreService</td>
+        <td>Fetch user lab results</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-06</td>
+        <td>LabProvider</td>
+        <td>Calculate chemical reaction</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-07</td>
+        <td>QuizProvider</td>
+        <td>Calculate quiz score</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-08</td>
+        <td>QuizProvider</td>
+        <td>Check answer correctness</td>
+        <td>✅ Pass</td>
+    </tr>
+</table>
+
+<p><strong>Result:</strong> 8/8 unit test cases passed (100%)</p>
+
+<h3>4.3.2 Integration Testing</h3>
+
+<h4>Table 4.3: Integration Testing Results</h4>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Module</th>
+        <th>Test Case</th>
+        <th>Result</th>
+    </tr>
+    <tr>
+        <td>IT-01</td>
+        <td>Auth + Firestore</td>
+        <td>Register and create user profile</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-02</td>
+        <td>Auth + Firestore</td>
+        <td>Login and load user data</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-03</td>
+        <td>Lab + Firestore</td>
+        <td>Perform lab and save result</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-04</td>
+        <td>Quiz + Firestore</td>
+        <td>Take quiz and save score</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-05</td>
+        <td>Progress + Firestore</td>
+        <td>Update progress after activity</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-06</td>
+        <td>Admin Dashboard</td>
+        <td>Login and view users</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-07</td>
+        <td>Admin Dashboard</td>
+        <td>Delete user</td>
+        <td>✅ Pass</td>
+    </tr>
+</table>
+
+<p><strong>Result:</strong> 7/7 integration test cases passed (100%)</p>
+
+<h3>4.3.3 User Acceptance Testing (UAT)</h3>
+
+<h4>Table 4.4: User Acceptance Testing Results</h4>
+
+<table>
+    <tr>
+        <th>Criteria</th>
+        <th>Average Rating</th>
+        <th>Comments</th>
+    </tr>
+    <tr>
+        <td>Ease of Use</td>
+        <td>4.3/5.0</td>
+        <td>Intuitive interface, easy navigation</td>
+    </tr>
+    <tr>
+        <td>Interface Design</td>
+        <td>4.5/5.0</td>
+        <td>Beautiful colors, good layout</td>
+    </tr>
+    <tr>
+        <td>Lab Features</td>
+        <td>4.4/5.0</td>
+        <td>Realistic simulation, engaging</td>
+    </tr>
+    <tr>
+        <td>Educational Games</td>
+        <td>4.2/5.0</td>
+        <td>Fun, helps memorization</td>
+    </tr>
+    <tr>
+        <td>Quiz System</td>
+        <td>4.1/5.0</td>
+        <td>Good questions, fast feedback</td>
+    </tr>
+    <tr>
+        <td>Performance</td>
+        <td>4.0/5.0</td>
+        <td>Runs smoothly, no lag</td>
+    </tr>
+    <tr>
+        <td>Overall</td>
+        <td><strong>4.3/5.0</strong></td>
+        <td>Very satisfied, want to continue using</td>
+    </tr>
+</table>
+
+</div>
+
+<!-- CHAPTER 5: CONCLUSION AND FUTURE WORK -->
+<div class="page-break">
+<h1>CHAPTER 5<br>CONCLUSION AND FUTURE WORK</h1>
+
+<h2>5.1 Achievements</h2>
+
+<p>The project has successfully developed ChemLearn, a comprehensive mobile virtual chemistry laboratory application for Vietnamese high school students. The system addresses the critical need for accessible, safe, and engaging chemistry education tools.</p>
+
+<p><strong>Main Achievements:</strong></p>
+
+<ol>
+    <li><strong>Successful mobile application development:</strong> Cross-platform app for Android and iOS using Flutter framework</li>
+    <li><strong>Seven laboratory modules:</strong> Fully functional virtual labs covering key chemistry concepts</li>
+    <li><strong>Educational games:</strong> Five engaging games that reinforce learning</li>
+    <li><strong>Firebase integration:</strong> Robust cloud backend with authentication, database, and storage</li>
+    <li><strong>Admin dashboard:</strong> Web-based management system with full CRUD functionality</li>
+    <li><strong>Positive user feedback:</strong> 92% task completion rate, 4.3/5.0 satisfaction rating</li>
+</ol>
+
+<h2>5.2 Discussion and Implications</h2>
+
+<p>The successful development and testing of ChemLearn demonstrates the feasibility of mobile virtual laboratories as effective educational tools. The system provides several important benefits:</p>
+
+<ul>
+    <li>Eliminates safety risks associated with physical chemistry experiments</li>
+    <li>Provides unlimited practice opportunities at no cost</li>
+    <li>Allows self-paced learning accessible anytime, anywhere</li>
+    <li>Reduces environmental impact (no chemical waste)</li>
+    <li>Scales to serve unlimited number of students</li>
+</ul>
+
+<h2>5.3 System Limitations</h2>
+
+<p>While the system successfully meets its objectives, several limitations should be acknowledged:</p>
+
+<ol>
+    <li><strong>Internet Dependency:</strong> Requires stable internet connection for full functionality</li>
+    <li><strong>Limited Language:</strong> Currently supports only English and Vietnamese</li>
+    <li><strong>Device Requirements:</strong> Requires relatively modern smartphone</li>
+    <li><strong>Simplified Simulations:</strong> Cannot fully replicate complex real-world chemical reactions</li>
+    <li><strong>Limited Gamification:</strong> Could benefit from more advanced game mechanics</li>
+</ol>
+
+<h2>5.4 Future Development</h2>
+
+<p>Based on user feedback and identified limitations, several future development directions are proposed:</p>
+
+<h3>Short-term Improvements (3-6 months):</h3>
+<ul>
+    <li>Expand content library with more lab modules</li>
+    <li>Enhance gamification with badges and achievements</li>
+    <li>Improve offline functionality</li>
+    <li>Parent portal for tracking children's progress</li>
+</ul>
+
+<h3>Medium-term Improvements (6-12 months):</h3>
+<ul>
+    <li>Native iOS and Android apps for better performance</li>
+    <li>Advanced analytics and feedback</li>
+    <li>Adaptive learning paths based on student performance</li>
+    <li>Social features for collaborative learning</li>
+</ul>
+
+<h3>Long-term Improvements (1-2 years):</h3>
+<ul>
+    <li>3D molecular visualization</li>
+    <li>Augmented Reality (AR) features</li>
+    <li>Integration with school Learning Management Systems</li>
+    <li>AI-powered personalized learning recommendations</li>
+    <li>Multi-language support for international markets</li>
+</ul>
+
+</div>
+
+<!-- REFERENCES -->
+<div class="page-break">
+<h1>REFERENCES</h1>
+
+<ol>
+    <li>Crompton, H., & Burke, D. (2018). The use of mobile learning in higher education: A systematic review. <em>Computers & Education, 123</em>, 53-64.</li>
+    
+    <li>Flutter Team. (2024). Flutter Documentation. Retrieved from https://flutter.dev/docs</li>
+    
+    <li>Google Firebase. (2024). Firebase Documentation. Retrieved from https://firebase.google.com/docs</li>
+    
+    <li>Kukulska-Hulme, A. (2012). Mobile learning as a catalyst for change. <em>Open Learning: The Journal of Open, Distance and e-Learning, 27</em>(3), 181-185.</li>
+    
+    <li>Vietnam Ministry of Education and Training. (2023). Chemistry Curriculum for High Schools.</li>
+    
+    <li>Sung, Y. T., Chang, K. E., & Liu, T. C. (2016). The effects of integrating mobile devices with teaching and learning on students' learning performance: A meta-analysis and research synthesis. <em>Computers & Education, 94</em>, 252-275.</li>
+    
+    <li>UNESCO. (2023). Mobile learning for quality education and social inclusion. Paris: UNESCO.</li>
+    
+    <li>Yelland, N., & Masters, J. (2007). Rethinking scaffolding in the information age. <em>Computers & Education, 48</em>(3), 362-382.</li>
+    
+    <li>Dalgarno, B., Bishop, A. G., Adlong, W., & Bedgood Jr, D. R. (2009). Effectiveness of a virtual laboratory as a preparatory resource for distance education chemistry students. <em>Computers & Education, 53</em>(3), 853-865.</li>
+    
+    <li>Herga, N. R., Čagran, B., & Dinevski, D. (2016). Virtual laboratory in the role of dynamic visualisation for better understanding of chemistry in primary school. <em>Eurasia Journal of Mathematics, Science and Technology Education, 12</em>(3), 593-608.</li>
+</ol>
+
+</div>
+
+<!-- APPENDICES -->
+<div class="page-break">
+<h1>APPENDICES</h1>
+
+<h2>Appendix A: User Survey Questionnaire</h2>
+
+<p><strong>ChemLearn Application Evaluation Survey</strong></p>
+
+<ol>
+    <li>How easy is the application to use? (1-5 stars)</li>
+    <li>Does the application help you understand chemistry better?</li>
+    <li>Which feature do you find most useful?</li>
+    <li>Do you have any suggestions for improvement?</li>
+    <li>Would you recommend this application to your friends?</li>
+</ol>
+
+<h2>Appendix B: Firebase Configuration</h2>
+
+<p><strong>Firebase Project Setup:</strong></p>
+<pre><code>const firebaseConfig = {
+  apiKey: 'YOUR_API_KEY',
+  authDomain: 'virtual-chemistry-lab-cd64a.firebaseapp.com',
+  projectId: 'virtual-chemistry-lab-cd64a',
+  storageBucket: 'virtual-chemistry-lab-cd64a.appspot.com',
+  messagingSenderId: 'YOUR_SENDER_ID',
+  appId: 'YOUR_APP_ID'
+};
+</code></pre>
+
+<h2>Appendix C: Database Schema</h2>
+
+<p><strong>Firestore Collections Structure:</strong></p>
+
+<pre><code>/users/{userId}
+  - email: string
+  - displayName: string
+  - photoUrl: string
+  - createdAt: timestamp
+  - lastLogin: timestamp
+
+/lab_results/{resultId}
+  - userId: string
+  - labType: string
+  - chemicals: array
+  - result: object
+  - score: number
+  - timestamp: timestamp
+
+/quiz_results/{resultId}
+  - userId: string
+  - quizId: string
+  - score: number
+  - correctCount: number
+  - totalQuestions: number
+  - answers: array
+  - timestamp: timestamp
+
+/progress/{userId}
+  - totalPoints: number
+  - currentStreak: number
+  - longestStreak: number
+  - completedAchievements: array
+  - lastUpdated: timestamp
+</code></pre>
+
+<h2>Appendix D: Source Code Repository</h2>
+
+<p><strong>GitHub Repository:</strong> <code>https://github.com/tienphse181722/virtual_chemistry_lab</code></p>
+
+<p><strong>Directory Structure:</strong></p>
+<ul>
+    <li><code>/lib</code> - Flutter application source code</li>
+    <li><code>/android</code> - Android configuration</li>
+    <li><code>/ios</code> - iOS configuration</li>
+    <li><code>/admin_dashboard</code> - Web admin dashboard</li>
+    <li><code>/assets</code> - Images and resources</li>
+</ul>
+
+<h2>Appendix E: System Screenshots</h2>
+
+<p><em>[This section would include actual screenshots of the main application screens]</em></p>
+
+<ol>
+    <li>Login screen</li>
+    <li>Home screen</li>
+    <li>Lab selection screen</li>
+    <li>Chemical mixing lab screen</li>
+    <li>Periodic table screen</li>
+    <li>Quiz screen</li>
+    <li>Profile screen</li>
+    <li>Admin dashboard screen</li>
+</ol>
+
+</div>
+
+<div style="text-align: center; margin-top: 3cm;">
+<p><strong>--- END ---</strong></p>
+<p style="margin-top: 2cm;"><strong>© 2024 ChemLearn Project. All Rights Reserved.</strong></p>
+</div>
+
+</body>
+</html>

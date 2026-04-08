@@ -1,0 +1,2797 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemLearn - Báo Cáo Đồ Án Tốt Nghiệp</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2.5cm 2cm 2cm 2.5cm;
+        }
+        
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 13pt;
+            line-height: 1.5;
+            color: #000;
+            background: #fff;
+            max-width: 21cm;
+            margin: 0 auto;
+            padding: 2.5cm 2cm;
+        }
+        
+        h1 {
+            font-size: 16pt;
+            font-weight: bold;
+            text-align: center;
+            margin: 1.5cm 0 1cm 0;
+            text-transform: uppercase;
+            page-break-after: avoid;
+        }
+        
+        h2 {
+            font-size: 14pt;
+            font-weight: bold;
+            margin: 1cm 0 0.5cm 0;
+            page-break-after: avoid;
+        }
+        
+        h3 {
+            font-size: 13pt;
+            font-weight: bold;
+            margin: 0.8cm 0 0.4cm 0;
+            page-break-after: avoid;
+        }
+        
+        h4 {
+            font-size: 13pt;
+            font-weight: bold;
+            font-style: italic;
+            margin: 0.6cm 0 0.3cm 0;
+        }
+        
+        p {
+            text-align: justify;
+            margin-bottom: 0.5cm;
+            text-indent: 1.27cm;
+        }
+        
+        p.no-indent {
+            text-indent: 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5cm 0 1cm 0;
+            font-size: 12pt;
+        }
+        
+        th, td {
+            border: 1px solid #000;
+            padding: 0.4cm;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        th {
+            background-color: #4472C4;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #F2F2F2;
+        }
+        
+        ul, ol {
+            margin-left: 2cm;
+            margin-bottom: 0.5cm;
+        }
+        
+        li {
+            margin-bottom: 0.3cm;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+            background-color: #F5F5F5;
+            padding: 0.1cm 0.3cm;
+            font-size: 11pt;
+            border-radius: 3px;
+        }
+        
+        pre {
+            background-color: #F5F5F5;
+            border: 1px solid #DDD;
+            padding: 0.5cm;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 10pt;
+            line-height: 1.4;
+            margin: 0.5cm 0;
+            border-radius: 5px;
+        }
+        
+        .page-break {
+            page-break-after: always;
+        }
+        
+        .figure {
+            text-align: center;
+            margin: 1cm 0;
+            padding: 0.5cm;
+            border: 1px solid #DDD;
+            background-color: #FAFAFA;
+        }
+        
+        .figure-caption {
+            font-style: italic;
+            margin-top: 0.5cm;
+            font-size: 12pt;
+            font-weight: bold;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            table, .figure {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- TRANG BÌA -->
+<div class="page-break">
+    <div style="text-align: center; margin-top: 5cm;">
+        <p style="font-size: 14pt; font-weight: bold; text-indent: 0;">ĐẠI HỌC FPT</p>
+        <p style="font-size: 14pt; font-weight: bold; text-indent: 0;">KHOA CÔNG NGHỆ THÔNG TIN</p>
+        
+        <div style="margin: 3cm 0;">
+            <h1 style="font-size: 20pt; margin-bottom: 1cm;">ỨNG DỤNG PHÒNG THÍ NGHIỆM<br>HÓA HỌC ẢO TRÊN NỀN TẢNG DI ĐỘNG</h1>
+            <h2 style="font-size: 16pt; font-weight: normal;">VIRTUAL CHEMISTRY LAB MOBILE APPLICATION</h2>
+        </div>
+        
+        <p style="font-size: 14pt; margin: 2cm 0; text-indent: 0;">
+            <strong>BÁO CÁO ĐỒ ÁN TỐT NGHIỆP</strong>
+        </p>
+        
+        <p style="font-size: 13pt; margin: 2cm 0; text-indent: 0; text-align: left; margin-left: 6cm;">
+            <strong>Sinh viên thực hiện:</strong> [Họ và tên]<br>
+            <strong>Mã số sinh viên:</strong> [MSSV]<br>
+            <strong>Chuyên ngành:</strong> Công Nghệ Thông Tin<br>
+            <strong>Giảng viên hướng dẫn:</strong> [Tên giảng viên]
+        </p>
+        
+        <p style="font-size: 14pt; margin-top: 3cm; text-indent: 0;">
+            <strong>Hà Nội, năm 2024</strong>
+        </p>
+    </div>
+</div>
+
+<!-- MỤC LỤC -->
+<div class="page-break">
+    <h1>MỤC LỤC</h1>
+    <p class="no-indent"><strong>CHƯƠNG 1: GIỚI THIỆU</strong></p>
+    <p class="no-indent" style="margin-left: 1cm;">1.1 Bối cảnh dự án</p>
+    <p class="no-indent" style="margin-left: 1cm;">1.2 Vấn đề nghiên cứu</p>
+    <p class="no-indent" style="margin-left: 1cm;">1.3 Mục tiêu dự án</p>
+    <p class="no-indent" style="margin-left: 1cm;">1.4 Phạm vi dự án</p>
+    <p class="no-indent" style="margin-left: 1cm;">1.5 Kế hoạch thực hiện</p>
+    
+    <p class="no-indent"><strong>CHƯƠNG 2: CÁC DỰ ÁN VÀ SẢN PHẨM TƯƠNG TỰ</strong></p>
+    <p class="no-indent" style="margin-left: 1cm;">2.1 Tổng quan về hệ thống học tập di động</p>
+    <p class="no-indent" style="margin-left: 1cm;">2.2 Firebase và dịch vụ đám mây</p>
+    <p class="no-indent" style="margin-left: 1cm;">2.3 Flutter Framework</p>
+    <p class="no-indent" style="margin-left: 1cm;">2.4 Đánh giá các sản phẩm tương tự</p>
+    <p class="no-indent" style="margin-left: 1cm;">2.5 Thiết kế giao diện người dùng</p>
+    <p class="no-indent" style="margin-left: 1cm;">2.6 Tổng kết</p>
+    
+    <p class="no-indent"><strong>CHƯƠNG 3: PHÂN TÍCH VÀ THIẾT KẾ HỆ THỐNG</strong></p>
+    <p class="no-indent" style="margin-left: 1cm;">3.1 Nghiên cứu tính khả thi</p>
+    <p class="no-indent" style="margin-left: 1cm;">3.2 Phân tích yêu cầu</p>
+    <p class="no-indent" style="margin-left: 1cm;">3.3 Phương pháp phát triển hệ thống</p>
+    <p class="no-indent" style="margin-left: 1cm;">3.4 Mô hình hóa dữ liệu và quy trình</p>
+    <p class="no-indent" style="margin-left: 1cm;">3.5 Thiết kế hệ thống</p>
+    
+    <p class="no-indent"><strong>CHƯƠNG 4: TRIỂN KHAI VÀ KIỂM THỬ HỆ THỐNG</strong></p>
+    <p class="no-indent" style="margin-left: 1cm;">4.1 Môi trường phát triển</p>
+    <p class="no-indent" style="margin-left: 1cm;">4.2 Triển khai hệ thống</p>
+    <p class="no-indent" style="margin-left: 1cm;">4.3 Kiểm thử hệ thống</p>
+    <p class="no-indent" style="margin-left: 1cm;">4.4 Hướng dẫn cài đặt</p>
+    <p class="no-indent" style="margin-left: 1cm;">4.5 Hướng dẫn sử dụng</p>
+    
+    <p class="no-indent"><strong>CHƯƠNG 5: TỔNG KẾT VÀ KẾT LUẬN</strong></p>
+    <p class="no-indent" style="margin-left: 1cm;">5.1 Kết quả đạt được</p>
+    <p class="no-indent" style="margin-left: 1cm;">5.2 Thảo luận và ý nghĩa</p>
+    <p class="no-indent" style="margin-left: 1cm;">5.3 Hạn chế của hệ thống</p>
+    <p class="no-indent" style="margin-left: 1cm;">5.4 Hướng phát triển tương lai</p>
+    
+    <p class="no-indent"><strong>TÀI LIỆU THAM KHẢO</strong></p>
+    <p class="no-indent"><strong>PHỤ LỤC</strong></p>
+</div>
+
+<!-- DANH MỤC BẢNG BIỂU -->
+<div class="page-break">
+    <h1>DANH MỤC BẢNG BIỂU</h1>
+    <p class="no-indent">Bảng 1.1: Kế hoạch triển khai dự án</p>
+    <p class="no-indent">Bảng 2.1: So sánh các sản phẩm tương tự</p>
+    <p class="no-indent">Bảng 3.1: Phân tích chi phí - lợi ích</p>
+    <p class="no-indent">Bảng 3.2: Yêu cầu chức năng</p>
+    <p class="no-indent">Bảng 3.3: Yêu cầu phi chức năng</p>
+    <p class="no-indent">Bảng 3.4: Mô tả các bảng cơ sở dữ liệu</p>
+    <p class="no-indent">Bảng 4.1: Công cụ và công nghệ phát triển</p>
+    <p class="no-indent">Bảng 4.2: Các ca kiểm thử đơn vị</p>
+    <p class="no-indent">Bảng 4.3: Kết quả kiểm thử tích hợp</p>
+    <p class="no-indent">Bảng 4.4: Kết quả kiểm thử chấp nhận người dùng</p>
+</div>
+
+<!-- DANH MỤC HÌNH ẢNH -->
+<div class="page-break">
+    <h1>DANH MỤC HÌNH ẢNH</h1>
+    <p class="no-indent">Hình 3.1: Chu trình phát triển hệ thống</p>
+    <p class="no-indent">Hình 3.2: Biểu đồ Use Case</p>
+    <p class="no-indent">Hình 3.3: Biểu đồ ngữ cảnh</p>
+    <p class="no-indent">Hình 3.4: Biểu đồ luồng dữ liệu cấp 0</p>
+    <p class="no-indent">Hình 3.5: Biểu đồ luồng dữ liệu cấp 1</p>
+    <p class="no-indent">Hình 3.6: Biểu đồ tuần tự - Đăng nhập</p>
+    <p class="no-indent">Hình 3.7: Biểu đồ tuần tự - Thực hành thí nghiệm</p>
+    <p class="no-indent">Hình 3.8: Biểu đồ tuần tự - Làm bài quiz</p>
+    <p class="no-indent">Hình 3.9: Biểu đồ thực thể kết hợp (ERD)</p>
+    <p class="no-indent">Hình 3.10: Kiến trúc hệ thống</p>
+    <p class="no-indent">Hình 3.11: Giao diện đăng nhập</p>
+    <p class="no-indent">Hình 3.12: Giao diện trang chủ</p>
+    <p class="no-indent">Hình 3.13: Giao diện chọn phòng thí nghiệm</p>
+    <p class="no-indent">Hình 3.14: Giao diện bảng tuần hoàn</p>
+    <p class="no-indent">Hình 3.15: Giao diện quản trị</p>
+</div>
+
+<!-- DANH MỤC TỪ VIẾT TẮT -->
+<div class="page-break">
+    <h1>DANH MỤC TỪ VIẾT TẮT</h1>
+    <table>
+        <tr>
+            <th style="width: 30%;">Từ viết tắt</th>
+            <th>Nghĩa đầy đủ</th>
+        </tr>
+        <tr>
+            <td>API</td>
+            <td>Application Programming Interface - Giao diện lập trình ứng dụng</td>
+        </tr>
+        <tr>
+            <td>CRUD</td>
+            <td>Create, Read, Update, Delete - Tạo, Đọc, Cập nhật, Xóa</td>
+        </tr>
+        <tr>
+            <td>DFD</td>
+            <td>Data Flow Diagram - Biểu đồ luồng dữ liệu</td>
+        </tr>
+        <tr>
+            <td>ERD</td>
+            <td>Entity Relationship Diagram - Biểu đồ thực thể kết hợp</td>
+        </tr>
+        <tr>
+            <td>JSON</td>
+            <td>JavaScript Object Notation - Ký hiệu đối tượng JavaScript</td>
+        </tr>
+        <tr>
+            <td>REST</td>
+            <td>Representational State Transfer</td>
+        </tr>
+        <tr>
+            <td>SDLC</td>
+            <td>Software Development Life Cycle - Chu trình phát triển phần mềm</td>
+        </tr>
+        <tr>
+            <td>UI</td>
+            <td>User Interface - Giao diện người dùng</td>
+        </tr>
+        <tr>
+            <td>UX</td>
+            <td>User Experience - Trải nghiệm người dùng</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
+
+<!-- CHƯƠNG 1: GIỚI THIỆU -->
+<div class="page-break">
+<h1>CHƯƠNG 1<br>GIỚI THIỆU</h1>
+
+<h2>1.1 Bối cảnh dự án</h2>
+
+<p>Hóa học là một môn khoa học cơ bản đóng vai trò quan trọng trong việc hiểu biết về thế giới xung quanh chúng ta. Từ thành phần của vật chất đến các phản ứng xảy ra trong cuộc sống hàng ngày, hóa học cung cấp kiến thức thiết yếu cho học sinh theo đuổi sự nghiệp trong khoa học, y học, kỹ thuật và công nghệ. Tuy nhiên, việc học hóa học, đặc biệt ở cấp trung học phổ thông, đặt ra những thách thức đáng kể cho cả học sinh và giáo viên.</p>
+
+<p>Giáo dục hóa học truyền thống phụ thuộc nhiều vào các thí nghiệm trong phòng thí nghiệm để giúp học sinh hiểu các khái niệm trừu tượng thông qua trải nghiệm thực hành. Công việc trong phòng thí nghiệm cho phép học sinh quan sát các phản ứng hóa học, thực hành các kỹ thuật phù hợp và phát triển kỹ năng tư duy phản biện. Tuy nhiên, việc tiếp cận các phòng thí nghiệm hóa học được trang bị đầy đủ bị hạn chế ở nhiều cơ sở giáo dục, đặc biệt là ở các nước đang phát triển như Việt Nam.</p>
+
+<p>Một số yếu tố góp phần vào những thách thức trong giáo dục hóa học:</p>
+
+<ul>
+    <li><strong>Nguồn lực phòng thí nghiệm hạn chế:</strong> Nhiều trường học thiếu cơ sở vật chất, thiết bị và hóa chất phòng thí nghiệm đầy đủ. Xây dựng và duy trì phòng thí nghiệm hóa học đòi hỏi đầu tư tài chính đáng kể mà nhiều trường không đủ khả năng.</li>
+    <li><strong>Vấn đề an toàn:</strong> Các thí nghiệm hóa học liên quan đến việc xử lý các vật liệu có khả năng nguy hiểm, bao gồm axit ăn mòn, chất dễ cháy và hợp chất độc hại. Đảm bảo an toàn cho học sinh đòi hỏi thiết bị an toàn phù hợp, giám sát được đào tạo và các quy trình nghiêm ngặt.</li>
+    <li><strong>Chi phí vật liệu:</strong> Hóa chất và thiết bị phòng thí nghiệm đắt tiền và cần được bổ sung thường xuyên. Nhiều trường hoạt động với ngân sách hạn chế và phải ưu tiên chi tiêu, thường dẫn đến giảm các hoạt động trong phòng thí nghiệm.</li>
+    <li><strong>Ràng buộc về thời gian:</strong> Tiến hành các thí nghiệm trong phòng thí nghiệm tốn thời gian. Thiết lập thiết bị, thực hiện thí nghiệm, dọn dẹp và đảm bảo các quy trình an toàn đều đòi hỏi thời gian đáng kể.</li>
+    <li><strong>Tác động môi trường:</strong> Chất thải hóa học từ phòng thí nghiệm phải được xử lý đúng cách để tránh ô nhiễm môi trường. Quản lý chất thải đúng cách đòi hỏi nguồn lực và chuyên môn bổ sung mà nhiều trường thiếu.</li>
+    <li><strong>Vấn đề về khả năng mở rộng:</strong> Trong các lớp học lớn, rất khó để cung cấp cho mỗi học sinh trải nghiệm thực hành trong phòng thí nghiệm. Học sinh thường làm việc theo nhóm, điều này có nghĩa là không phải ai cũng có cơ hội ngang nhau để tự thực hiện thí nghiệm.</li>
+</ul>
+
+<p>Sự tiến bộ của công nghệ di động và điện toán đám mây đã mở ra những khả năng mới cho giáo dục. Các ứng dụng di động ngày càng trở nên phổ biến như các công cụ học tập, cung cấp khả năng tiếp cận, tương tác và cá nhân hóa. Học sinh có thể học theo tốc độ của riêng mình, truy cập nội dung mọi lúc mọi nơi và nhận phản hồi ngay lập tức.</p>
+
+<p>Phòng thí nghiệm ảo cung cấp giải pháp cho nhiều thách thức trong giáo dục hóa học truyền thống. Các nền tảng kỹ thuật số này mô phỏng môi trường phòng thí nghiệm và phản ứng hóa học, cho phép học sinh tiến hành thí nghiệm ảo mà không cần thiết bị hoặc hóa chất vật lý. Phòng thí nghiệm ảo mang lại một số lợi thế:</p>
+
+<ul>
+    <li><strong>An toàn:</strong> Học sinh có thể thử nghiệm với các hóa chất và phản ứng nguy hiểm mà không có rủi ro vật lý</li>
+    <li><strong>Hiệu quả về chi phí:</strong> Không cần thiết bị đắt tiền hoặc vật liệu tiêu hao</li>
+    <li><strong>Khả năng tiếp cận:</strong> Học sinh có thể thực hành mọi lúc, mọi nơi bằng thiết bị di động</li>
+    <li><strong>Khả năng lặp lại:</strong> Thí nghiệm có thể được lặp lại không giới hạn để hiểu rõ hơn</li>
+    <li><strong>Khả năng mở rộng:</strong> Có thể phục vụ số lượng học sinh không giới hạn đồng thời</li>
+    <li><strong>Thân thiện với môi trường:</strong> Không có chất thải hóa học hoặc tác động môi trường</li>
+</ul>
+
+<p>Dự án này giải quyết những thách thức này bằng cách phát triển <strong>ChemLearn</strong>, một ứng dụng di động cung cấp phòng thí nghiệm hóa học ảo cho học sinh. Ứng dụng tận dụng các công nghệ hiện đại bao gồm Flutter để phát triển di động đa nền tảng và Firebase cho các dịch vụ backend dựa trên đám mây.</p>
+
+<h2>1.2 Vấn đề nghiên cứu</h2>
+
+<p>Giáo dục hóa học ở Việt Nam và nhiều nước đang phát triển khác đối mặt với những thách thức đáng kể cản trở việc học tập hiệu quả và hạn chế sự tham gia của học sinh với môn học.</p>
+
+<h3>1.2.1 Hạn chế tiếp cận cơ sở vật chất phòng thí nghiệm</h3>
+
+<p>Phần lớn các trường trung học phổ thông ở Việt Nam thiếu cơ sở vật chất phòng thí nghiệm hóa học đầy đủ. Theo các khảo sát giáo dục gần đây, khoảng 60% trường công lập ở khu vực nông thôn không có phòng thí nghiệm hóa học hoạt động, và ngay cả ở khu vực thành thị, nhiều trường có thiết bị lỗi thời hoặc không đủ. Sự thiếu hụt cơ sở hạ tầng này có nghĩa là học sinh có cơ hội thử nghiệm thực hành tối thiểu, điều này rất quan trọng để hiểu các khái niệm hóa học trừu tượng.</p>
+
+<h3>1.2.2 Thách thức về an toàn và quản lý rủi ro</h3>
+
+<p>Các thí nghiệm hóa học liên quan đến rủi ro vốn có khi làm việc với hóa chất phản ứng, nguồn nhiệt và đồ thủy tinh. Nhiều trường thiếu thiết bị an toàn phù hợp như tủ hút khói, bình chữa cháy, kính bảo hộ và áo khoác phòng thí nghiệm. Giáo viên có thể không được đào tạo đầy đủ về các quy trình an toàn trong phòng thí nghiệm.</p>
+
+<h3>1.2.3 Chi phí vận hành cao</h3>
+
+<p>Vận hành phòng thí nghiệm hóa học rất tốn kém:</p>
+<ul>
+    <li>Chi phí thiết lập ban đầu: $10,000 - $50,000</li>
+    <li>Chi phí vận hành hàng năm: $2,000 - $5,000</li>
+    <li>Thay thế thiết bị bị hỏng</li>
+    <li>Xử lý chất thải hóa học đúng cách</li>
+</ul>
+
+<h3>1.2.4 Nhu cầu đổi mới</h3>
+
+<p>Có nhu cầu rõ ràng và cấp bách về các giải pháp sáng tạo có thể:</p>
+<ul>
+    <li>Cung cấp trải nghiệm học hóa học an toàn, dễ tiếp cận</li>
+    <li>Giảm chi phí trong khi duy trì chất lượng giáo dục</li>
+    <li>Cung cấp cơ hội học tập cá nhân hóa, tự định tốc độ</li>
+    <li>Cho phép thực hành và thử nghiệm không giới hạn</li>
+    <li>Mở rộng để phục vụ số lượng lớn học sinh</li>
+</ul>
+
+<h2>1.3 Mục tiêu dự án</h2>
+
+<p>Mục tiêu chính của dự án này là phát triển ChemLearn, một ứng dụng phòng thí nghiệm hóa học ảo di động toàn diện cho học sinh trung học phổ thông. Các mục tiêu cụ thể là:</p>
+
+<h3>1.3.1 Mục tiêu chính</h3>
+
+<p><strong>1. Thiết kế và phát triển ứng dụng di động đa nền tảng</strong> sử dụng Flutter framework cung cấp môi trường phòng thí nghiệm hóa học ảo được thiết kế riêng cho học sinh từ 12-18 tuổi.</p>
+
+<p><strong>2. Triển khai bảy module phòng thí nghiệm ảo toàn diện</strong> bao gồm các khái niệm hóa học chính:</p>
+<ul>
+    <li><strong>Phòng thí nghiệm trộn hóa chất:</strong> Cho phép học sinh trộn các hóa chất khác nhau và quan sát phản ứng, thay đổi màu sắc, hình thành kết tủa</li>
+    <li><strong>Phòng thí nghiệm đốt cháy:</strong> Mô phỏng phản ứng đốt cháy với các chất khác nhau</li>
+    <li><strong>Phòng thí nghiệm điện phân:</strong> Trình diễn quá trình điện phân và phản ứng điện cực</li>
+    <li><strong>Phòng thí nghiệm phân tích định lượng:</strong> Mô phỏng chuẩn độ với 160 tổ hợp (20 chất phân tích × 8 chất chuẩn độ)</li>
+    <li><strong>Phòng thí nghiệm động học phản ứng:</strong> Khám phá các yếu tố ảnh hưởng đến tốc độ phản ứng (15 phản ứng)</li>
+    <li><strong>Phòng thí nghiệm cân bằng phương trình:</strong> Công cụ tương tác để thực hành cân bằng phương trình hóa học</li>
+    <li><strong>Phòng thí nghiệm chọn thiết bị:</strong> Dạy cách lựa chọn và sử dụng thiết bị phòng thí nghiệm phù hợp</li>
+</ul>
+
+<p><strong>3. Tích hợp các dịch vụ đám mây Firebase</strong> cho chức năng backend mạnh mẽ bao gồm Authentication, Cloud Firestore, Firebase Storage và Firebase Analytics.</p>
+
+<p><strong>4. Phát triển tính năng bảng tuần hoàn tương tác</strong> với thông tin chi tiết về tất cả 118 nguyên tố.</p>
+
+<p><strong>5. Tạo các trò chơi giáo dục hấp dẫn</strong> củng cố các khái niệm hóa học.</p>
+
+<p><strong>6. Triển khai hệ thống đánh giá toàn diện</strong> với nhiều danh mục quiz, phản hồi ngay lập tức, theo dõi điểm số và phân tích hiệu suất.</p>
+
+<p><strong>7. Thiết kế và phát triển bảng điều khiển quản trị web</strong> cho phép giáo viên và quản trị viên quản lý người dùng, theo dõi tiến độ và xem phân tích.</p>
+
+<h2>1.4 Phạm vi dự án</h2>
+
+<h3>1.4.1 Trong phạm vi</h3>
+
+<p>Dự án này bao gồm các thành phần và tính năng sau:</p>
+<ul>
+    <li>Ứng dụng di động đa nền tảng cho Android và iOS sử dụng Flutter</li>
+    <li>Bảy module phòng thí nghiệm ảo với mô phỏng tương tác</li>
+    <li>Bảng tuần hoàn tương tác với thông tin nguyên tố</li>
+    <li>Trò chơi giáo dục để củng cố các khái niệm hóa học</li>
+    <li>Hệ thống quiz toàn diện với nhiều danh mục</li>
+    <li>Hồ sơ người dùng và theo dõi tiến độ</li>
+    <li>Dịch vụ backend Firebase (Auth, Firestore, Storage, Analytics)</li>
+    <li>Bảng điều khiển quản trị web với các thao tác CRUD</li>
+    <li>Kiểm thử và tài liệu toàn diện</li>
+</ul>
+
+<h3>1.4.2 Ngoài phạm vi</h3>
+
+<p>Các tính năng sau được loại trừ rõ ràng khỏi dự án này:</p>
+<ul>
+    <li>Trực quan hóa và mô hình hóa phân tử 3D</li>
+    <li>Tính năng thực tế tăng cường (AR) hoặc thực tế ảo (VR)</li>
+    <li>Cộng tác nhiều người chơi theo thời gian thực</li>
+    <li>Tích hợp với hệ thống quản lý học tập của trường (LMS)</li>
+    <li>Chủ đề hóa học cấp đại học hoặc nâng cao</li>
+    <li>Ứng dụng máy tính để bàn (Windows, macOS, Linux)</li>
+    <li>Hỗ trợ nhiều ngôn ngữ ngoài tiếng Anh và tiếng Việt</li>
+</ul>
+
+<h2>1.5 Kế hoạch thực hiện</h2>
+
+<p>Dự án tuân theo kế hoạch triển khai có cấu trúc 16 tuần được chia thành năm giai đoạn chính.</p>
+
+<h3>Bảng 1.1: Kế hoạch triển khai dự án</h3>
+
+<table>
+    <tr>
+        <th>Giai đoạn</th>
+        <th>Hoạt động</th>
+        <th>Thời gian</th>
+        <th>Sản phẩm</th>
+    </tr>
+    <tr>
+        <td><strong>Giai đoạn 1:<br>Lập kế hoạch & Phân tích</strong></td>
+        <td>
+            - Xác định vấn đề<br>
+            - Đánh giá tài liệu<br>
+            - Thu thập yêu cầu<br>
+            - Nghiên cứu tính khả thi
+        </td>
+        <td>2 tuần</td>
+        <td>
+            - Đề xuất dự án<br>
+            - Tài liệu yêu cầu<br>
+            - Báo cáo khả thi
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Giai đoạn 2:<br>Đánh giá tài liệu</strong></td>
+        <td>
+            - Xem xét hệ thống hiện có<br>
+            - Nghiên cứu Flutter & Firebase<br>
+            - Phân tích học tập di động<br>
+            - Nghiên cứu UI/UX
+        </td>
+        <td>4 tuần</td>
+        <td>
+            - Chương đánh giá tài liệu<br>
+            - So sánh công nghệ<br>
+            - Tài liệu thực hành tốt nhất
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Giai đoạn 3:<br>Thiết kế hệ thống</strong></td>
+        <td>
+            - Thiết kế kiến trúc hệ thống<br>
+            - Thiết kế cơ sở dữ liệu<br>
+            - Thiết kế giao diện<br>
+            - Tạo DFD và ERD
+        </td>
+        <td>4 tuần</td>
+        <td>
+            - Tài liệu thiết kế hệ thống<br>
+            - Lược đồ cơ sở dữ liệu<br>
+            - Mockup UI/UX<br>
+            - Biểu đồ DFD và ERD
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Giai đoạn 4:<br>Triển khai & Kiểm thử</strong></td>
+        <td>
+            - Phát triển Frontend<br>
+            - Phát triển Backend<br>
+            - Tích hợp Firebase<br>
+            - Kiểm thử (Unit, Integration, UAT)
+        </td>
+        <td>4 tuần</td>
+        <td>
+            - Hệ thống hoạt động<br>
+            - Mã nguồn<br>
+            - Báo cáo kiểm thử<br>
+            - Hướng dẫn sử dụng
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Giai đoạn 5:<br>Tài liệu & Hoàn thiện</strong></td>
+        <td>
+            - Hoàn thành báo cáo cuối cùng<br>
+            - Tài liệu hệ thống<br>
+            - Chuẩn bị thuyết trình<br>
+            - Kiểm thử cuối cùng
+        </td>
+        <td>2 tuần</td>
+        <td>
+            - Báo cáo đồ án tốt nghiệp<br>
+            - Tài liệu hệ thống<br>
+            - Slide thuyết trình
+        </td>
+    </tr>
+</table>
+
+<h3>1.5.1 Phương pháp phát triển</h3>
+
+<p>Dự án tuân theo phương pháp <strong>Phát triển lặp và tăng dần</strong>:</p>
+<ul>
+    <li><strong>Lặp 1 (Tuần 11-12):</strong> Xác thực cốt lõi, UI cơ bản, một module phòng thí nghiệm, tích hợp Firebase</li>
+    <li><strong>Lặp 2 (Tuần 12-13):</strong> Các module phòng thí nghiệm bổ sung, bảng tuần hoàn, hệ thống quiz, theo dõi tiến độ</li>
+    <li><strong>Lặp 3 (Tuần 13-14):</strong> Trò chơi giáo dục, bảng điều khiển quản trị, kiểm thử, tinh chỉnh</li>
+</ul>
+
+</div>
+
+<!-- CHƯƠNG 2: CÁC DỰ ÁN VÀ SẢN PHẨM TƯƠNG TỰ -->
+<div class="page-break">
+<h1>CHƯƠNG 2<br>CÁC DỰ ÁN VÀ SẢN PHẨM TƯƠNG TỰ</h1>
+
+<h2>2.1 Tổng quan về hệ thống học tập di động</h2>
+
+<p>Học tập di động (Mobile Learning hay M-Learning) đã trở thành một xu hướng quan trọng trong giáo dục hiện đại. Với sự phổ biến của điện thoại thông minh và máy tính bảng, học sinh có thể truy cập tài liệu học tập mọi lúc, mọi nơi.</p>
+
+<h3>2.1.1 Định nghĩa và đặc điểm</h3>
+
+<p>Học tập di động là hình thức học tập sử dụng các thiết bị di động như điện thoại thông minh, máy tính bảng để truy cập nội dung giáo dục. Các đặc điểm chính:</p>
+
+<ul>
+    <li><strong>Tính di động:</strong> Học mọi lúc, mọi nơi</li>
+    <li><strong>Cá nhân hóa:</strong> Nội dung phù hợp với từng người học</li>
+    <li><strong>Tương tác:</strong> Giao diện cảm ứng, phản hồi ngay lập tức</li>
+    <li><strong>Kết nối:</strong> Đồng bộ dữ liệu qua đám mây</li>
+    <li><strong>Đa phương tiện:</strong> Kết hợp văn bản, hình ảnh, video, âm thanh</li>
+</ul>
+
+<h3>2.1.2 Lợi ích của học tập di động</h3>
+
+<p>Nghiên cứu của UNESCO (2023) chỉ ra rằng học tập di động mang lại nhiều lợi ích:</p>
+
+<ul>
+    <li>Tăng khả năng tiếp cận giáo dục cho học sinh ở vùng xa</li>
+    <li>Cải thiện động lực học tập thông qua gamification</li>
+    <li>Hỗ trợ học tập tự định tốc độ</li>
+    <li>Giảm chi phí so với phương pháp truyền thống</li>
+    <li>Cung cấp phản hồi ngay lập tức</li>
+</ul>
+
+<h3>2.1.3 Thách thức</h3>
+
+<p>Tuy nhiên, học tập di động cũng đối mặt với một số thách thức:</p>
+
+<ul>
+    <li>Yêu cầu thiết bị và kết nối Internet</li>
+    <li>Màn hình nhỏ hạn chế hiển thị nội dung phức tạp</li>
+    <li>Nguy cơ phân tâm từ các ứng dụng khác</li>
+    <li>Cần thiết kế giao diện phù hợp với cảm ứng</li>
+</ul>
+
+<h2>2.2 Firebase và dịch vụ đám mây</h2>
+
+<p>Firebase là nền tảng phát triển ứng dụng di động và web được Google cung cấp. Nó cung cấp các dịch vụ backend-as-a-service (BaaS) giúp nhà phát triển xây dựng ứng dụng nhanh chóng mà không cần quản lý máy chủ.</p>
+
+<h3>2.2.1 Các dịch vụ Firebase chính</h3>
+
+<p><strong>1. Firebase Authentication:</strong></p>
+<ul>
+    <li>Xác thực người dùng với nhiều phương thức (email, Google, Facebook, v.v.)</li>
+    <li>Quản lý phiên đăng nhập an toàn</li>
+    <li>Hỗ trợ xác thực đa yếu tố (MFA)</li>
+    <li>Tích hợp dễ dàng với SDK</li>
+</ul>
+
+<p><strong>2. Cloud Firestore:</strong></p>
+<ul>
+    <li>Cơ sở dữ liệu NoSQL linh hoạt, có khả năng mở rộng</li>
+    <li>Đồng bộ dữ liệu thời gian thực</li>
+    <li>Hỗ trợ offline với bộ nhớ đệm cục bộ</li>
+    <li>Truy vấn mạnh mẽ và lập chỉ mục</li>
+    <li>Quy tắc bảo mật linh hoạt</li>
+</ul>
+
+<p><strong>3. Firebase Storage:</strong></p>
+<ul>
+    <li>Lưu trữ file (hình ảnh, video, tài liệu)</li>
+    <li>Tải lên/xuống an toàn</li>
+    <li>Tích hợp với Firebase Authentication</li>
+    <li>CDN toàn cầu cho tốc độ cao</li>
+</ul>
+
+<p><strong>4. Firebase Analytics:</strong></p>
+<ul>
+    <li>Theo dõi hành vi người dùng</li>
+    <li>Phân tích mức độ tương tác</li>
+    <li>Báo cáo chi tiết về sử dụng ứng dụng</li>
+    <li>Tích hợp với Google Analytics</li>
+</ul>
+
+<h3>2.2.2 Ưu điểm của Firebase</h3>
+
+<ul>
+    <li><strong>Dễ sử dụng:</strong> SDK đơn giản, tài liệu phong phú</li>
+    <li><strong>Khả năng mở rộng:</strong> Tự động mở rộng theo nhu cầu</li>
+    <li><strong>Độ tin cậy:</strong> Được Google hỗ trợ, uptime cao</li>
+    <li><strong>Chi phí thấp:</strong> Gói miễn phí cho dự án nhỏ</li>
+    <li><strong>Tích hợp:</strong> Hoạt động tốt với Flutter, React Native, iOS, Android</li>
+</ul>
+
+<h3>2.2.3 Nhược điểm của Firebase</h3>
+
+<ul>
+    <li>Phụ thuộc vào nhà cung cấp (vendor lock-in)</li>
+    <li>Chi phí có thể tăng nhanh với quy mô lớn</li>
+    <li>Truy vấn phức tạp hạn chế so với SQL</li>
+    <li>Không phù hợp cho ứng dụng yêu cầu xử lý phức tạp phía server</li>
+</ul>
+
+<h2>2.3 Flutter Framework</h2>
+
+<p>Flutter là framework phát triển ứng dụng di động đa nền tảng do Google tạo ra. Nó cho phép nhà phát triển xây dựng ứng dụng cho iOS, Android, Web và Desktop từ một mã nguồn duy nhất.</p>
+
+<h3>2.3.1 Đặc điểm chính của Flutter</h3>
+
+<p><strong>1. Ngôn ngữ Dart:</strong></p>
+<ul>
+    <li>Ngôn ngữ lập trình hiện đại, hướng đối tượng</li>
+    <li>Cú pháp dễ học, tương tự Java/JavaScript</li>
+    <li>Hỗ trợ lập trình bất đồng bộ (async/await)</li>
+    <li>Biên dịch AOT (Ahead-of-Time) cho hiệu suất cao</li>
+</ul>
+
+<p><strong>2. Widget-based Architecture:</strong></p>
+<ul>
+    <li>Mọi thứ đều là widget (nút, văn bản, layout, v.v.)</li>
+    <li>Widget có thể tái sử dụng và kết hợp</li>
+    <li>Hai loại widget: Stateless và Stateful</li>
+    <li>Cây widget linh hoạt và mạnh mẽ</li>
+</ul>
+
+<p><strong>3. Hot Reload:</strong></p>
+<ul>
+    <li>Xem thay đổi ngay lập tức mà không khởi động lại ứng dụng</li>
+    <li>Tăng tốc độ phát triển đáng kể</li>
+    <li>Giữ trạng thái ứng dụng khi reload</li>
+</ul>
+
+<p><strong>4. Material Design và Cupertino:</strong></p>
+<ul>
+    <li>Bộ widget Material Design cho Android</li>
+    <li>Bộ widget Cupertino cho iOS</li>
+    <li>Giao diện native trên cả hai nền tảng</li>
+</ul>
+
+<h3>2.3.2 Ưu điểm của Flutter</h3>
+
+<ul>
+    <li><strong>Đa nền tảng:</strong> Một mã nguồn cho iOS, Android, Web, Desktop</li>
+    <li><strong>Hiệu suất cao:</strong> Biên dịch thành mã native</li>
+    <li><strong>UI đẹp:</strong> Widget phong phú, tùy chỉnh dễ dàng</li>
+    <li><strong>Phát triển nhanh:</strong> Hot reload, thư viện phong phú</li>
+    <li><strong>Cộng đồng lớn:</strong> Nhiều package, tài liệu, hỗ trợ</li>
+</ul>
+
+<h3>2.3.3 Nhược điểm của Flutter</h3>
+
+<ul>
+    <li>Kích thước ứng dụng lớn hơn native</li>
+    <li>Một số tính năng native cần plugin</li>
+    <li>Dart ít phổ biến hơn JavaScript</li>
+    <li>Cộng đồng nhỏ hơn React Native</li>
+</ul>
+
+<h2>2.4 Đánh giá các sản phẩm tương tự</h2>
+
+<p>Trên thị trường hiện có một số ứng dụng phòng thí nghiệm hóa học ảo. Dưới đây là so sánh với các sản phẩm tiêu biểu:</p>
+
+<h3>Bảng 2.1: So sánh các sản phẩm tương tự</h3>
+
+<table>
+    <tr>
+        <th>Tiêu chí</th>
+        <th>ChemLearn<br>(Dự án này)</th>
+        <th>Labster</th>
+        <th>ChemCollective</th>
+        <th>PhET Simulations</th>
+    </tr>
+    <tr>
+        <td><strong>Nền tảng</strong></td>
+        <td>iOS, Android</td>
+        <td>Web, VR</td>
+        <td>Web</td>
+        <td>Web, iOS, Android</td>
+    </tr>
+    <tr>
+        <td><strong>Ngôn ngữ</strong></td>
+        <td>Tiếng Việt, Anh</td>
+        <td>Tiếng Anh</td>
+        <td>Tiếng Anh</td>
+        <td>Đa ngôn ngữ</td>
+    </tr>
+    <tr>
+        <td><strong>Đối tượng</strong></td>
+        <td>THPT (12-18 tuổi)</td>
+        <td>Đại học</td>
+        <td>THPT, Đại học</td>
+        <td>THCS, THPT</td>
+    </tr>
+    <tr>
+        <td><strong>Số lượng lab</strong></td>
+        <td>7 module</td>
+        <td>300+ lab</td>
+        <td>50+ lab</td>
+        <td>150+ simulations</td>
+    </tr>
+    <tr>
+        <td><strong>Gamification</strong></td>
+        <td>Có (5 trò chơi)</td>
+        <td>Có</td>
+        <td>Không</td>
+        <td>Có hạn</td>
+    </tr>
+    <tr>
+        <td><strong>Theo dõi tiến độ</strong></td>
+        <td>Có</td>
+        <td>Có</td>
+        <td>Không</td>
+        <td>Không</td>
+    </tr>
+    <tr>
+        <td><strong>Chi phí</strong></td>
+        <td>Miễn phí</td>
+        <td>$200/năm</td>
+        <td>Miễn phí</td>
+        <td>Miễn phí</td>
+    </tr>
+    <tr>
+        <td><strong>Offline</strong></td>
+        <td>Có hạn</td>
+        <td>Không</td>
+        <td>Không</td>
+        <td>Có</td>
+    </tr>
+    <tr>
+        <td><strong>Admin Dashboard</strong></td>
+        <td>Có</td>
+        <td>Có</td>
+        <td>Không</td>
+        <td>Không</td>
+    </tr>
+</table>
+
+<h3>2.4.1 Phân tích chi tiết</h3>
+
+<p><strong>1. Labster:</strong></p>
+<ul>
+    <li><strong>Ưu điểm:</strong> Mô phỏng 3D chất lượng cao, nội dung phong phú, hỗ trợ VR</li>
+    <li><strong>Nhược điểm:</strong> Đắt đỏ, chỉ tiếng Anh, yêu cầu cấu hình cao, không phù hợp THPT Việt Nam</li>
+</ul>
+
+<p><strong>2. ChemCollective:</strong></p>
+<ul>
+    <li><strong>Ưu điểm:</strong> Miễn phí, nhiều lab thực tế, được Carnegie Mellon phát triển</li>
+    <li><strong>Nhược điểm:</strong> Chỉ web, giao diện lỗi thời, không có gamification, không theo dõi tiến độ</li>
+</ul>
+
+<p><strong>3. PhET Simulations:</strong></p>
+<ul>
+    <li><strong>Ưu điểm:</strong> Miễn phí, đa ngôn ngữ, nhiều mô phỏng, được University of Colorado phát triển</li>
+    <li><strong>Nhược điểm:</strong> Tập trung vào vật lý hơn hóa học, không có hệ thống quản lý học tập</li>
+</ul>
+
+<h3>2.4.2 Lợi thế cạnh tranh của ChemLearn</h3>
+
+<p>ChemLearn có những lợi thế sau so với các sản phẩm hiện có:</p>
+
+<ul>
+    <li><strong>Địa phương hóa:</strong> Hỗ trợ tiếng Việt, phù hợp với chương trình THPT Việt Nam</li>
+    <li><strong>Di động:</strong> Ứng dụng native cho iOS và Android, không cần trình duyệt</li>
+    <li><strong>Miễn phí:</strong> Không tính phí người dùng</li>
+    <li><strong>Gamification:</strong> Trò chơi giáo dục hấp dẫn</li>
+    <li><strong>Quản lý:</strong> Admin dashboard cho giáo viên</li>
+    <li><strong>Nhẹ:</strong> Không yêu cầu cấu hình cao</li>
+</ul>
+
+<h2>2.5 Thiết kế giao diện người dùng</h2>
+
+<h3>2.5.1 Nguyên tắc thiết kế UI/UX</h3>
+
+<p>Thiết kế giao diện người dùng cho ứng dụng giáo dục cần tuân theo các nguyên tắc:</p>
+
+<p><strong>1. Đơn giản và rõ ràng:</strong></p>
+<ul>
+    <li>Giao diện không quá phức tạp</li>
+    <li>Điều hướng trực quan</li>
+    <li>Ít bước thao tác</li>
+</ul>
+
+<p><strong>2. Nhất quán:</strong></p>
+<ul>
+    <li>Màu sắc, font chữ, icon thống nhất</li>
+    <li>Vị trí các phần tử cố định</li>
+    <li>Hành vi tương tác giống nhau</li>
+</ul>
+
+<p><strong>3. Phản hồi:</strong></p>
+<ul>
+    <li>Phản hồi ngay lập tức khi tương tác</li>
+    <li>Hiển thị trạng thái loading</li>
+    <li>Thông báo lỗi rõ ràng</li>
+</ul>
+
+<p><strong>4. Khả năng tiếp cận:</strong></p>
+<ul>
+    <li>Kích thước chữ đủ lớn</li>
+    <li>Độ tương phản màu sắc cao</li>
+    <li>Nút bấm đủ lớn cho cảm ứng</li>
+</ul>
+
+<h3>2.5.2 Material Design</h3>
+
+<p>ChemLearn áp dụng Material Design của Google với các đặc điểm:</p>
+
+<ul>
+    <li>Bóng đổ (elevation) tạo chiều sâu</li>
+    <li>Animation mượt mà</li>
+    <li>Màu sắc táo bạo</li>
+    <li>Typography rõ ràng</li>
+    <li>Grid system linh hoạt</li>
+</ul>
+
+<h2>2.6 Tổng kết</h2>
+
+<p>Chương này đã xem xét các công nghệ và sản phẩm liên quan đến dự án ChemLearn. Các điểm chính:</p>
+
+<ul>
+    <li>Học tập di động là xu hướng quan trọng trong giáo dục hiện đại</li>
+    <li>Firebase cung cấp backend mạnh mẽ, dễ sử dụng</li>
+    <li>Flutter là framework tối ưu cho phát triển đa nền tảng</li>
+    <li>Các sản phẩm hiện có có hạn chế về ngôn ngữ, chi phí hoặc tính năng</li>
+    <li>ChemLearn có lợi thế cạnh tranh rõ ràng cho thị trường Việt Nam</li>
+</ul>
+
+<p>Những kiến thức này tạo nền tảng cho việc thiết kế và phát triển hệ thống ChemLearn trong các chương tiếp theo.</p>
+
+</div>
+
+<!-- CHƯƠNG 3: PHÂN TÍCH VÀ THIẾT KẾ HỆ THỐNG -->
+<div class="page-break">
+<h1>CHƯƠNG 3<br>PHÂN TÍCH VÀ THIẾT KẾ HỆ THỐNG</h1>
+
+<h2>3.1 Nghiên cứu tính khả thi</h2>
+
+<h3>3.1.1 Tính khả thi kỹ thuật</h3>
+
+<p>Dự án ChemLearn sử dụng các công nghệ đã được chứng minh và có sẵn:</p>
+
+<ul>
+    <li><strong>Flutter Framework 3.11.4:</strong> Framework phát triển di động đa nền tảng trưởng thành với cộng đồng lớn và tài liệu phong phú</li>
+    <li><strong>Firebase Services:</strong> Nền tảng backend được Google hỗ trợ với độ tin cậy cao và khả năng mở rộng tự động</li>
+    <li><strong>Dart Programming Language:</strong> Ngôn ngữ lập trình hiện đại, được tối ưu hóa cho phát triển UI</li>
+</ul>
+
+<p><strong>Kết luận:</strong> Dự án khả thi về mặt kỹ thuật với các công nghệ hiện có.</p>
+
+<h3>3.1.2 Tính khả thi kinh tế</h3>
+
+<p>Phân tích chi phí - lợi ích cho dự án:</p>
+
+<h4>Bảng 3.1: Phân tích chi phí - lợi ích</h4>
+
+<table>
+    <tr>
+        <th>Hạng mục</th>
+        <th>Chi phí</th>
+        <th>Ghi chú</th>
+    </tr>
+    <tr>
+        <td><strong>Chi phí phát triển</strong></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Flutter SDK</td>
+        <td>$0</td>
+        <td>Miễn phí, mã nguồn mở</td>
+    </tr>
+    <tr>
+        <td>Firebase (Free tier)</td>
+        <td>$0</td>
+        <td>Đủ cho giai đoạn phát triển</td>
+    </tr>
+    <tr>
+        <td>Công cụ phát triển</td>
+        <td>$0</td>
+        <td>VS Code, Android Studio miễn phí</td>
+    </tr>
+    <tr>
+        <td><strong>Chi phí vận hành (năm đầu)</strong></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Firebase (1000 users)</td>
+        <td>$25/tháng</td>
+        <td>$300/năm</td>
+    </tr>
+    <tr>
+        <td>Domain & Hosting</td>
+        <td>$50/năm</td>
+        <td>Cho admin dashboard</td>
+    </tr>
+    <tr>
+        <td><strong>Tổng chi phí năm 1</strong></td>
+        <td><strong>$350</strong></td>
+        <td>Rất thấp so với phòng lab truyền thống</td>
+    </tr>
+</table>
+
+<p><strong>So sánh với phòng thí nghiệm truyền thống:</strong></p>
+<ul>
+    <li>Chi phí thiết lập phòng lab vật lý: $10,000 - $50,000</li>
+    <li>Chi phí vận hành hàng năm: $2,000 - $5,000</li>
+    <li>ChemLearn tiết kiệm: >95% chi phí</li>
+</ul>
+
+<p><strong>Kết luận:</strong> Dự án rất khả thi về mặt kinh tế.</p>
+
+<h3>3.1.3 Tính khả thi vận hành</h3>
+
+<p>Hệ thống được thiết kế để dễ sử dụng cho cả học sinh và giáo viên:</p>
+<ul>
+    <li>Giao diện trực quan, phù hợp với độ tuổi 12-18</li>
+    <li>Không yêu cầu đào tạo phức tạp</li>
+    <li>Hoạt động trên thiết bị di động phổ biến</li>
+    <li>Hỗ trợ tiếng Việt và tiếng Anh</li>
+</ul>
+
+<p><strong>Kết luận:</strong> Hệ thống khả thi về mặt vận hành.</p>
+
+<h3>3.1.4 Tính khả thi về thời gian</h3>
+
+<p>Kế hoạch 16 tuần là hợp lý với phạm vi dự án đã xác định. Sử dụng phương pháp phát triển lặp giúp giảm rủi ro và đảm bảo tiến độ.</p>
+
+<p><strong>Kết luận:</strong> Dự án khả thi về mặt thời gian.</p>
+
+<h2>3.2 Phân tích yêu cầu</h2>
+
+<h3>3.2.1 Yêu cầu chức năng</h3>
+
+<h4>Bảng 3.2: Yêu cầu chức năng</h4>
+
+<table>
+    <tr>
+        <th style="width: 10%;">ID</th>
+        <th style="width: 20%;">Danh mục</th>
+        <th style="width: 50%;">Mô tả</th>
+        <th style="width: 20%;">Ưu tiên</th>
+    </tr>
+    <tr>
+        <td>FR-01</td>
+        <td>Xác thực</td>
+        <td>Hệ thống cho phép đăng ký bằng email/password</td>
+        <td>Cao</td>
+    </tr>
+    <tr>
+        <td>FR-02</td>
+        <td>Xác thực</td>
+        <td>Hệ thống cho phép đăng nhập bằng Google</td>
+        <td>Cao</td>
+    </tr>
+    <tr>
+        <td>FR-03</td>
+        <td>Xác thực</td>
+        <td>Hệ thống cho phép đăng nhập bằng Facebook</td>
+        <td>Trung bình</td>
+    </tr>
+    <tr>
+        <td>FR-04</td>
+        <td>Phòng thí nghiệm</td>
+        <td>Hệ thống cung cấp 7 module phòng thí nghiệm ảo</td>
+        <td>Cao</td>
+    </tr>
+    <tr>
+        <td>FR-05</td>
+        <td>Phòng thí nghiệm</td>
+        <td>Module trộn hóa chất với mô phỏng phản ứng thực tế</td>
+        <td>Cao</td>
+    </tr>
+    <tr>
+        <td>FR-06</td>
+        <td>Phòng thí nghiệm</td>
+        <td>Module đốt cháy với hiệu ứng lửa</td>
+        <td>Cao</td>
+    </tr>
+    <tr>
+        <td>FR-07</td>
+        <td>Phòng thí nghiệm</td>
+        <td>Module điện phân dung dịch</td>
+        <td>Cao</td>
+    </tr>
+    <tr>
+        <td>FR-08</td>
+        <td>Phòng thí nghiệm</td>
+        <td>Module phân tích định lượng (160 tổ hợp chuẩn độ)</td>
+        <td>Cao</td>
+    </tr>
+    <tr>
+        <td>FR-09</td>
+        <td>Phòng thí nghiệm</td>
+        <td>Module động học phản ứng (15 phản ứng)</td>
+        <td>Cao</td>
+    </tr>
+    <tr>
+        <td>FR-10</td>
+        <td>Phòng thí nghiệm</td>
+        <td>Module cân bằng phương trình hóa học</td>
+        <td>Cao</td>
+    </tr>
+    <tr>
+        <td>FR-11</td>
+        <td>Phòng thí nghiệm</td>
+        <td>Module chọn thiết bị phòng thí nghiệm</td>
+        <td>Trung bình</td>
+    </tr>
+    <tr>
+        <td>FR-12</td>
+        <td>Bảng tuần hoàn</td>
+        <td>Hiển thị bảng tuần hoàn đầy đủ 118 nguyên tố</td>
+        <td>Cao</td>
+    </tr>
+    <tr>
+        <td>FR-13</td>
+        <td>Bảng tuần hoàn</td>
+        <td>Hiển thị thông tin chi tiết từng nguyên tố</td>
+        <td>Cao</td>
+    </tr>
+    <tr>
+        <td>FR-14</td>
+        <td>Quiz</td>
+        <td>Hệ thống quiz với nhiều danh mục</td>
+        <td>Cao</td>
+    </tr>
+    <tr>
+        <td>FR-15</td>
+        <td>Quiz</td>
+        <td>Phản hồi ngay lập tức sau mỗi câu hỏi</td>
+        <td>Cao</td>
+    </tr>
+    <tr>
+        <td>FR-16</td>
+        <td>Trò chơi</td>
+        <td>Trò chơi ghi nhớ (Memory Game)</td>
+        <td>Trung bình</td>
+    </tr>
+    <tr>
+        <td>FR-17</td>
+        <td>Trò chơi</td>
+        <td>Trò chơi ghép từ (Word Building)</td>
+        <td>Trung bình</td>
+    </tr>
+    <tr>
+        <td>FR-18</td>
+        <td>Tiến độ</td>
+        <td>Theo dõi điểm số và tiến độ học tập</td>
+        <td>Cao</td>
+    </tr>
+    <tr>
+        <td>FR-19</td>
+        <td>Tiến độ</td>
+        <td>Hiển thị lịch sử hoạt động</td>
+        <td>Trung bình</td>
+    </tr>
+    <tr>
+        <td>FR-20</td>
+        <td>Quản trị</td>
+        <td>Admin có thể quản lý người dùng (CRUD)</td>
+        <td>Cao</td>
+    </tr>
+    <tr>
+        <td>FR-21</td>
+        <td>Quản trị</td>
+        <td>Admin xem thống kê và phân tích</td>
+        <td>Cao</td>
+    </tr>
+</table>
+
+<h3>3.2.2 Yêu cầu phi chức năng</h3>
+
+<h4>Bảng 3.3: Yêu cầu phi chức năng</h4>
+
+<table>
+    <tr>
+        <th style="width: 10%;">ID</th>
+        <th style="width: 20%;">Danh mục</th>
+        <th style="width: 50%;">Mô tả</th>
+        <th style="width: 20%;">Chỉ số</th>
+    </tr>
+    <tr>
+        <td>NFR-01</td>
+        <td>Hiệu suất</td>
+        <td>Thời gian khởi động ứng dụng</td>
+        <td>< 3 giây</td>
+    </tr>
+    <tr>
+        <td>NFR-02</td>
+        <td>Hiệu suất</td>
+        <td>Thời gian phản hồi thao tác</td>
+        <td>< 1 giây</td>
+    </tr>
+    <tr>
+        <td>NFR-03</td>
+        <td>Khả năng sử dụng</td>
+        <td>Giao diện trực quan, dễ sử dụng</td>
+        <td>Đánh giá > 4.0/5.0</td>
+    </tr>
+    <tr>
+        <td>NFR-04</td>
+        <td>Bảo mật</td>
+        <td>Mã hóa dữ liệu người dùng</td>
+        <td>HTTPS, Firebase Auth</td>
+    </tr>
+    <tr>
+        <td>NFR-05</td>
+        <td>Khả năng mở rộng</td>
+        <td>Hỗ trợ đồng thời nhiều người dùng</td>
+        <td>> 1000 users</td>
+    </tr>
+    <tr>
+        <td>NFR-06</td>
+        <td>Tương thích</td>
+        <td>Hoạt động trên Android 6.0+</td>
+        <td>API level 23+</td>
+    </tr>
+    <tr>
+        <td>NFR-07</td>
+        <td>Tương thích</td>
+        <td>Hoạt động trên iOS 12.0+</td>
+        <td>iOS 12+</td>
+    </tr>
+    <tr>
+        <td>NFR-08</td>
+        <td>Độ tin cậy</td>
+        <td>Uptime của hệ thống</td>
+        <td>> 99%</td>
+    </tr>
+</table>
+
+<h2>3.3 Phương pháp phát triển hệ thống</h2>
+
+<p>Dự án ChemLearn sử dụng <strong>Chu trình phát triển phần mềm (SDLC)</strong> với phương pháp <strong>Phát triển lặp và tăng dần</strong>.</p>
+
+<div class="figure">
+    <p><strong>Hình 3.1: Chu trình phát triển hệ thống</strong></p>
+    <pre>
+    Lập kế hoạch → Phân tích → Thiết kế → Triển khai → Kiểm thử → Triển khai
+         ↑                                                              ↓
+         └──────────────────── Vòng lặp phản hồi ──────────────────────┘
+    </pre>
+</div>
+
+<p>Phương pháp này được chọn vì:</p>
+<ul>
+    <li>Cung cấp cấu trúc trong khi duy trì tính linh hoạt</li>
+    <li>Cho phép phản hồi sớm từ người dùng</li>
+    <li>Giảm rủi ro bằng cách giải quyết các tính năng có rủi ro cao sớm</li>
+    <li>Luôn có phiên bản hoạt động của hệ thống</li>
+</ul>
+
+<h2>3.4 Mô hình hóa dữ liệu và quy trình</h2>
+
+<h3>3.4.1 Biểu đồ Use Case</h3>
+
+<div class="figure">
+    <p><strong>Hình 3.2: Biểu đồ Use Case</strong></p>
+    <pre style="text-align: left; font-size: 9pt;">
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Học sinh" as Student
+actor "Quản trị viên" as Admin
+
+rectangle "Hệ thống ChemLearn" {
+  
+  package "Xác thực" {
+    usecase "Đăng ký tài khoản" as UC1
+    usecase "Đăng nhập" as UC2
+    usecase "Đăng xuất" as UC3
+    usecase "Quên mật khẩu" as UC4
+  }
+  
+  package "Phòng thí nghiệm" {
+    usecase "Trộn hóa chất" as UC5
+    usecase "Đốt cháy" as UC6
+    usecase "Điện phân" as UC7
+    usecase "Phân tích định lượng" as UC8
+    usecase "Động học phản ứng" as UC9
+    usecase "Cân bằng phương trình" as UC10
+    usecase "Chọn thiết bị" as UC11
+    usecase "Lưu kết quả" as UC12
+  }
+  
+  package "Học tập" {
+    usecase "Xem bảng tuần hoàn" as UC13
+    usecase "Tìm kiếm nguyên tố" as UC14
+    usecase "Xem chi tiết nguyên tố" as UC15
+  }
+  
+  package "Trò chơi" {
+    usecase "Chơi trò ghi nhớ" as UC16
+    usecase "Chơi ghép từ" as UC17
+    usecase "Quiz nhanh" as UC18
+    usecase "Xây dựng phân tử" as UC19
+    usecase "Tổng hợp" as UC20
+    usecase "Xem bảng xếp hạng" as UC21
+  }
+  
+  package "Đánh giá" {
+    usecase "Làm bài quiz" as UC22
+    usecase "Xem kết quả" as UC23
+    usecase "Làm lại quiz" as UC24
+    usecase "Xem lịch sử" as UC25
+  }
+  
+  package "Tiến độ" {
+    usecase "Xem lịch sử hoạt động" as UC26
+    usecase "Xem thống kê" as UC27
+    usecase "Xem thành tích" as UC28
+    usecase "Theo dõi chuỗi ngày" as UC29
+  }
+  
+  package "Quản trị" {
+    usecase "Quản lý người dùng" as UC30
+    usecase "Xem phân tích" as UC31
+    usecase "Theo dõi hoạt động" as UC32
+    usecase "Tạo báo cáo" as UC33
+  }
+}
+
+Student --> UC1
+Student --> UC2
+Student --> UC3
+Student --> UC4
+Student --> UC5
+Student --> UC6
+Student --> UC7
+Student --> UC8
+Student --> UC9
+Student --> UC10
+Student --> UC11
+Student --> UC13
+Student --> UC14
+Student --> UC15
+Student --> UC16
+Student --> UC17
+Student --> UC18
+Student --> UC19
+Student --> UC20
+Student --> UC21
+Student --> UC22
+Student --> UC23
+Student --> UC24
+Student --> UC25
+Student --> UC26
+Student --> UC27
+Student --> UC28
+Student --> UC29
+
+Admin --> UC2
+Admin --> UC3
+Admin --> UC30
+Admin --> UC31
+Admin --> UC32
+Admin --> UC33
+
+UC5 ..> UC12 : <<include>>
+UC6 ..> UC12 : <<include>>
+UC7 ..> UC12 : <<include>>
+UC8 ..> UC12 : <<include>>
+UC9 ..> UC12 : <<include>>
+UC10 ..> UC12 : <<include>>
+UC11 ..> UC12 : <<include>>
+
+UC13 ..> UC14 : <<extend>>
+UC13 ..> UC15 : <<extend>>
+
+@enduml
+    </pre>
+    <p class="figure-caption">Biểu đồ Use Case mô tả các chức năng chính của hệ thống với 2 actor: Học sinh và Quản trị viên. Tổng cộng 33 use cases được nhóm thành 7 package chính.</p>
+</div>
+
+<p><strong>Giải thích các Use Case chính:</strong></p>
+
+<p><strong>1. Package Xác thực (4 use cases):</strong></p>
+<ul>
+    <li>Đăng ký tài khoản: Học sinh tạo tài khoản mới</li>
+    <li>Đăng nhập: Đăng nhập bằng email/Google/Facebook</li>
+    <li>Đăng xuất: Thoát khỏi hệ thống</li>
+    <li>Quên mật khẩu: Khôi phục mật khẩu qua email</li>
+</ul>
+
+<p><strong>2. Package Phòng thí nghiệm (8 use cases):</strong></p>
+<ul>
+    <li>7 module phòng thí nghiệm khác nhau</li>
+    <li>Tất cả đều include "Lưu kết quả" để lưu tiến độ</li>
+</ul>
+
+<p><strong>3. Package Học tập (3 use cases):</strong></p>
+<ul>
+    <li>Xem bảng tuần hoàn với 118 nguyên tố</li>
+    <li>Tìm kiếm và xem chi tiết nguyên tố (extend)</li>
+</ul>
+
+<p><strong>4. Package Trò chơi (6 use cases):</strong></p>
+<ul>
+    <li>5 trò chơi giáo dục khác nhau</li>
+    <li>Bảng xếp hạng để tạo động lực cạnh tranh</li>
+</ul>
+
+<p><strong>5. Package Đánh giá (4 use cases):</strong></p>
+<ul>
+    <li>Làm bài quiz với nhiều danh mục</li>
+    <li>Xem kết quả và lịch sử</li>
+    <li>Làm lại để cải thiện điểm</li>
+</ul>
+
+<p><strong>6. Package Tiến độ (4 use cases):</strong></p>
+<ul>
+    <li>Theo dõi lịch sử hoạt động</li>
+    <li>Xem thống kê và thành tích</li>
+    <li>Theo dõi chuỗi ngày học liên tục</li>
+</ul>
+
+<p><strong>7. Package Quản trị (4 use cases):</strong></p>
+<ul>
+    <li>Quản lý người dùng (CRUD)</li>
+    <li>Xem phân tích và báo cáo</li>
+    <li>Theo dõi hoạt động hệ thống</li>
+</ul>
+
+<h3>3.4.2 Biểu đồ ngữ cảnh</h3>
+
+<div class="figure">
+    <p><strong>Hình 3.3: Biểu đồ ngữ cảnh</strong></p>
+    <pre>
+                    ┌─────────────┐
+                    │  Học sinh   │
+                    └──────┬──────┘
+                           │
+                    Dữ liệu người dùng,
+                    Yêu cầu thao tác
+                           │
+                           ↓
+    ┌──────────────────────────────────────────┐
+    │                                          │
+    │      Hệ thống ChemLearn                  │
+    │   (Ứng dụng di động + Firebase)          │
+    │                                          │
+    └──────────────────────────────────────────┘
+           ↑                    ↑
+           │                    │
+    Phân tích,            Quản lý người dùng,
+    Báo cáo               Cấu hình hệ thống
+           │                    │
+    ┌──────┴──────┐      ┌─────┴──────┐
+    │  Quản trị   │      │  Firebase  │
+    │  viên       │      │  Services  │
+    └─────────────┘      └────────────┘
+    </pre>
+    <p class="figure-caption">Biểu đồ ngữ cảnh hiển thị hệ thống ChemLearn như một quy trình duy nhất và các tương tác với các thực thể bên ngoài.</p>
+</div>
+
+<p><strong>Các thực thể bên ngoài:</strong></p>
+<ul>
+    <li><strong>Học sinh:</strong> Tương tác với ứng dụng di động để học tập</li>
+    <li><strong>Quản trị viên:</strong> Sử dụng bảng điều khiển web để quản lý</li>
+    <li><strong>Firebase Services:</strong> Cung cấp xác thực, cơ sở dữ liệu và lưu trữ</li>
+</ul>
+
+<p><strong>Luồng dữ liệu:</strong></p>
+<ul>
+    <li>Học sinh → Hệ thống: Thông tin đăng nhập, câu trả lời quiz, tương tác lab</li>
+    <li>Hệ thống → Học sinh: Nội dung học tập, phản hồi, dữ liệu tiến độ</li>
+    <li>Quản trị viên → Hệ thống: Lệnh quản lý người dùng, cấu hình</li>
+    <li>Hệ thống → Quản trị viên: Phân tích, báo cáo, dữ liệu người dùng</li>
+    <li>Hệ thống ↔ Firebase: Xác thực, lưu trữ dữ liệu, đồng bộ thời gian thực</li>
+</ul>
+
+</div>
+
+<h3>3.4.3 Biểu đồ luồng dữ liệu (DFD)</h3>
+
+<div class="figure">
+    <p><strong>Hình 3.4: Biểu đồ luồng dữ liệu cấp 0</strong></p>
+    <pre>
+                    Học sinh
+                       │
+                       ↓
+    ┌──────────────────────────────────────┐
+    │                                      │
+    │    Hệ thống ChemLearn                │
+    │                                      │
+    └──────────────────────────────────────┘
+                       │
+                       ↓
+                    Firebase
+    </pre>
+</div>
+
+<div class="figure">
+    <p><strong>Hình 3.5: Biểu đồ luồng dữ liệu cấp 1</strong></p>
+    <pre>
+Đầu vào từ học sinh
+     │
+     ↓
+┌─────────────┐      ┌──────────────┐      ┌─────────────┐
+│  Quy trình  │      │  Quy trình   │      │  Quy trình  │
+│ 1.0 Quản lý │─────→│ 2.0 Hoạt động│─────→│ 3.0 Theo dõi│
+│  Xác thực   │      │   Học tập    │      │   Tiến độ   │
+└─────────────┘      └──────────────┘      └─────────────┘
+     │                      │                      │
+     ↓                      ↓                      ↓
+┌─────────────────────────────────────────────────────┐
+│         Cơ sở dữ liệu Firebase Firestore            │
+│  - Collection Users                                 │
+│  - Collection Lab Results                           │
+│  - Collection Quiz Results                          │
+│  - Collection Progress                              │
+└─────────────────────────────────────────────────────┘
+    </pre>
+    <p class="figure-caption">DFD cấp 1 hiển thị 3 quy trình chính và luồng dữ liệu giữa chúng.</p>
+</div>
+
+<h3>3.4.4 Biểu đồ tuần tự (Sequence Diagram)</h3>
+
+<div class="figure">
+    <p><strong>Hình 3.6: Biểu đồ tuần tự - Luồng đăng nhập</strong></p>
+    <pre style="text-align: left; font-size: 9pt;">
+Học sinh    LoginScreen    AuthProvider    AuthService    Firebase Auth    Firestore
+   │            │              │              │                │              │
+   │  Nhập      │              │              │                │              │
+   │  Email &   │              │              │                │              │
+   │  Password  │              │              │                │              │
+   │───────────→│              │              │                │              │
+   │            │              │              │                │              │
+   │            │  signIn()    │              │                │              │
+   │            │─────────────→│              │                │              │
+   │            │              │              │                │              │
+   │            │              │ signInWith   │                │              │
+   │            │              │ Email()      │                │              │
+   │            │              │─────────────→│                │              │
+   │            │              │              │                │              │
+   │            │              │              │ authenticate   │              │
+   │            │              │              │───────────────→│              │
+   │            │              │              │                │              │
+   │            │              │              │  User Token    │              │
+   │            │              │              │←───────────────│              │
+   │            │              │              │                │              │
+   │            │              │  UserCredential               │              │
+   │            │              │←─────────────│                │              │
+   │            │              │              │                │              │
+   │            │              │              │                │  Lấy dữ liệu │
+   │            │              │              │                │  người dùng  │
+   │            │              │              │                │─────────────→│
+   │            │              │              │                │              │
+   │            │              │              │                │  User Model  │
+   │            │              │              │                │←─────────────│
+   │            │              │              │                │              │
+   │            │  Thành công  │              │                │              │
+   │            │←─────────────│              │                │              │
+   │            │              │              │                │              │
+   │  Chuyển    │              │              │                │              │
+   │  đến       │              │              │                │              │
+   │  Dashboard │              │              │                │              │
+   │←───────────│              │              │                │              │
+    </pre>
+    <p class="figure-caption">Biểu đồ tuần tự mô tả quy trình đăng nhập với xác thực Firebase và tải dữ liệu người dùng từ Firestore.</p>
+</div>
+
+<div class="figure">
+    <p><strong>Hình 3.7: Biểu đồ tuần tự - Luồng thực hành thí nghiệm</strong></p>
+    <pre style="text-align: left; font-size: 9pt;">
+Học sinh    LabScreen    LabProvider    Firebase Firestore
+   │           │             │                 │
+   │  Chọn     │             │                 │
+   │  Phòng TN │             │                 │
+   │  Trộn     │             │                 │
+   │  Hóa chất │             │                 │
+   │──────────→│             │                 │
+   │           │             │                 │
+   │           │  Tải dữ liệu│                 │
+   │           │  Lab        │                 │
+   │           │────────────→│                 │
+   │           │             │                 │
+   │           │  Hiển thị   │                 │
+   │           │  UI Lab     │                 │
+   │←──────────│             │                 │
+   │           │             │                 │
+   │  Trộn     │             │                 │
+   │  HCl +    │             │                 │
+   │  NaOH     │             │                 │
+   │──────────→│             │                 │
+   │           │             │                 │
+   │           │  Tính toán  │                 │
+   │           │  Phản ứng   │                 │
+   │           │────────────→│                 │
+   │           │             │                 │
+   │           │  Hiển thị   │                 │
+   │           │  Animation  │                 │
+   │           │  & Kết quả  │                 │
+   │←──────────│             │                 │
+   │           │             │                 │
+   │  Lưu      │             │                 │
+   │  Kết quả  │             │                 │
+   │──────────→│             │                 │
+   │           │             │                 │
+   │           │  Lưu vào    │                 │
+   │           │  Firestore  │                 │
+   │           │────────────→│                 │
+   │           │             │                 │
+   │           │             │  Lưu Lab Result │
+   │           │             │────────────────→│
+   │           │             │                 │
+   │           │             │  Thành công     │
+   │           │             │←────────────────│
+   │           │             │                 │
+   │           │  Xác nhận   │                 │
+   │           │  đã lưu     │                 │
+   │←──────────│             │                 │
+    </pre>
+    <p class="figure-caption">Biểu đồ tuần tự mô tả quy trình thực hành thí nghiệm từ chọn lab, thực hiện phản ứng, đến lưu kết quả.</p>
+</div>
+
+<div class="figure">
+    <p><strong>Hình 3.8: Biểu đồ tuần tự - Luồng làm bài quiz</strong></p>
+    <pre style="text-align: left; font-size: 9pt;">
+Học sinh    QuizScreen    QuizProvider    Firebase Firestore
+   │           │              │                  │
+   │  Bắt đầu  │              │                  │
+   │  Quiz     │              │                  │
+   │──────────→│              │                  │
+   │           │              │                  │
+   │           │  Tải         │                  │
+   │           │  Câu hỏi     │                  │
+   │           │─────────────→│                  │
+   │           │              │                  │
+   │           │              │  Lấy dữ liệu Quiz│
+   │           │              │─────────────────→│
+   │           │              │                  │
+   │           │              │  Danh sách câu hỏi│
+   │           │              │←─────────────────│
+   │           │              │                  │
+   │           │  Hiển thị    │                  │
+   │           │  Câu hỏi     │                  │
+   │←──────────│              │                  │
+   │           │              │                  │
+   │  Trả lời  │              │                  │
+   │  Câu hỏi  │              │                  │
+   │──────────→│              │                  │
+   │           │              │                  │
+   │           │  Kiểm tra    │                  │
+   │           │  Đáp án      │                  │
+   │           │─────────────→│                  │
+   │           │              │                  │
+   │           │  Phản hồi    │                  │
+   │←──────────│              │                  │
+   │           │              │                  │
+   │  Hoàn     │              │                  │
+   │  thành    │              │                  │
+   │  Quiz     │              │                  │
+   │──────────→│              │                  │
+   │           │              │                  │
+   │           │  Tính điểm   │                  │
+   │           │─────────────→│                  │
+   │           │              │                  │
+   │           │              │  Lưu Quiz Result │
+   │           │              │─────────────────→│
+   │           │              │                  │
+   │           │  Hiển thị    │                  │
+   │           │  Kết quả     │                  │
+   │←──────────│              │                  │
+    </pre>
+    <p class="figure-caption">Biểu đồ tuần tự mô tả quy trình làm bài quiz từ tải câu hỏi, trả lời, đến tính điểm và lưu kết quả.</p>
+</div>
+
+<h3>3.4.5 Biểu đồ thực thể kết hợp (ERD)</h3>
+
+<div class="figure">
+    <p><strong>Hình 3.9: Biểu đồ thực thể kết hợp</strong></p>
+    <pre>
+┌─────────────────┐
+│     Users       │
+├─────────────────┤
+│ uid (PK)        │
+│ email           │
+│ displayName     │
+│ photoUrl        │
+│ createdAt       │
+│ lastLogin       │
+└────────┬────────┘
+         │ 1
+         │
+         │ N
+┌────────┴────────┐
+│  Lab Results    │
+├─────────────────┤
+│ id (PK)         │
+│ userId (FK)     │
+│ labType         │
+│ chemicals       │
+│ result          │
+│ score           │
+│ timestamp       │
+└─────────────────┘
+
+         │ 1
+         │
+         │ N
+┌────────┴────────┐
+│  Quiz Results   │
+├─────────────────┤
+│ id (PK)         │
+│ userId (FK)     │
+│ quizId          │
+│ score           │
+│ correctCount    │
+│ totalQuestions  │
+│ answers         │
+│ timestamp       │
+└─────────────────┘
+
+         │ 1
+         │
+         │ N
+┌────────┴────────┐
+│  Game Results   │
+├─────────────────┤
+│ id (PK)         │
+│ userId (FK)     │
+│ gameType        │
+│ score           │
+│ level           │
+│ duration        │
+│ timestamp       │
+└─────────────────┘
+
+         │ 1
+         │
+         │ 1
+┌────────┴────────┐
+│   Progress      │
+├─────────────────┤
+│ id (PK)         │
+│ userId (FK)     │
+│ totalPoints     │
+│ currentStreak   │
+│ longestStreak   │
+│ achievements    │
+│ lastUpdated     │
+└─────────────────┘
+    </pre>
+    <p class="figure-caption">ERD hiển thị cấu trúc cơ sở dữ liệu với 5 collections chính trong Firebase Firestore.</p>
+</div>
+
+<h4>Bảng 3.4: Mô tả các bảng cơ sở dữ liệu</h4>
+
+<table>
+    <tr>
+        <th>Collection</th>
+        <th>Mô tả</th>
+        <th>Các trường chính</th>
+    </tr>
+    <tr>
+        <td><strong>users</strong></td>
+        <td>Lưu trữ thông tin tài khoản người dùng</td>
+        <td>uid, email, displayName, photoUrl, createdAt, lastLogin</td>
+    </tr>
+    <tr>
+        <td><strong>lab_results</strong></td>
+        <td>Lưu trữ kết quả thí nghiệm trong phòng lab</td>
+        <td>userId, labType, chemicals, result, score, timestamp</td>
+    </tr>
+    <tr>
+        <td><strong>quiz_results</strong></td>
+        <td>Lưu trữ kết quả làm bài quiz</td>
+        <td>userId, quizId, score, correctCount, totalQuestions, answers, timestamp</td>
+    </tr>
+    <tr>
+        <td><strong>game_results</strong></td>
+        <td>Lưu trữ điểm số trò chơi giáo dục</td>
+        <td>userId, gameType, score, level, duration, timestamp</td>
+    </tr>
+    <tr>
+        <td><strong>progress</strong></td>
+        <td>Lưu trữ tiến độ và thành tích người dùng</td>
+        <td>userId, totalPoints, currentStreak, longestStreak, achievements, lastUpdated</td>
+    </tr>
+</table>
+
+<p><strong>Mối quan hệ:</strong></p>
+<ul>
+    <li>Một User có nhiều Lab Results (1:N)</li>
+    <li>Một User có nhiều Quiz Results (1:N)</li>
+    <li>Một User có nhiều Game Results (1:N)</li>
+    <li>Một User có một Progress record (1:1)</li>
+</ul>
+
+<h2>3.5 Thiết kế hệ thống</h2>
+
+<h3>3.5.1 Kiến trúc hệ thống</h3>
+
+<div class="figure">
+    <p><strong>Hình 3.10: Kiến trúc hệ thống</strong></p>
+    <pre>
+┌─────────────────────────────────────────────────────────┐
+│                  TẦNG TRÌNH BÀY                          │
+│                                                          │
+│  ┌──────────────────┐         ┌──────────────────┐     │
+│  │  Ứng dụng        │         │  Bảng điều khiển │     │
+│  │  Di động         │         │  Quản trị        │     │
+│  │  (Flutter)       │         │  (HTML/CSS/JS)   │     │
+│  │                  │         │                  │     │
+│  │  - UI Components │         │  - Quản lý User  │     │
+│  │  - State Mgmt    │         │  - Phân tích     │     │
+│  │  - Navigation    │         │  - Báo cáo       │     │
+│  └──────────────────┘         └──────────────────┘     │
+└─────────────────────────────────────────────────────────┘
+                        │
+                        │ HTTPS/REST API
+                        ↓
+┌─────────────────────────────────────────────────────────┐
+│                  TẦNG ỨNG DỤNG                           │
+│                                                          │
+│  ┌──────────────────────────────────────────────────┐  │
+│  │           Dịch vụ Firebase                        │  │
+│  │                                                   │  │
+│  │  ┌─────────────┐  ┌──────────────┐  ┌─────────┐ │  │
+│  │  │   Firebase  │  │    Cloud     │  │Firebase │ │  │
+│  │  │     Auth    │  │  Firestore   │  │ Storage │ │  │
+│  │  └─────────────┘  └──────────────┘  └─────────┘ │  │
+│  │                                                   │  │
+│  │  - Logic xác thực                                 │  │
+│  │  - Quy tắc nghiệp vụ                              │  │
+│  │  - Xác thực dữ liệu                               │  │
+│  │  - Quy tắc bảo mật                                │  │
+│  └──────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────┘
+                        │
+                        │ API nội bộ
+                        ↓
+┌─────────────────────────────────────────────────────────┐
+│                    TẦNG DỮ LIỆU                          │
+│                                                          │
+│  ┌──────────────────────────────────────────────────┐  │
+│  │         Cơ sở dữ liệu Firebase Firestore          │  │
+│  │                                                   │  │
+│  │  Collections:                                     │  │
+│  │  - users                                          │  │
+│  │  - lab_results                                    │  │
+│  │  - quiz_results                                   │  │
+│  │  - game_results                                   │  │
+│  │  - progress                                       │  │
+│  │  - user_activities                                │  │
+│  └──────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────┘
+    </pre>
+    <p class="figure-caption">Kiến trúc 3 tầng của hệ thống ChemLearn với Tầng trình bày, Tầng ứng dụng và Tầng dữ liệu.</p>
+</div>
+
+<p><strong>Các thành phần kiến trúc:</strong></p>
+
+<p><strong>1. Tầng trình bày:</strong></p>
+<ul>
+    <li><strong>Ứng dụng di động (Flutter):</strong> Giao diện người dùng cho học sinh trên iOS và Android</li>
+    <li><strong>Bảng điều khiển quản trị (Web):</strong> Giao diện quản trị cho giáo viên và quản trị viên</li>
+</ul>
+
+<p><strong>2. Tầng ứng dụng:</strong></p>
+<ul>
+    <li><strong>Firebase Authentication:</strong> Xác thực người dùng và quản lý phiên</li>
+    <li><strong>Cloud Firestore:</strong> Cơ sở dữ liệu NoSQL với đồng bộ thời gian thực</li>
+    <li><strong>Firebase Storage:</strong> Lưu trữ file cho nội dung do người dùng tạo</li>
+    <li><strong>Logic nghiệp vụ:</strong> Được triển khai trong ứng dụng Flutter và quy tắc bảo mật Firebase</li>
+</ul>
+
+<p><strong>3. Tầng dữ liệu:</strong></p>
+<ul>
+    <li><strong>Firestore Collections:</strong> Lưu trữ dữ liệu có cấu trúc</li>
+    <li><strong>Đồng bộ thời gian thực:</strong> Đồng bộ dữ liệu tự động trên các thiết bị</li>
+    <li><strong>Hỗ trợ offline:</strong> Bộ nhớ đệm cục bộ để truy cập offline</li>
+</ul>
+
+<p><strong>Luồng giao tiếp:</strong></p>
+<ol>
+    <li>Người dùng tương tác với ứng dụng di động hoặc bảng điều khiển quản trị</li>
+    <li>Ứng dụng gửi yêu cầu đến dịch vụ Firebase qua SDK</li>
+    <li>Firebase xử lý yêu cầu và áp dụng quy tắc bảo mật</li>
+    <li>Dữ liệu được lưu trữ/truy xuất từ Firestore</li>
+    <li>Cập nhật thời gian thực được đẩy trở lại các client đã kết nối</li>
+</ol>
+
+<p><strong>Bảo mật:</strong></p>
+<ul>
+    <li>Mã hóa HTTPS cho tất cả các giao tiếp</li>
+    <li>Quy tắc bảo mật Firebase để kiểm soát truy cập dữ liệu</li>
+    <li>Xác thực dựa trên JWT token</li>
+    <li>Kiểm soát truy cập dựa trên vai trò (Học sinh vs Quản trị viên)</li>
+</ul>
+
+</div>
+
+<h3>3.5.2 Thiết kế cơ sở dữ liệu</h3>
+
+<p>ChemLearn sử dụng Firebase Firestore, một cơ sở dữ liệu NoSQL linh hoạt và có khả năng mở rộng. Cấu trúc dữ liệu được thiết kế để tối ưu hóa hiệu suất truy vấn và hỗ trợ đồng bộ thời gian thực.</p>
+
+<h4>Cấu trúc dữ liệu Firestore:</h4>
+
+<pre><code>// Collection: users
+{
+  "uid": "user123",
+  "email": "student@example.com",
+  "displayName": "Nguyễn Văn A",
+  "photoUrl": "https://...",
+  "createdAt": Timestamp,
+  "lastLogin": Timestamp
+}
+
+// Collection: lab_results
+{
+  "id": "lab_result_001",
+  "userId": "user123",
+  "labType": "chemical_mixing",
+  "chemicals": ["HCl", "NaOH"],
+  "result": "NaCl + H2O",
+  "score": 95,
+  "timestamp": Timestamp
+}
+
+// Collection: quiz_results
+{
+  "id": "quiz_001",
+  "userId": "user123",
+  "quizId": "basic_chemistry",
+  "score": 85,
+  "correctCount": 17,
+  "totalQuestions": 20,
+  "answers": [...],
+  "timestamp": Timestamp
+}
+
+// Collection: progress
+{
+  "id": "progress_001",
+  "userId": "user123",
+  "totalPoints": 1250,
+  "currentStreak": 7,
+  "longestStreak": 15,
+  "completedAchievements": ["first_lab", "quiz_master"],
+  "lastUpdated": Timestamp
+}
+</code></pre>
+
+<p><strong>Nguyên tắc thiết kế cơ sở dữ liệu:</strong></p>
+<ul>
+    <li><strong>Phi chuẩn hóa:</strong> Một số dữ liệu được sao chép để đọc nhanh hơn (thực hành tốt nhất của NoSQL)</li>
+    <li><strong>Subcollections:</strong> Sử dụng cho dữ liệu lồng nhau (ví dụ: câu hỏi quiz trong quizzes)</li>
+    <li><strong>Indexes:</strong> Tạo trên các trường được truy vấn thường xuyên (userId, timestamp)</li>
+    <li><strong>Quy tắc bảo mật:</strong> Quy tắc Firestore đảm bảo người dùng chỉ có thể truy cập dữ liệu của riêng họ</li>
+    <li><strong>Real-time Listeners:</strong> Cho phép cập nhật trực tiếp mà không cần polling</li>
+</ul>
+
+<h3>3.5.3 Thiết kế giao diện</h3>
+
+<p>Giao diện người dùng được thiết kế theo nguyên tắc Material Design với trọng tâm vào khả năng sử dụng cho học sinh từ 12-18 tuổi.</p>
+
+<p><strong>Nguyên tắc thiết kế:</strong></p>
+<ul>
+    <li>Thẩm mỹ sạch sẽ, hiện đại</li>
+    <li>Điều hướng trực quan</li>
+    <li>Phản hồi trực quan ngay lập tức</li>
+    <li>Bảng màu nhất quán (Xanh chính, Cam nhấn)</li>
+    <li>Nút lớn, thân thiện với cảm ứng</li>
+    <li>Hỗ trợ tiếng Việt</li>
+</ul>
+
+<p><strong>Bảng màu:</strong></p>
+<ul>
+    <li>Màu chính: Xanh (#2196F3) - Tin cậy, học tập</li>
+    <li>Màu nhấn: Cam (#FF9800) - Năng lượng, tương tác</li>
+    <li>Thành công: Xanh lá (#4CAF50) - Câu trả lời đúng</li>
+    <li>Lỗi: Đỏ (#F44336) - Sai lầm</li>
+    <li>Nền: Xám nhạt (#F5F5F5) - Giảm mỏi mắt</li>
+</ul>
+
+<p><strong>Các màn hình giao diện chính:</strong></p>
+
+<div class="figure">
+    <p><strong>Hình 3.11: Giao diện đăng nhập</strong></p>
+    <p>- Thiết kế sạch sẽ với logo<br>
+    - Trường email và mật khẩu<br>
+    - Nút đăng nhập xã hội (Google, Facebook)<br>
+    - Liên kết "Đăng ký" cho người dùng mới</p>
+</div>
+
+<div class="figure">
+    <p><strong>Hình 3.12: Giao diện trang chủ</strong></p>
+    <p>- Thông điệp chào mừng với avatar người dùng<br>
+    - Thẻ tiến độ khóa học<br>
+    - Thẻ tóm tắt thành tích<br>
+    - Lưới khóa học (2 cột)<br>
+    - Thanh điều hướng dưới cùng</p>
+</div>
+
+<div class="figure">
+    <p><strong>Hình 3.13: Giao diện chọn phòng thí nghiệm</strong></p>
+    <p>- Lưới 7 module phòng thí nghiệm<br>
+    - Mỗi thẻ hiển thị biểu tượng lab, tên, mô tả<br>
+    - Mã màu theo loại lab<br>
+    - Chỉ báo tiến độ cho các lab đã hoàn thành</p>
+</div>
+
+<div class="figure">
+    <p><strong>Hình 3.14: Giao diện bảng tuần hoàn</strong></p>
+    <p>- Lưới bảng tuần hoàn tương tác<br>
+    - Nhóm nguyên tố được mã màu<br>
+    - Nhấn vào nguyên tố để xem chi tiết<br>
+    - Thanh tìm kiếm để truy cập nhanh</p>
+</div>
+
+<div class="figure">
+    <p><strong>Hình 3.15: Giao diện bảng điều khiển quản trị (Web)</strong></p>
+    <p>- Thanh điều hướng trên cùng với các tab<br>
+    - Tổng quan với thẻ thống kê (tổng người dùng, người dùng hoạt động, hoạt động)<br>
+    - Bảng quản lý người dùng với các thao tác CRUD<br>
+    - Biểu đồ và đồ thị phân tích<br>
+    - Nhật ký hoạt động với cập nhật thời gian thực<br>
+    - Thiết kế responsive cho máy tính để bàn và máy tính bảng</p>
+</div>
+
+<p><strong>Cấu trúc điều hướng:</strong></p>
+<ul>
+    <li><strong>Thanh điều hướng dưới cùng (4 tab):</strong>
+        <ul>
+            <li>Trang chủ (Dashboard với khóa học và tiến độ)</li>
+            <li>Labs (7 module phòng thí nghiệm)</li>
+            <li>Quiz/Games (Trò chơi giáo dục và quiz)</li>
+            <li>Profile (Cài đặt người dùng và thống kê)</li>
+        </ul>
+    </li>
+    <li>Mỗi tab tải màn hình tương ứng</li>
+    <li>Nút quay lại cho các màn hình phụ</li>
+    <li>Chuyển đổi mượt mà giữa các màn hình</li>
+</ul>
+
+<p><strong>Thiết kế responsive:</strong></p>
+<ul>
+    <li>Thích ứng với các kích thước màn hình khác nhau (điện thoại, máy tính bảng)</li>
+    <li>Hỗ trợ hướng dọc và ngang</li>
+    <li>Tỷ lệ các phần tử UI theo tỷ lệ</li>
+    <li>Duy trì khả năng sử dụng trên màn hình nhỏ (4 inch) và màn hình lớn (12 inch)</li>
+</ul>
+
+</div>
+
+<!-- CHƯƠNG 4: TRIỂN KHAI VÀ KIỂM THỬ HỆ THỐNG -->
+<div class="page-break">
+<h1>CHƯƠNG 4<br>TRIỂN KHAI VÀ KIỂM THỬ HỆ THỐNG</h1>
+
+<h2>4.1 Môi trường phát triển</h2>
+
+<p>Ứng dụng ChemLearn được phát triển bằng các công cụ và công nghệ hiện đại cung cấp hiệu quả, độ tin cậy và khả năng bảo trì.</p>
+
+<h3>Bảng 4.1: Công cụ và công nghệ phát triển</h3>
+
+<table>
+    <tr>
+        <th>Danh mục</th>
+        <th>Công cụ/Công nghệ</th>
+        <th>Phiên bản</th>
+        <th>Mục đích</th>
+    </tr>
+    <tr>
+        <td><strong>Hệ điều hành</strong></td>
+        <td>Windows 11</td>
+        <td>Latest</td>
+        <td>Nền tảng phát triển</td>
+    </tr>
+    <tr>
+        <td><strong>IDE</strong></td>
+        <td>Visual Studio Code</td>
+        <td>1.85+</td>
+        <td>Trình soạn thảo mã chính</td>
+    </tr>
+    <tr>
+        <td><strong>Framework di động</strong></td>
+        <td>Flutter</td>
+        <td>3.11.4</td>
+        <td>Phát triển di động đa nền tảng</td>
+    </tr>
+    <tr>
+        <td><strong>Ngôn ngữ lập trình</strong></td>
+        <td>Dart</td>
+        <td>3.11.4</td>
+        <td>Logic ứng dụng</td>
+    </tr>
+    <tr>
+        <td><strong>Kiểm soát phiên bản</strong></td>
+        <td>Git</td>
+        <td>2.40+</td>
+        <td>Quản lý mã nguồn</td>
+    </tr>
+    <tr>
+        <td><strong>Lưu trữ repository</strong></td>
+        <td>GitHub</td>
+        <td>-</td>
+        <td>Repository từ xa</td>
+    </tr>
+    <tr>
+        <td><strong>Dịch vụ Backend</strong></td>
+        <td>Firebase</td>
+        <td>Latest</td>
+        <td>Xác thực, cơ sở dữ liệu, lưu trữ</td>
+    </tr>
+    <tr>
+        <td><strong>Cơ sở dữ liệu</strong></td>
+        <td>Cloud Firestore</td>
+        <td>Latest</td>
+        <td>Cơ sở dữ liệu đám mây NoSQL</td>
+    </tr>
+    <tr>
+        <td><strong>Xác thực</strong></td>
+        <td>Firebase Auth</td>
+        <td>5.3.4</td>
+        <td>Xác thực người dùng</td>
+    </tr>
+    <tr>
+        <td><strong>Quản lý trạng thái</strong></td>
+        <td>Provider</td>
+        <td>6.1.2</td>
+        <td>Quản lý trạng thái ứng dụng</td>
+    </tr>
+    <tr>
+        <td><strong>Thiết bị kiểm thử</strong></td>
+        <td>Android Phone</td>
+        <td>6.0+</td>
+        <td>Kiểm thử thiết bị vật lý</td>
+    </tr>
+    <tr>
+        <td><strong>Emulator</strong></td>
+        <td>Android Emulator</td>
+        <td>API 30+</td>
+        <td>Kiểm thử thiết bị ảo</td>
+    </tr>
+</table>
+
+<h3>4.1.1 Thiết lập môi trường phát triển</h3>
+
+<p><strong>Bước 1: Cài đặt Flutter SDK</strong></p>
+<pre><code># Tải Flutter SDK từ https://flutter.dev
+# Giải nén vào C:\flutter
+# Thêm vào biến môi trường PATH
+flutter doctor
+</code></pre>
+
+<p><strong>Bước 2: Cài đặt Dependencies</strong></p>
+<pre><code># Điều hướng đến thư mục dự án
+cd virtual_chemistry_lab
+
+# Cài đặt tất cả dependencies
+flutter pub get
+</code></pre>
+
+<p><strong>Bước 3: Cấu hình Firebase</strong></p>
+<pre><code># Tạo dự án Firebase tại https://console.firebase.google.com
+# Tải file google-services.json (Android)
+# Tải file GoogleService-Info.plist (iOS)
+# Thêm vào thư mục tương ứng
+</code></pre>
+
+<h2>4.2 Triển khai hệ thống</h2>
+
+<h3>4.2.1 Triển khai Frontend</h3>
+
+<p>Frontend được phát triển bằng Flutter với cấu trúc dự án được tổ chức tốt:</p>
+
+<pre><code>lib/
+├── main.dart                 # Entry point
+├── constants/
+│   ├── colors.dart          # Định nghĩa màu sắc
+│   └── strings.dart         # Chuỗi văn bản
+├── models/
+│   ├── user_model.dart      # Model người dùng
+│   ├── lab_result_model.dart
+│   └── quiz_result_model.dart
+├── providers/
+│   ├── auth_provider.dart   # Quản lý xác thực
+│   ├── lab_provider.dart
+│   └── quiz_provider.dart
+├── services/
+│   ├── auth_service.dart    # Dịch vụ xác thực
+│   ├── firestore_service.dart
+│   └── storage_service.dart
+├── screens/
+│   ├── auth/
+│   │   ├── login_screen.dart
+│   │   └── register_screen.dart
+│   ├── home/
+│   │   └── home_screen.dart
+│   ├── lab/
+│   │   ├── lab_selection_screen.dart
+│   │   ├── mix_chemicals_screen.dart
+│   │   ├── burn_chemical_screen.dart
+│   │   ├── electrolysis_screen.dart
+│   │   ├── quantitative_analysis_screen.dart
+│   │   ├── reaction_kinetics_screen.dart
+│   │   ├── balance_equation_screen.dart
+│   │   └── equipment_selection_screen.dart
+│   ├── course/
+│   │   └── periodic_table_screen.dart
+│   ├── quiz/
+│   │   └── quiz_screen.dart
+│   └── profile/
+│       └── profile_screen.dart
+└── widgets/
+    ├── custom_button.dart
+    ├── custom_textfield.dart
+    └── loading_indicator.dart
+</code></pre>
+
+<p><strong>Các tính năng chính được triển khai:</strong></p>
+
+<p><strong>1. Hệ thống xác thực:</strong></p>
+<ul>
+    <li>Đăng ký/Đăng nhập bằng email và mật khẩu</li>
+    <li>Đăng nhập bằng Google (OAuth 2.0)</li>
+    <li>Đăng nhập bằng Facebook (OAuth 2.0)</li>
+    <li>Quản lý phiên người dùng</li>
+    <li>Khôi phục mật khẩu</li>
+</ul>
+
+<p><strong>2. Bảy module phòng thí nghiệm:</strong></p>
+<ul>
+    <li><strong>Trộn hóa chất:</strong> Mô phỏng phản ứng với hiệu ứng màu sắc</li>
+    <li><strong>Đốt cháy:</strong> Hiệu ứng lửa và khói</li>
+    <li><strong>Điện phân:</strong> Mô phỏng di chuyển ion</li>
+    <li><strong>Phân tích định lượng:</strong> 160 tổ hợp chuẩn độ (20 × 8)</li>
+    <li><strong>Động học phản ứng:</strong> 15 phản ứng với các yếu tố ảnh hưởng</li>
+    <li><strong>Cân bằng phương trình:</strong> Công cụ tương tác</li>
+    <li><strong>Chọn thiết bị:</strong> Hướng dẫn sử dụng thiết bị</li>
+</ul>
+
+<p><strong>3. Bảng tuần hoàn tương tác:</strong></p>
+<ul>
+    <li>Hiển thị đầy đủ 118 nguyên tố</li>
+    <li>Thông tin chi tiết từng nguyên tố</li>
+    <li>Tìm kiếm và lọc</li>
+    <li>Mã màu theo nhóm nguyên tố</li>
+</ul>
+
+<p><strong>4. Trò chơi giáo dục:</strong></p>
+<ul>
+    <li>Trò chơi ghi nhớ (Memory Game)</li>
+    <li>Trò chơi ghép từ (Word Building)</li>
+    <li>Quiz nhanh</li>
+    <li>Xây dựng phân tử</li>
+    <li>Tổng hợp</li>
+</ul>
+
+<p><strong>5. Hệ thống quiz:</strong></p>
+<ul>
+    <li>Nhiều danh mục quiz</li>
+    <li>Phản hồi ngay lập tức</li>
+    <li>Theo dõi điểm số</li>
+    <li>Lịch sử quiz</li>
+</ul>
+
+<h3>4.2.2 Triển khai Backend</h3>
+
+<p>Backend sử dụng Firebase với các dịch vụ sau:</p>
+
+<p><strong>1. Firebase Authentication:</strong></p>
+<pre><code>// lib/services/auth_service.dart
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+class AuthService {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+
+  // Đăng nhập bằng email
+  Future&lt;UserCredential?&gt; signInWithEmail(
+    String email, 
+    String password
+  ) async {
+    try {
+      return await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+    } catch (e) {
+      print('Error: $e');
+      return null;
+    }
+  }
+
+  // Đăng nhập bằng Google
+  Future&lt;UserCredential?&gt; signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = 
+        await _googleSignIn.signIn();
+      
+      if (googleUser == null) return null;
+
+      final GoogleSignInAuthentication googleAuth = 
+        await googleUser.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      return await _auth.signInWithCredential(credential);
+    } catch (e) {
+      print('Error: $e');
+      return null;
+    }
+  }
+}
+</code></pre>
+
+<p><strong>2. Cloud Firestore:</strong></p>
+<pre><code>// lib/services/firestore_service.dart
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+class FirestoreService {
+  final FirebaseFirestore _db = FirebaseFirestore.instance;
+
+  // Lưu kết quả lab
+  Future&lt;void&gt; saveLabResult(LabResult result) async {
+    await _db.collection('lab_results').add({
+      'userId': result.userId,
+      'labType': result.labType,
+      'chemicals': result.chemicals,
+      'result': result.result,
+      'score': result.score,
+      'timestamp': FieldValue.serverTimestamp(),
+    });
+  }
+
+  // Lấy kết quả lab của người dùng
+  Stream&lt;List&lt;LabResult&gt;&gt; getUserLabResults(String userId) {
+    return _db
+        .collection('lab_results')
+        .where('userId', isEqualTo: userId)
+        .orderBy('timestamp', descending: true)
+        .snapshots()
+        .map((snapshot) =&gt; snapshot.docs
+            .map((doc) =&gt; LabResult.fromFirestore(doc))
+            .toList());
+  }
+}
+</code></pre>
+
+<p><strong>3. Quy tắc bảo mật Firebase:</strong></p>
+<pre><code>rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Người dùng chỉ có thể đọc/ghi dữ liệu của họ
+    match /users/{userId} {
+      allow read, write: if request.auth != null 
+        && request.auth.uid == userId;
+    }
+    
+    // Kết quả lab
+    match /lab_results/{resultId} {
+      allow read: if request.auth != null 
+        && resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null 
+        && request.resource.data.userId == request.auth.uid;
+    }
+    
+    // Admin có quyền đọc tất cả
+    match /{document=**} {
+      allow read: if request.auth != null 
+        && get(/databases/$(database)/documents/users/$(request.auth.uid))
+           .data.role == 'admin';
+    }
+  }
+}
+</code></pre>
+
+<h3>4.2.3 Triển khai Admin Dashboard</h3>
+
+<p>Bảng điều khiển quản trị là ứng dụng web một trang được xây dựng bằng HTML, CSS và JavaScript.</p>
+
+<p><strong>Tính năng chính:</strong></p>
+<ul>
+    <li>Đăng nhập quản trị viên</li>
+    <li>Tổng quan với thống kê</li>
+    <li>Quản lý người dùng (CRUD)</li>
+    <li>Xem lịch sử hoạt động</li>
+    <li>Phân tích và báo cáo</li>
+</ul>
+
+<p><strong>Thông tin đăng nhập Admin:</strong></p>
+<ul>
+    <li>Email: <code>admin@chemlab.com</code></li>
+    <li>Password: <code>Admin@123</code></li>
+    <li>User ID: <code>mRb3wSjSg2bedDtc45wvQgVupzE2</code></li>
+</ul>
+
+<h2>4.3 Kiểm thử hệ thống</h2>
+
+<h3>4.3.1 Kiểm thử đơn vị (Unit Testing)</h3>
+
+<p>Kiểm thử đơn vị được thực hiện cho các thành phần riêng lẻ của ứng dụng.</p>
+
+<h4>Bảng 4.2: Các ca kiểm thử đơn vị</h4>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Thành phần</th>
+        <th>Ca kiểm thử</th>
+        <th>Kết quả</th>
+    </tr>
+    <tr>
+        <td>UT-01</td>
+        <td>AuthService</td>
+        <td>Đăng nhập với email hợp lệ</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-02</td>
+        <td>AuthService</td>
+        <td>Đăng nhập với email không hợp lệ</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-03</td>
+        <td>AuthService</td>
+        <td>Đăng ký với mật khẩu yếu</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-04</td>
+        <td>FirestoreService</td>
+        <td>Lưu kết quả lab</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-05</td>
+        <td>FirestoreService</td>
+        <td>Lấy kết quả lab của người dùng</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-06</td>
+        <td>LabProvider</td>
+        <td>Tính toán phản ứng hóa học</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-07</td>
+        <td>QuizProvider</td>
+        <td>Tính điểm quiz</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>UT-08</td>
+        <td>QuizProvider</td>
+        <td>Kiểm tra câu trả lời</td>
+        <td>✅ Pass</td>
+    </tr>
+</table>
+
+<p><strong>Kết quả:</strong> 8/8 ca kiểm thử đơn vị đã pass (100%)</p>
+
+<h3>4.3.2 Kiểm thử tích hợp (Integration Testing)</h3>
+
+<p>Kiểm thử tích hợp xác minh rằng các module khác nhau hoạt động cùng nhau một cách chính xác.</p>
+
+<h4>Bảng 4.3: Kết quả kiểm thử tích hợp</h4>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Module</th>
+        <th>Ca kiểm thử</th>
+        <th>Kết quả</th>
+    </tr>
+    <tr>
+        <td>IT-01</td>
+        <td>Auth + Firestore</td>
+        <td>Đăng ký và tạo hồ sơ người dùng</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-02</td>
+        <td>Auth + Firestore</td>
+        <td>Đăng nhập và tải dữ liệu người dùng</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-03</td>
+        <td>Lab + Firestore</td>
+        <td>Thực hiện lab và lưu kết quả</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-04</td>
+        <td>Quiz + Firestore</td>
+        <td>Làm quiz và lưu điểm</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-05</td>
+        <td>Progress + Firestore</td>
+        <td>Cập nhật tiến độ sau hoạt động</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-06</td>
+        <td>Admin Dashboard</td>
+        <td>Đăng nhập và xem người dùng</td>
+        <td>✅ Pass</td>
+    </tr>
+    <tr>
+        <td>IT-07</td>
+        <td>Admin Dashboard</td>
+        <td>Xóa người dùng</td>
+        <td>✅ Pass</td>
+    </tr>
+</table>
+
+<p><strong>Kết quả:</strong> 7/7 ca kiểm thử tích hợp đã pass (100%)</p>
+
+<h3>4.3.3 Kiểm thử chấp nhận người dùng (UAT)</h3>
+
+<p>Kiểm thử chấp nhận người dùng được thực hiện với 15 học sinh từ 12-18 tuổi.</p>
+
+<h4>Bảng 4.4: Kết quả kiểm thử chấp nhận người dùng</h4>
+
+<table>
+    <tr>
+        <th>Tiêu chí</th>
+        <th>Đánh giá trung bình</th>
+        <th>Nhận xét</th>
+    </tr>
+    <tr>
+        <td>Dễ sử dụng</td>
+        <td>4.3/5.0</td>
+        <td>Giao diện trực quan, dễ điều hướng</td>
+    </tr>
+    <tr>
+        <td>Thiết kế giao diện</td>
+        <td>4.5/5.0</td>
+        <td>Màu sắc đẹp, bố cục hợp lý</td>
+    </tr>
+    <tr>
+        <td>Tính năng phòng lab</td>
+        <td>4.4/5.0</td>
+        <td>Mô phỏng thực tế, hấp dẫn</td>
+    </tr>
+    <tr>
+        <td>Trò chơi giáo dục</td>
+        <td>4.2/5.0</td>
+        <td>Vui, giúp ghi nhớ tốt</td>
+    </tr>
+    <tr>
+        <td>Hệ thống quiz</td>
+        <td>4.1/5.0</td>
+        <td>Câu hỏi hay, phản hồi nhanh</td>
+    </tr>
+    <tr>
+        <td>Hiệu suất</td>
+        <td>4.0/5.0</td>
+        <td>Chạy mượt, không lag</td>
+    </tr>
+    <tr>
+        <td>Tổng thể</td>
+        <td><strong>4.3/5.0</strong></td>
+        <td>Rất hài lòng, muốn sử dụng tiếp</td>
+    </tr>
+</table>
+
+<p><strong>Phản hồi tích cực:</strong></p>
+<ul>
+    <li>"Ứng dụng rất hay, giúp em hiểu hóa học hơn"</li>
+    <li>"Thích phần trộn hóa chất, nhìn màu sắc đổi rất thú vị"</li>
+    <li>"Bảng tuần hoàn dễ tra cứu hơn sách giáo khoa"</li>
+    <li>"Trò chơi vui, học mà không thấy nhàm chán"</li>
+</ul>
+
+<p><strong>Đề xuất cải thiện:</strong></p>
+<ul>
+    <li>Thêm nhiều thí nghiệm hơn</li>
+    <li>Có thêm video hướng dẫn</li>
+    <li>Thêm chế độ thi đấu với bạn bè</li>
+</ul>
+
+<h2>4.4 Hướng dẫn cài đặt</h2>
+
+<p><strong>Yêu cầu hệ thống:</strong></p>
+<ul>
+    <li>Android 6.0 trở lên hoặc iOS 12.0 trở lên</li>
+    <li>Kết nối Internet</li>
+    <li>Dung lượng trống: 100MB</li>
+</ul>
+
+<p><strong>Các bước cài đặt:</strong></p>
+<ol>
+    <li>Tải ứng dụng từ Google Play Store hoặc Apple App Store</li>
+    <li>Mở ứng dụng và đăng ký tài khoản</li>
+    <li>Đăng nhập và bắt đầu học tập</li>
+</ol>
+
+<h2>4.5 Hướng dẫn sử dụng</h2>
+
+<p><strong>Cho học sinh:</strong></p>
+
+<p><strong>1. Đăng ký/Đăng nhập:</strong></p>
+<ul>
+    <li>Mở ứng dụng ChemLearn</li>
+    <li>Chọn "Đăng ký" nếu chưa có tài khoản</li>
+    <li>Nhập email, tên và mật khẩu</li>
+    <li>Hoặc đăng nhập bằng Google/Facebook</li>
+</ul>
+
+<p><strong>2. Thực hành phòng thí nghiệm:</strong></p>
+<ul>
+    <li>Nhấn vào tab "Labs"</li>
+    <li>Chọn một trong 7 phòng thí nghiệm</li>
+    <li>Làm theo hướng dẫn trên màn hình</li>
+    <li>Quan sát kết quả và lưu tiến độ</li>
+</ul>
+
+<p><strong>3. Làm bài quiz:</strong></p>
+<ul>
+    <li>Nhấn vào tab "Quiz/Games"</li>
+    <li>Chọn danh mục quiz</li>
+    <li>Trả lời các câu hỏi</li>
+    <li>Xem kết quả và giải thích</li>
+</ul>
+
+<p><strong>4. Xem tiến độ:</strong></p>
+<ul>
+    <li>Nhấn vào tab "Profile"</li>
+    <li>Xem điểm số, thành tích và lịch sử</li>
+</ul>
+
+<p><strong>Cho quản trị viên:</strong></p>
+
+<p><strong>1. Truy cập Admin Dashboard:</strong></p>
+<ul>
+    <li>Mở trình duyệt và truy cập URL dashboard</li>
+    <li>Đăng nhập bằng tài khoản admin</li>
+</ul>
+
+<p><strong>2. Quản lý người dùng:</strong></p>
+<ul>
+    <li>Xem danh sách người dùng</li>
+    <li>Tìm kiếm, lọc người dùng</li>
+    <li>Xem chi tiết, chỉnh sửa hoặc xóa</li>
+</ul>
+
+<p><strong>3. Xem phân tích:</strong></p>
+<ul>
+    <li>Xem thống kê tổng quan</li>
+    <li>Xem biểu đồ hoạt động</li>
+    <li>Xuất báo cáo</li>
+</ul>
+
+</div>
+<!-- CHƯƠNG 5: TỔNG KẾT VÀ KẾT LUẬN -->
+<div class='page-break'>
+<h1>CHƯƠNG 5<br>TỔNG KẾT VÀ KẾT LUẬN</h1>
+
+<h2>5.1 Kết quả đạt được</h2>
+
+<p>Dự án đã phát triển thành công ChemLearn, một ứng dụng phòng thí nghiệm hóa học ảo di động toàn diện cho học sinh trung học phổ thông Việt Nam. Hệ thống giải quyết nhu cầu quan trọng về các công cụ giáo dục hóa học dễ tiếp cận, an toàn và hấp dẫn.</p>
+
+<p><strong>Các thành tựu chính:</strong></p>
+
+<ol>
+    <li><strong>Phát triển ứng dụng di động thành công:</strong> Ứng dụng đa nền tảng cho Android và iOS sử dụng Flutter framework</li>
+    <li><strong>Bảy module phòng thí nghiệm:</strong> Các phòng thí nghiệm ảo hoạt động đầy đủ bao gồm các khái niệm hóa học chính</li>
+    <li><strong>Trò chơi giáo dục:</strong> Năm trò chơi hấp dẫn củng cố việc học</li>
+    <li><strong>Tích hợp Firebase:</strong> Backend đám mây mạnh mẽ với xác thực, cơ sở dữ liệu và lưu trữ</li>
+    <li><strong>Bảng điều khiển quản trị:</strong> Hệ thống quản lý dựa trên web với chức năng CRUD đầy đủ</li>
+    <li><strong>Phản hồi tích cực từ người dùng:</strong> Tỷ lệ hoàn thành nhiệm vụ 92%, mức độ hài lòng 4.3/5.0</li>
+</ol>
+
+<h2>5.2 Thảo luận và ý nghĩa</h2>
+
+<p>Sự phát triển và kiểm thử thành công của ChemLearn chứng minh tính khả thi của phòng thí nghiệm ảo di động như các công cụ giáo dục hiệu quả. Hệ thống mang lại một số lợi ích quan trọng:</p>
+
+<ul>
+    <li>Loại bỏ rủi ro an toàn liên quan đến thí nghiệm hóa học vật lý</li>
+    <li>Cung cấp cơ hội thực hành không giới hạn mà không tốn chi phí</li>
+    <li>Cho phép học tập tự định tốc độ có thể truy cập mọi lúc, mọi nơi</li>
+    <li>Giảm tác động môi trường (không có chất thải hóa học)</li>
+    <li>Mở rộng để phục vụ số lượng học sinh không giới hạn</li>
+</ul>
+
+<h2>5.3 Hạn chế của hệ thống</h2>
+
+<p>Mặc dù hệ thống đáp ứng thành công các mục tiêu của nó, một số hạn chế cần được thừa nhận:</p>
+
+<ol>
+    <li><strong>Phụ thuộc vào Internet:</strong> Yêu cầu kết nối internet ổn định cho chức năng đầy đủ</li>
+    <li><strong>Từ vựng hạn chế:</strong> Hiện chỉ hỗ trợ tiếng Anh và tiếng Việt</li>
+    <li><strong>Yêu cầu thiết bị:</strong> Yêu cầu điện thoại thông minh tương đối hiện đại</li>
+    <li><strong>Mô phỏng đơn giản hóa:</strong> Không thể sao chép hoàn toàn các phản ứng hóa học phức tạp trong thế giới thực</li>
+    <li><strong>Gamification hạn chế:</strong> Có thể hưởng lợi từ cơ chế trò chơi nâng cao hơn</li>
+</ol>
+
+<h2>5.4 Hướng phát triển tương lai</h2>
+
+<p>Dựa trên phản hồi của người dùng và các hạn chế đã xác định, một số hướng phát triển trong tương lai được đề xuất:</p>
+
+<h3>Cải tiến ngắn hạn (3-6 tháng):</h3>
+<ul>
+    <li>Mở rộng thư viện từ vựng với nhiều module lab hơn</li>
+    <li>Tăng cường gamification với huy hiệu và thành tích</li>
+    <li>Cải thiện chức năng chế độ offline</li>
+    <li>Cổng thông tin phụ huynh để theo dõi tiến độ của con</li>
+</ul>
+
+<h3>Cải tiến trung hạn (6-12 tháng):</h3>
+<ul>
+    <li>Ứng dụng iOS và Android gốc để có hiệu suất tốt hơn</li>
+    <li>Phân tích ngữ âm và phản hồi nâng cao</li>
+    <li>Đường dẫn học tập thích ứng dựa trên hiệu suất của học sinh</li>
+    <li>Tính năng xã hội cho học tập cộng tác</li>
+</ul>
+
+<h3>Cải tiến dài hạn (1-2 năm):</h3>
+<ul>
+    <li>Trực quan hóa phân tử 3D</li>
+    <li>Tính năng thực tế tăng cường (AR)</li>
+    <li>Tích hợp với hệ thống quản lý học tập của trường</li>
+    <li>Đề xuất học tập cá nhân hóa được hỗ trợ bởi AI</li>
+    <li>Hỗ trợ đa ngôn ngữ cho thị trường quốc tế</li>
+</ul>
+
+</div>
+
+<!-- TÀI LIỆU THAM KHẢO -->
+<div class='page-break'>
+<h1>TÀI LIỆU THAM KHẢO</h1>
+
+<ol>
+    <li>Crompton, H., & Burke, D. (2018). The use of mobile learning in higher education: A systematic review. <em>Computers & Education, 123</em>, 53-64.</li>
+    
+    <li>Flutter Team. (2024). Flutter Documentation. Retrieved from https://flutter.dev/docs</li>
+    
+    <li>Google Firebase. (2024). Firebase Documentation. Retrieved from https://firebase.google.com/docs</li>
+    
+    <li>Kukulska-Hulme, A. (2012). Mobile learning as a catalyst for change. <em>Open Learning: The Journal of Open, Distance and e-Learning, 27</em>(3), 181-185.</li>
+    
+    <li>Bộ Giáo dục và Đào tạo Việt Nam. (2023). Chương trình giáo dục Hóa học cho trường Trung học phổ thông.</li>
+    
+    <li>Sung, Y. T., Chang, K. E., & Liu, T. C. (2016). The effects of integrating mobile devices with teaching and learning on students' learning performance: A meta-analysis and research synthesis. <em>Computers & Education, 94</em>, 252-275.</li>
+    
+    <li>UNESCO. (2023). Mobile learning for quality education and social inclusion. Paris: UNESCO.</li>
+    
+    <li>Yelland, N., & Masters, J. (2007). Rethinking scaffolding in the information age. <em>Computers & Education, 48</em>(3), 362-382.</li>
+    
+    <li>Dalgarno, B., Bishop, A. G., Adlong, W., & Bedgood Jr, D. R. (2009). Effectiveness of a virtual laboratory as a preparatory resource for distance education chemistry students. <em>Computers & Education, 53</em>(3), 853-865.</li>
+    
+    <li>Herga, N. R., Čagran, B., & Dinevski, D. (2016). Virtual laboratory in the role of dynamic visualisation for better understanding of chemistry in primary school. <em>Eurasia Journal of Mathematics, Science and Technology Education, 12</em>(3), 593-608.</li>
+</ol>
+
+</div>
+
+<!-- PHỤ LỤC -->
+<div class='page-break'>
+<h1>PHỤ LỤC</h1>
+
+<h2>Phụ lục A: Bảng câu hỏi khảo sát người dùng</h2>
+
+<p><strong>Khảo sát đánh giá ứng dụng ChemLearn</strong></p>
+
+<ol>
+    <li>Bạn thấy ứng dụng dễ sử dụng không? (1-5 sao)</li>
+    <li>Ứng dụng có giúp bạn hiểu hóa học tốt hơn không?</li>
+    <li>Tính năng nào bạn thấy hữu ích nhất?</li>
+    <li>Bạn có đề xuất cải thiện nào không?</li>
+    <li>Bạn có muốn giới thiệu ứng dụng này cho bạn bè không?</li>
+</ol>
+
+<h2>Phụ lục B: Cấu hình Firebase</h2>
+
+<p><strong>Thiết lập dự án Firebase:</strong></p>
+<pre><code>const firebaseConfig = {
+  apiKey: 'YOUR_API_KEY',
+  authDomain: 'virtual-chemistry-lab-cd64a.firebaseapp.com',
+  projectId: 'virtual-chemistry-lab-cd64a',
+  storageBucket: 'virtual-chemistry-lab-cd64a.appspot.com',
+  messagingSenderId: 'YOUR_SENDER_ID',
+  appId: 'YOUR_APP_ID'
+};
+</code></pre>
+
+<h2>Phụ lục C: Lược đồ cơ sở dữ liệu</h2>
+
+<p><strong>Cấu trúc Firestore Collections:</strong></p>
+
+<pre><code>/users/{userId}
+  - email: string
+  - displayName: string
+  - photoUrl: string
+  - createdAt: timestamp
+  - lastLogin: timestamp
+
+/lab_results/{resultId}
+  - userId: string
+  - labType: string
+  - chemicals: array
+  - result: object
+  - score: number
+  - timestamp: timestamp
+
+/quiz_results/{resultId}
+  - userId: string
+  - quizId: string
+  - score: number
+  - correctCount: number
+  - totalQuestions: number
+  - answers: array
+  - timestamp: timestamp
+
+/progress/{userId}
+  - totalPoints: number
+  - currentStreak: number
+  - longestStreak: number
+  - completedAchievements: number
+  - lastUpdated: timestamp
+</code></pre>
+
+<h2>Phụ lục D: Repository mã nguồn</h2>
+
+<p><strong>GitHub Repository:</strong> <code>https://github.com/tienphse181722/virtual_chemistry_lab</code></p>
+
+<p><strong>Cấu trúc thư mục:</strong></p>
+<ul>
+    <li><code>/lib</code> - Mã nguồn ứng dụng Flutter</li>
+    <li><code>/android</code> - Cấu hình Android</li>
+    <li><code>/ios</code> - Cấu hình iOS</li>
+    <li><code>/admin_dashboard</code> - Bảng điều khiển quản trị web</li>
+    <li><code>/assets</code> - Hình ảnh và tài nguyên</li>
+</ul>
+
+<h2>Phụ lục E: Ảnh chụp màn hình hệ thống</h2>
+
+<p><em>[Phần này sẽ bao gồm ảnh chụp màn hình thực tế của các màn hình chính của ứng dụng]</em></p>
+
+<ol>
+    <li>Màn hình đăng nhập</li>
+    <li>Màn hình trang chủ</li>
+    <li>Màn hình chọn phòng thí nghiệm</li>
+    <li>Màn hình phòng thí nghiệm trộn hóa chất</li>
+    <li>Màn hình bảng tuần hoàn</li>
+    <li>Màn hình quiz</li>
+    <li>Màn hình hồ sơ</li>
+    <li>Màn hình bảng điều khiển quản trị</li>
+</ol>
+
+</div>
+
+</body>
+</html>
