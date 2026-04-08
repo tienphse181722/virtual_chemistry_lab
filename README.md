@@ -282,15 +282,21 @@ The reports include:
 
 ### 🔍 How to Read the Reports
 
-**Option 1: GitHub (Recommended)**
+**Option 1: HTML Version (Best for Word)**
+- Open `ChemLearn_Complete_Report.html` in your browser
+- Press `Ctrl+A` to select all, then `Ctrl+C` to copy
+- Paste into Microsoft Word - formatting will be preserved!
+- This is the easiest way to get a Word document
+
+**Option 2: GitHub (Recommended for Online Reading)**
 - View directly on GitHub with proper Markdown rendering
 - Navigate to the files in the repository
 
-**Option 2: VS Code**
+**Option 3: VS Code**
 - Open the `.md` files in VS Code
 - Press `Ctrl+Shift+V` (Windows) or `Cmd+Shift+V` (Mac) for preview
 
-**Option 3: Markdown Viewer**
+**Option 4: Markdown Viewer**
 - Use any Markdown viewer/editor
 - Examples: Typora, MarkText, Obsidian
 
