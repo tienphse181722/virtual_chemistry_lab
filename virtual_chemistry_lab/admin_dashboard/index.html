@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; }
+        
+        /* Login */
+        .login-screen {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .login-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            width: 400px;
+            text-align: center;
+        }
+        .logo { font-size: 48px; margin-bottom: 20px; }
+        h1 { margin-bottom: 10px; color: #333; }
+        .subtitle { color: #666; margin-bottom: 30px; }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .form-group input:focus { outline: none; border-color: #667eea; }
+        .btn-primary {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-primary:hover { opacity: 0.9; }
+        .error-message {
+            margin-top: 15px;
+            padding: 12px;
+            background: #fee;
+            color: #c00;
+            border-radius: 6px;
+            display: none;
+        }
+        .error-message.show { display: block; }
+        .info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 6px;
+            font-size: 13px;
+            text-align: left;
+        }
+        
+        /* Dashboard */
+        .dashboard { display: none; min-height: 100vh; }
+        .dashboard.active { display: flex; }
+        .sidebar {
+            width: 250px;
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar h2 { margin-bottom: 30px; font-size: 20px; }
+        .nav-item {
+            display: block;
+            padding: 12px 15px;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+        .nav-item:hover { background: rgba(255,255,255,0.1); }
+        .nav-item.active { background: #667eea; }
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            background: #f5f5f5;
+            overflow-y: auto;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .stat-card h3 { font-size: 32px; margin-bottom: 5px; }
+        .stat-card p { color: #666; font-size: 14px; }
+        .btn-logout {
+            width: 100%;
+            padding: 12px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: auto;
+        }
+        .page { display: none; }
+        .page.active { display: block; }
+        table {
+            width: 100%;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th { background: #f8f9fa; font-weight: 600; }
+        .btn-action {
+            padding: 6px 12px;
+            margin: 0 4px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .btn-edit { background: #3498db; color: white; }
+        .btn-delete { background: #e74c3c; color: white; }
+    </style>
+</head>
+<body>
+    <!-- Login -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-card">
+            <div class="logo">🧪</div>
+            <h1>Admin Dashboard</h1>
+            <p class="subtitle">Virtual Chemistry Lab</p>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" value="admin@chemlab.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" value="Admin@123" required>
+                </div>
+                <button type="submit" class="btn-primary">Đăng nhập</button>
+            </form>
+            <div id="loginError" class="error-message"></div>
+            <div class="info">
+                <strong>Tài khoản mặc định:</strong><br>
+                Email: admin@chemlab.com<br>
+                Password: Admin@123
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboardScreen" class="dashboard">
+        <aside class="sidebar">
+            <h2>🧪 Admin Panel</h2>
+            <nav>
+                <a href="#" class="nav-item active" data-page="overview">📊 Tổng quan</a>
+                <a href="#" class="nav-item" data-page="users">👥 Người dùng</a>
+                <a href="#" class="nav-item" data-page="activities">📈 Hoạt động</a>
+                <a href="#" class="nav-item" data-page="settings">⚙️ Cài đặt</a>
+            </nav>
+            <button id="logoutBtn" class="btn-logout">🚪 Đăng xuất</button>
+        </aside>
+        
+        <main class="main-content">
+            <!-- Overview -->
+            <div id="overviewPage" class="page active">
+                <h1>Tổng quan</h1>
+                <p>Email: <span id="adminEmail"></span></p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3 id="totalUsers">0</h3>
+                        <p>Tổng người dùng</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="activeUsers">0</h3>
+                        <p>Hoạt động hôm nay</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="totalGames">0</h3>
+                        <p>Tổng game</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="totalLabs">0</h3>
+                        <p>Tổng thí nghiệm</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Users -->
+            <div id="usersPage" class="page">
+                <h1>Quản lý người dùng</h1>
+                <table id="usersTable">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Tên</th>
+                            <th>Điểm</th>
+                            <th>Streak</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <tr><td colspan="5">Đang tải...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Activities -->
+            <div id="activitiesPage" class="page">
+                <h1>Lịch sử hoạt động</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Người dùng</th>
+                            <th>Loại</th>
+                            <th>Chi tiết</th>
+                            <th>Thời gian</th>
+                        </tr>
+                    </thead>
+                    <tbody id="activitiesTableBody">
+                        <tr><td colspan="4">Đang tải...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Settings -->
+            <div id="settingsPage" class="page">
+                <h1>Cài đặt</h1>
+                <div class="stat-card">
+                    <h3>Thông tin Firebase</h3>
+                    <p>Project ID: virtual-chemistry-lab-cd64a</p>
+                    <p>Kết nối: ✅ Đã kết nối</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDz1Aq0rrkTGQoEHxqQhRiGcS3LYdO9nos",
+            authDomain: "virtual-chemistry-lab-cd64a.firebaseapp.com",
+            projectId: "virtual-chemistry-lab-cd64a",
+            storageBucket: "virtual-chemistry-lab-cd64a.firebasestorage.app",
+            messagingSenderId: "354806470268",
+            appId: "1:354806470268:web:ea1fa5186924edecef9bf9"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        const loginScreen = document.getElementById('loginScreen');
+        const dashboardScreen = document.getElementById('dashboardScreen');
+        const loginForm = document.getElementById('loginForm');
+        const loginError = document.getElementById('loginError');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const adminEmail = document.getElementById('adminEmail');
+        const navItems = document.querySelectorAll('.nav-item');
+        const pages = document.querySelectorAll('.page');
+
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                loginScreen.style.display = 'none';
+                dashboardScreen.classList.add('active');
+                adminEmail.textContent = user.email;
+                loadStats();
+                loadUsers();
+                loadActivities();
+            } else {
+                loginScreen.style.display = 'flex';
+                dashboardScreen.classList.remove('active');
+            }
+        });
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            try {
+                await auth.signInWithEmailAndPassword(email, password);
+                loginError.classList.remove('show');
+            } catch (error) {
+                loginError.textContent = 'Lỗi: ' + error.message;
+                loginError.classList.add('show');
+            }
+        });
+
+        logoutBtn.addEventListener('click', () => {
+            if (confirm('Đăng xuất?')) auth.signOut();
+        });
+
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageName = item.dataset.page;
+                navItems.forEach(n => n.classList.remove('active'));
+                item.classList.add('active');
+                pages.forEach(p => p.classList.remove('active'));
+                document.getElementById(pageName + 'Page').classList.add('active');
+            });
+        });
+
+        async function loadStats() {
+            try {
+                const usersSnap = await db.collection('users').get();
+                document.getElementById('totalUsers').textContent = usersSnap.size;
+                
+                const gamesSnap = await db.collection('game_results').get();
+                document.getElementById('totalGames').textContent = gamesSnap.size;
+                
+                const labsSnap = await db.collection('lab_experiments').get();
+                document.getElementById('totalLabs').textContent = labsSnap.size;
+                
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                let active = 0;
+                usersSnap.forEach(doc => {
+                    const data = doc.data();
+                    if (data.lastLogin && data.lastLogin.toDate() >= today) active++;
+                });
+                document.getElementById('activeUsers').textContent = active;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        async function loadUsers() {
+            const tbody = document.getElementById('usersTableBody');
+            try {
+                const snapshot = await db.collection('users').get();
+                tbody.innerHTML = '';
+                snapshot.forEach(doc => {
+                    const user = doc.data();
+                    const row = tbody.insertRow();
+                    row.innerHTML = `
+                        <td>${user.email || 'N/A'}</td>
+                        <td>${user.displayName || 'N/A'}</td>
+                        <td>${user.totalPoints || 0}</td>
+                        <td>${user.currentStreak || 0}</td>
+                        <td>
+                            <button class="btn-action btn-edit" onclick="editUser('${doc.id}')">Sửa</button>
+                            <button class="btn-action btn-delete" onclick="deleteUser('${doc.id}')">Xóa</button>
+                        </td>
+                    `;
+                });
+            } catch (error) {
+                tbody.innerHTML = '<tr><td colspan="5">Lỗi: ' + error.message + '</td></tr>';
+            }
+        }
+
+        async function loadActivities() {
+            const tbody = document.getElementById('activitiesTableBody');
+            try {
+                const snapshot = await db.collection('user_activities').orderBy('timestamp', 'desc').limit(20).get();
+                tbody.innerHTML = '';
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const row = tbody.insertRow();
+                    row.innerHTML = `
+                        <td>${data.userEmail || 'N/A'}</td>
+                        <td>${data.activityType || 'N/A'}</td>
+                        <td>${data.details || 'N/A'}</td>
+                        <td>${data.timestamp ? data.timestamp.toDate().toLocaleString('vi-VN') : 'N/A'}</td>
+                    `;
+                });
+            } catch (error) {
+                tbody.innerHTML = '<tr><td colspan="4">Lỗi: ' + error.message + '</td></tr>';
+            }
+        }
+
+        window.editUser = async function(userId) {
+            const name = prompt('Nhập tên mới:');
+            if (name) {
+                try {
+                    await db.collection('users').doc(userId).update({ displayName: name });
+                    alert('Cập nhật thành công!');
+                    loadUsers();
+                } catch (error) {
+                    alert('Lỗi: ' + error.message);
+                }
+            }
+        }
+
+        window.deleteUser = async function(userId) {
+            if (confirm('Xóa người dùng này?')) {
+                try {
+                    await db.collection('users').doc(userId).delete();
+                    alert('Xóa thành công!');
+                    loadUsers();
+                } catch (error) {
+                    alert('Lỗi: ' + error.message);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

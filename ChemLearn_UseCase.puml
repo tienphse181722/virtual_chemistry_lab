@@ -1,0 +1,125 @@
+@startuml ChemLearn Use Case Diagram
+
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Student" as student
+actor "Admin" as admin
+
+rectangle "ChemLearn System" {
+  
+  package "Authentication" {
+    usecase "Register Account" as UC1
+    usecase "Login" as UC2
+    usecase "Logout" as UC3
+    usecase "Reset Password" as UC4
+    usecase "Manage Profile" as UC5
+  }
+  
+  package "Laboratory Modules" {
+    usecase "Chemical Mixing Lab" as UC6
+    usecase "Combustion Lab" as UC7
+    usecase "Electrolysis Lab" as UC8
+    usecase "Quantitative Analysis" as UC9
+    usecase "Reaction Kinetics" as UC10
+    usecase "Equation Balancing" as UC11
+    usecase "Equipment Selection" as UC12
+    usecase "Save Lab Results" as UC13
+  }
+  
+  package "Learning Content" {
+    usecase "View Periodic Table" as UC14
+    usecase "Search Elements" as UC15
+    usecase "View Element Details" as UC16
+  }
+  
+  package "Educational Games" {
+    usecase "Play Memory Game" as UC17
+    usecase "Play Word Building" as UC18
+    usecase "Play Quick Quiz Game" as UC19
+    usecase "Play Molecule Building" as UC20
+    usecase "Play Synthesis Game" as UC21
+    usecase "View Leaderboard" as UC22
+  }
+  
+  package "Assessment" {
+    usecase "Take Quiz" as UC23
+    usecase "View Quiz Results" as UC24
+    usecase "Retry Quiz" as UC25
+    usecase "View Quiz History" as UC26
+  }
+  
+  package "Progress Tracking" {
+    usecase "View Activity History" as UC27
+    usecase "View Statistics" as UC28
+    usecase "View Achievements" as UC29
+    usecase "Track Streak" as UC30
+  }
+  
+  package "Admin Functions" {
+    usecase "Manage Users" as UC31
+    usecase "View Analytics" as UC32
+    usecase "Monitor Activities" as UC33
+    usecase "Generate Reports" as UC34
+  }
+}
+
+' Student relationships
+student --> UC1
+student --> UC2
+student --> UC3
+student --> UC4
+student --> UC5
+
+student --> UC6
+student --> UC7
+student --> UC8
+student --> UC9
+student --> UC10
+student --> UC11
+student --> UC12
+student --> UC13
+
+student --> UC14
+student --> UC15
+student --> UC16
+
+student --> UC17
+student --> UC18
+student --> UC19
+student --> UC20
+student --> UC21
+student --> UC22
+
+student --> UC23
+student --> UC24
+student --> UC25
+student --> UC26
+
+student --> UC27
+student --> UC28
+student --> UC29
+student --> UC30
+
+' Admin relationships
+admin --> UC2
+admin --> UC3
+admin --> UC31
+admin --> UC32
+admin --> UC33
+admin --> UC34
+
+' Include relationships
+UC6 ..> UC13 : <<include>>
+UC7 ..> UC13 : <<include>>
+UC8 ..> UC13 : <<include>>
+UC9 ..> UC13 : <<include>>
+UC10 ..> UC13 : <<include>>
+
+UC23 ..> UC24 : <<include>>
+
+' Extend relationships
+UC15 ..> UC14 : <<extend>>
+UC16 ..> UC14 : <<extend>>
+
+@enduml
