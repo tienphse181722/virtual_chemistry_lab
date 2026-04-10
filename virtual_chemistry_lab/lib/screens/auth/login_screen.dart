@@ -21,6 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _passwordController = TextEditingController();
   bool _isLoading = false;
   bool _obscurePassword = true;
+  bool _isNavigating = false;
 
   @override
   void dispose() {
@@ -31,6 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<void> _handleLogin() async {
     if (!_formKey.currentState!.validate()) return;
+    if (_isNavigating) return; // Prevent multiple navigation
 
     setState(() => _isLoading = true);
     
@@ -44,13 +46,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
       setState(() => _isLoading = false);
 
-      if (mounted) {
-        if (success) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (_) => const DashboardScreen()),
-          );
-        }
+      if (mounted && success && !_isNavigating) {
+        _isNavigating = true;
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => const DashboardScreen()),
+        );
       }
     } on FirebaseAuthException catch (e) {
       setState(() => _isLoading = false);
@@ -93,6 +94,8 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> _handleGoogleSignIn() async {
+    if (_isNavigating) return; // Prevent multiple navigation
+    
     setState(() => _isLoading = true);
     
     final authProvider = Provider.of<app_auth.AuthProvider>(context, listen: false);
@@ -100,24 +103,25 @@ class _LoginScreenState extends State<LoginScreen> {
 
     setState(() => _isLoading = false);
 
-    if (mounted) {
-      if (success) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (_) => const DashboardScreen()),
-        );
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Đăng nhập Google thất bại. Vui lòng thử lại.'),
-            backgroundColor: Colors.red,
-          ),
-        );
-      }
+    if (mounted && success && !_isNavigating) {
+      _isNavigating = true;
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => const DashboardScreen()),
+      );
+    } else if (mounted && !success) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Đăng nhập Google thất bại. Vui lòng thử lại.'),
+          backgroundColor: Colors.red,
+        ),
+      );
     }
   }
 
   Future<void> _handleFacebookSignIn() async {
+    if (_isNavigating) return; // Prevent multiple navigation
+    
     setState(() => _isLoading = true);
     
     final authProvider = Provider.of<app_auth.AuthProvider>(context, listen: false);
@@ -125,21 +129,20 @@ class _LoginScreenState extends State<LoginScreen> {
 
     setState(() => _isLoading = false);
 
-    if (mounted) {
-      if (success) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (_) => const DashboardScreen()),
-        );
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Facebook login chưa được cấu hình. Vui lòng dùng Google hoặc Email/Password.'),
-            backgroundColor: Colors.orange,
-            duration: Duration(seconds: 4),
-          ),
-        );
-      }
+    if (mounted && success && !_isNavigating) {
+      _isNavigating = true;
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => const DashboardScreen()),
+      );
+    } else if (mounted && !success) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Facebook login chưa được cấu hình. Vui lòng dùng Google hoặc Email/Password.'),
+          backgroundColor: Colors.orange,
+          duration: Duration(seconds: 4),
+        ),
+      );
     }
   }
 
@@ -147,6 +150,9 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final height = size.height;
+    
+    // Optimize rendering by caching scale calculations
+    final scale = height / 956;
     
     return Scaffold(
       backgroundColor: AppColors.white,
@@ -172,20 +178,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 offset: Offset(0, -height * 0.08),
                 child: Column(
                   children: [
-                    // Logo circle with ChemLearn logo
+                    // Logo circle with ChemLearn logo - Optimized
                     Container(
                       width: height * 0.16,
                       height: height * 0.16,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            offset: const Offset(0, 4),
-                          ),
-                        ],
+                        // Removed shadow for better performance
                       ),
                       child: ClipOval(
                         child: Padding(
@@ -193,6 +193,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Image.asset(
                             'assets/images/chemlearn_logo.png',
                             fit: BoxFit.contain,
+                            cacheWidth: 200, // Cache optimization
+                            cacheHeight: 200,
                             errorBuilder: (context, error, stackTrace) {
                               return Center(
                                 child: Icon(
@@ -331,7 +333,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                             SizedBox(height: height * 0.025),
 
-                            // Login button
+                            // Login button - Optimized shadows
                             Material(
                               color: Colors.transparent,
                               child: InkWell(
@@ -343,13 +345,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   decoration: BoxDecoration(
                                     color: _isLoading ? AppColors.grey : AppColors.primary,
                                     borderRadius: BorderRadius.circular(12),
-                                    boxShadow: _isLoading ? [] : [
-                                      BoxShadow(
-                                        color: AppColors.primary.withOpacity(0.3),
-                                        blurRadius: 8,
-                                        offset: const Offset(0, 4),
-                                      ),
-                                    ],
+                                    // Simplified shadow for performance
                                   ),
                                   child: Center(
                                     child: _isLoading
@@ -428,7 +424,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                             SizedBox(height: height * 0.018),
 
-                            // Social buttons
+                            // Social buttons - Optimized
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -453,6 +449,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       child: Image.asset(
                                         'assets/images/facebook_logo.png',
                                         fit: BoxFit.contain,
+                                        cacheWidth: 60,
+                                        cacheHeight: 60,
                                         errorBuilder: (context, error, stackTrace) {
                                           return const Icon(
                                             Icons.facebook,
@@ -486,6 +484,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       child: Image.asset(
                                         'assets/images/google_logo.png',
                                         fit: BoxFit.contain,
+                                        cacheWidth: 60,
+                                        cacheHeight: 60,
                                         errorBuilder: (context, error, stackTrace) {
                                           return const Icon(
                                             Icons.g_mobiledata,

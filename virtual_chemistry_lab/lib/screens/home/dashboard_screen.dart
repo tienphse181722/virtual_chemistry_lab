@@ -21,6 +21,7 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   int _selectedIndex = 0;
   String _selectedTab = 'All';
+  bool _isInitialized = false;
 
   // Course data
   final List<Map<String, dynamic>> _allCourses = [
@@ -45,11 +46,25 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() {
-      context.read<QuizProvider>().loadQuizzes();
-      final user = context.read<AuthProvider>().user;
+    _initializeData();
+  }
+
+  Future<void> _initializeData() async {
+    if (_isInitialized) return;
+    _isInitialized = true;
+    
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      
+      final quizProvider = context.read<QuizProvider>();
+      final authProvider = context.read<AuthProvider>();
+      final progressProvider = context.read<ProgressProvider>();
+      
+      quizProvider.loadQuizzes();
+      
+      final user = authProvider.user;
       if (user != null) {
-        context.read<ProgressProvider>().loadProgress(user.uid);
+        progressProvider.loadProgress(user.uid);
       }
     });
   }

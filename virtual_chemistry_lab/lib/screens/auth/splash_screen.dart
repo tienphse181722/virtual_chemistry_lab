@@ -40,13 +40,15 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Logo circle with ChemLearn logo
+            // Logo circle with ChemLearn logo - Optimized
             SizedBox(
               width: 180 * scale,
               height: 180 * scale,
               child: Image.asset(
                 'assets/images/chemlearn_logo.png',
                 fit: BoxFit.contain,
+                cacheWidth: 360, // 2x for better quality
+                cacheHeight: 360,
                 errorBuilder: (context, error, stackTrace) {
                   // Fallback to icon if image not found
                   return Center(
